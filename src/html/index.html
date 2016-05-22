@@ -11,11 +11,19 @@
 	<!-- 公用的css-->
 	<link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
 	<!-- 公用的js-->
-	<script type="text/javascript" charset="utf-8" src="../js/common/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/common/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../js/common/react.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../js/common/react-dom.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/common/browser.min.js"></script>
 </head>
 <body>
-	<div  class="fn-ML10">这个是用用户名称创建的访问连接</div>
+	<div  id="test" class="fn-PL10"></div>
+	 <script type="text/babel">
+	 var test = $("#test");
+	 ReactDOM.render(
+	 	<h1>React,我来了</h1>,
+	 	test[0]
+	 	)
+	 </script>
 </body>
 </html>
