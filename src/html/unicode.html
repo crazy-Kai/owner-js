@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {"吴晓雯":"我爱你"};
+		 document.write(JSON.stringify(obj));
+		function transcoding(object){
+			var string = JSON.stringify(object);
+				return string.replace(/\\u([0-9A-Fa-f]{4})/g,function(string,matched){
+						return String.fromCharCode(parseInt(matched,16));
+				});
+			
+		}
+		console.log(transcoding(obj));
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//格式化日期 ? 代表 {0,1}没有则别配前一个
+	var formatDataRex = /^(yyyy)(.MM)?(.dd)?(.HH)?(.mm)?(.ss)?$/,
+		formatDataFoo = ['getFullYear', 'getMonth', 'getDate', 'getHours', 'getMinutes', 'getSeconds'];
+	//函数:增加0
+	function formatDataAddZero(val){
+		return ('00' + val).slice(-2);
+	}
+	var date = new Date();
+	var timestamp = Date.parse(date);
+
+	function formatData(format, timestamp){
+		var date = arguments.length === 1 ? new Date(): new Date(timestamp);
+		if( !isNaN(+date) ){
+			return format.replace(formatDataRex, function(){
+				var index = 0,
+					val,
+					obj,
+					arr = [];
+					console.log("111")
+					console.log(arguments)
+				while(obj = arguments[++index]){
+					if(!obj){
+						break;
+					}
+					val = date[formatDataFoo[index - 1]]();
+					//年份的处理
+					if(index === 1){
+						arr.push(''+val);
+					}else{
+						//月份的处理
+						index === 2 && val++;
+						arr.push(obj.slice(0, 1) + formatDataAddZero(val));
+					}
+				}
+				return arr.join('');
+			});
+		}
+	}
+	console.log(formatData("yyyy-MM-dd HH:mm",timestamp))
+	</script>
+</body>
+</html>
