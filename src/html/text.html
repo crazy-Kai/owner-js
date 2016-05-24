@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var array = [3,4,5,6,2,1,8,9,7];
+		var i = 0;
+		    
+		for(; i<array.length;i++){ //第一个循原中的I代表循环次数
+			for(var j =0; j<array.length-i;j++){
+				if(array[j]<array[j+1]){
+					var temp = array[j+1];
+					array[j+1] = array[j];
+					array[j] = temp;
+				}
+		
+			}
+		}
+		console.log(array)
+	</script>
+</body>
+</html>
