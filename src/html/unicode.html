@@ -6,6 +6,7 @@
 </head>
 <body>
 	<script type="text/javascript">
+<<<<<<< HEAD
 	//string.replace(param,function(a,b){})方法只有当param 第一个参数匹配完成后才会执行第2个参数function,而第2个参数的返回值将替换第一个参数匹配得到的结果
 	//方法中第2个参数function 中的 4种变量参数如下所示：
 	//1：matched 参数代表被匹配到的子串，2：p1代表的是第一个带括号的匹配字符串
@@ -13,6 +14,28 @@
 	//4：string代表本来的字符串
 		var obj = {"吴晓雯":"我爱你"},
 		reg = /\\u([0-9A-Fa-f]{4,})/g;
+=======
+		var obj = {"吴晓雯":"我爱你"};
+		 document.write(JSON.stringify(obj));
+		 /*string.replace(reg,function(){match,p1,p1,offset,string})方法：
+			第一个参数是正则表达式，表要要匹配的正则表达式，返回匹配的字符串
+			第二个参数是一个fn，返回值将代替第一个参数所匹配的结果
+			fn方法中的参数一共有4中：
+			1：macth,返回正则表达式所匹配的所有字符串
+			2：p1，返回正则中第一个（）内所匹配的字符串
+			3：offset，返回所匹配的字符串在原来字符串的偏离位置
+			4：string,返回原本的字符串
+			而function内的arguments包含以上这4种所有参数的返回值
+			正则表达式中"\\"特殊字符代表"\"
+			parseInt（p1,16）方法:
+			把p1返回的字符串强制转成16进制的unicode (number);
+			String.fromCharCode(parseInt(p1,16)):
+			是把指定的16进制的unicode码转换成中文！
+			string.charCodeAt(i):
+			将指定位置的字符转换成unicode码
+
+		 */
+>>>>>>> fa81fca10fdce29938c7848dd9bde650d1f5bd21
 		function transcoding(object){
 			var string = JSON.stringify(object);
 				return string.replace(reg,function(matched,p1){
