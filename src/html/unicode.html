@@ -6,16 +6,27 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var obj = {"吴晓雯":"我爱你"};
-		 document.write(JSON.stringify(obj));
+	//string.replace(param,function(a,b){})方法只有当param 第一个参数匹配完成后才会执行第2个参数function,而第2个参数的返回值将替换第一个参数匹配得到的结果
+	//方法中第2个参数function 中的 4种变量参数如下所示：
+	//1：matched 参数代表被匹配到的子串，2：p1代表的是第一个带括号的匹配字符串
+	//3：offset 代表匹配字符串在原字符串中的偏移位置
+	//4：string代表本来的字符串
+		var obj = {"吴晓雯":"我爱你"},
+		reg = /\\u([0-9A-Fa-f]{4,})/g;
 		function transcoding(object){
 			var string = JSON.stringify(object);
-				return string.replace(/\\u([0-9A-Fa-f]{4})/g,function(string,matched){
-						return String.fromCharCode(parseInt(matched,16));
+				return string.replace(reg,function(matched,p1){
+						//这里的arguments 代表的是function这个方法里的所有参数包括上述4种参数的值
+						// console.log(matched)
+
+						console.log(p1,parseInt("96ef",16),String.fromCharCode(38639))
+						//这里是把第一个括号里必配得到的字符串强制转换成16进制的数字，最后通过String.fromCharCode方法将其转成中文并替换正则表达式匹配得到的结果！
+						//String.fromCharCode()把指定的unicode转换成字符串且unicode必须是16进制的正整数
+						return String.fromCharCode(parseInt(p1,16));
 				});
 			
 		}
-		console.log(transcoding(obj));
+		console.log(transcoding(obj))
 	</script>
 </body>
 </html>

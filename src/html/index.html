@@ -1,41 +1,81 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="renderer" content="webkit">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"><!-- 手机头部设置 -->
-	<meta name="description" content="" />
-	<meta name="keywords" content=""  />
-	<title>react/reflux/Es6</title>
-	<!-- 公用的css-->
-	<link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
-	<!-- 公用的js-->
-<<<<<<< HEAD
-	<script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.js"></script>
-	<script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react.js"></script>
-	<script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react-dom.js"></script>
-</head>
-<body >
-	
-<div id="content" class="fn-margin-center"></div>
-	
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-=======
-	<script type="text/javascript" charset="utf-8" src="../js/common/jquery.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/common/react.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/common/react-dom.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/common/browser.min.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>react/reflux/Es6</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react-dom.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/browser.min.js"></script>
 </head>
+
 <body>
-	<div  id="test" class="fn-PL10"></div>
-	 <script type="text/babel">
-	 var test = $("#test");
-	 ReactDOM.render(
-	 	<h1>React,我来了</h1>,
-	 	test[0]
-	 	)
-	 </script>
->>>>>>> 1d2071ee881d5800ff9e2a9cb33f45c0b5a21af2
+    <div id="test" class="lc-center-wrap"></div>
+    <script type="text/babel">
+        var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
+        var TableBuild = React.createClass({
+        	// 这里可以添加初始化方法
+        	render:function(){
+        		//这里可以设置变量
+        		//有循环元素的时候必须用key 等于一个变量来区分循环后的每个元素，就相当与给每个tr 加了ID 
+        		return (
+        			<table className="fn-table fn-table-text fn-table-border" width="100%">
+        				<thead>
+        					<tr>
+        						<th>
+        							序号
+        						</th>
+        						<th>
+        							名字
+        						</th>
+        						<th>
+        						  	操作
+        						</th>	
+        					</tr>
+        				</thead>
+        				<tbody>
+
+        					{
+        						this.props.data.map(function(v,i){
+        							return (
+        								<tr key = {i}>
+        									<td>
+        										{++i}
+        									</td>
+        									<td>
+        										{v.name}
+        									</td>
+        									<td>
+        										<button class="fn-btn fn-btn-primary">操作</button>
+        									</td>
+        								</tr>
+
+        								)
+        						})	
+
+        						}
+        				</tbody>	
+
+        			</table>
+
+        			)
+        	}
+        });
+
+        ReactDOM.render(<TableBuild data = {data} />,
+        	document.getElementById("test")
+        	)
+    </script>
 </body>
+
 </html>
