@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 数组的增删改查方法
+	var test = ["a","b","c","d"];
+	// 增加
+	//方法一：往数组增加元素
+	function add(arr,target){
+		arr.push(target);
+		return arr;
+	}
+	//方法二：在数组的头部位置增加一个或多个元素
+	function add(arr,target){
+		arr.unshift(target);
+	}
+	//方法三：在数组任何位置增加一个元素
+	function add(arr,target,index){
+		arr.splice(index,0,target)
+	}
+	//数组的删除元素的方法
+	//方法一：删除数组的第一个元素但一次只能删除一个,返回删除元素的值
+	function remove(arr){
+		arr.shift();
+		return arr;
+	}
+	//方法二：删除数组的最后一个元素，并返回删除元素的值
+	function remove(arr){
+		arr.pop();
+		return arr;
+	}
+	//方法三: 在数组任意位置删除一个或者多个元素
+	function remove(arr,index,number){
+		arr.splice(index,number)
+	}
+	//数组修改元素的方法
+	//方法一：在一个数组的指定位置删除一个或多个元素，再增加一个元素来修改数组
+	function change(arr,index,target,number){
+		arr.splice(index,number,target);
+		return arr;
+	}
+	//方法二：通过数组的下标来找到你要修改的元素并给它重新赋值
+	function change(arr,index,target){
+		 arr[index] = target;
+		 return arr;
+	}
+	//查找数组中元素的值
+	//找出任意下标数组中的元素
+	function get(arr,index){
+		return arr[index];
+	}
+	//找出数组中指定下标的一个或者多个元素
+	function get(arr,index,strIndex,endIndex){
+		return arr.slice(index);//或者 return arr.slice(strIndex,endIndex)
+	}
+	</script>
+</body>
+</html>
