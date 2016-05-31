@@ -71,8 +71,18 @@
         			)
         	}
         });
+		var InputBuild = React.createClass({
+			//这里可以绑定方法
+			render:function(){
+				return (
+					<div class="fn-MT20 fn-W300 fn-LH30">
+						<input type="text" className="fn-input-text" /><button className="fn-btn fn-btn-default fn-LH28">增加</button>
+					</div>
 
-        ReactDOM.render(<TableBuild data = {data} />,
+					)
+			}
+		});
+        ReactDOM.render(<InputBuild />,
         	document.getElementById("test")
         	)
     </script>
