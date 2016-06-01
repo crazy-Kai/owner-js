@@ -6,25 +6,41 @@
 	<link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
     <!-- 公用的js-->
     <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react-dom.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/browser.min.js"></script>
+   
 </head>
 <body>
 	
 	<script type="text/javascript">
-	 
+	//filter方法如果在方法内对array（表示数组）这个参数作了修改会直接改变原来的数组
+	 // 数组去重方法
 		function union(arr){
-	    var result=arr.slice();
-	    var countNaN = 0;
-    	return result.filter(function(item,index,array){
-        if(item!==item && !countNaN)
-            return ++countNaN;
-        return array.indexOf(item)===index;
+	  
+	    var countNaN = false;
+        return arr.filter(function(item,index,array){
+    		// 判断传入的item是否是NaN,因为只有NaN是不等于所有类型的值包括它本身！
+		        if(item !== item && !countNaN) {//如果是NaN,返回true,但只允许第一次NaN的传入，第2次NaN传入返回false.则删除
+		        	countNaN =true;
+		            return  true;
+		        	// 方法内只要返回true 函数就会将参数item 返回出去并组成一个新的数组
+		        };
+        //保留item在数组中的下标等于当前filter方法循环次数的index的item元素，即（删除重复的item）
+        	return array.indexOf(item)===index;
+        	//这里的操作新创建的数组不会改变到原来的数组
     });
+        
 }
 
-		console.log(union([1,2,2,3,3,4,4,NaN]));
+		console.log(union([1,2,2,3,3,4,4,NaN,"1","1"]));
+
+
+
+		var add = [1,2,3];
+		add.filter(function(item,index,array){
+		 array.push(5);
+		 return true;
+		 //这里的filter方法中改变了array的值会直接改变原来的好数组
+		})
+		console.log(add);
 	</script>
 </body>
 </html>
