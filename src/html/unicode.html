@@ -24,7 +24,7 @@
 			是把指定的16进制的unicode码转换成中文！
 			string.charCodeAt(i):
 			将指定位置的字符转换成unicode码
-
+			string.charAt()返回指定位置的字符！
 		 */
 		function transcoding(object){
 			var string = JSON.stringify(object),reg = /\\u([0-9A-Fa-f]{4,})/g;
