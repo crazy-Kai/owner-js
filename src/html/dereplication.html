@@ -16,6 +16,7 @@
 		function union(arr){
 	  
 	    var countNaN = false;
+	    //返回的是一个通过测试的所有元素所组成新的数组，若不改变方法内部的array第3个参数的值，就不会改变原数组的值，fasle = 0,true =1,NaN !== NaN
         return arr.filter(function(item,index,array){
     		// 判断传入的item是否是NaN,因为只有NaN是不等于所有类型的值包括它本身！
 		        if(item !== item && !countNaN) {//如果是NaN,返回true,但只允许第一次NaN的传入，第2次NaN传入返回false.则删除

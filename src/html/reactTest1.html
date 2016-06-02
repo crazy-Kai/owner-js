@@ -47,7 +47,6 @@
         		     data = self.state.data;
         		     data.splice(index-1,1);
         		     self.setState({data:data});
-
         	},
         	//修改名字，点击编辑的时候把当前点击的元素的下标取出来保存到组建的state里，方便以下的保存操作，利用ref属性通过ReactDOM.findDOMNode(this.refs.myInput)的方法获取元素的DOM节点,方便操作
         	editName:function(e){
@@ -59,9 +58,6 @@
        			    input.nextSibling.textContent = "保存";
       				input.focus();
         			self.setState({key:keys});
-       			   
-        			
-
         	},
         	//保存修改//新增
         	addName:function(e){
@@ -140,8 +136,7 @@
         			)
         	}
      });
-	
-	
+
         ReactDOM.render(<TableBuild data = {data} />,
         	document.getElementById("test")
         	)

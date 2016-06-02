@@ -31,15 +31,14 @@
 				return string.replace(reg,function(matched,p1){
 						//这里的arguments 代表的是function这个方法里的所有参数包括上述4种参数的值
 						// console.log(matched)
-
-						console.log(p1,parseInt("96ef",16),String.fromCharCode(38639))
 						//这里是把第一个括号里必配得到的字符串强制转换成16进制的数字，最后通过String.fromCharCode方法将其转成中文并替换正则表达式匹配得到的结果！
 						//String.fromCharCode()把指定的unicode转换成字符串且unicode必须是16进制的正整数
+						//String.fromCharCode的参数更准确接收的是number，不是所有的unicode,所以只要
 						return String.fromCharCode(parseInt(p1,16));
 				});
 			
 		}
-		console.log(transcoding(obj))
+		document.write(transcoding(obj))
 	</script>
 </body>
 </html>
