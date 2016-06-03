@@ -31,9 +31,9 @@
         
 }
 
-		console.log(union([1,2,2,3,3,4,4,NaN,"1","1"]));
-
-
+		var arrs = [1,2,2,3,3,4,4,NaN,NaN,"1","1"];
+			arrs = union(arrs);//只有重新赋值才能改变arrs数组;
+		console.log(arrs);
 
 		var add = [1,2,3];
 		add.filter(function(item,index,array){
