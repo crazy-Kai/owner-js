@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+       //便利循环二维数组
+       var arr = [[1,2],[3,4],[5,6],[7,8],[9,10]];
+        for (var i = 0; i<arr.length;i++){
+              var arrs = arr[i];
+          for (var j = 0;j<arrs.length;j++){
+          	  console.log(arrs[j]);
+          }
+
+        };
+        //冒泡排序；
+        var arrs = [1,3,6,7,4,5,9,0];
+        for (var i = 0; i<arrs.length;i++){
+        	//i代表循环次数
+        	for(var j = 0;j<arrs.length-i;j++){
+               //j代表元素的下标
+               if(arrs[j]>arrs[j+1]){
+               	 var temp = arrs[j];
+               	 arrs[j] = arrs[j+1];
+               	 arrs[j+1] = temp; 
+               }
+        	}
+        }
+        console.log(arrs);
+	</script>
+</body>
+</html>
