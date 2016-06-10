@@ -61,7 +61,12 @@
 	function testelement(array,target){
 		var ref = -1;
        for(var i = 0; i<array.length;i++){
-           if (array[i] === target) return ref = i ;
+           if (array[i] === target) 
+		   {
+              ref = i ;
+			  break;
+		   }
+		  
 
 	   }
 	   return ref;
