@@ -57,6 +57,17 @@
 	function get(arr,index,strIndex,endIndex){
 		return arr.slice(index);//或者 return arr.slice(strIndex,endIndex)
 	}
+	//判断一个数组是否包含某一个指定元素
+	function testelement(array,target){
+		var ref = -1;
+       for(var i = 0; i<array.length;i++){
+           if (array[i] === target) return ref = i ;
+
+	   }
+	   return ref;
+
+	}
+	if(ref !== -1) window.alert("success");
 	</script>
 </body>
 </html>
