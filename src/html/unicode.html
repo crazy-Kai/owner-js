@@ -28,17 +28,32 @@
 		 */
 		function transcoding(object){
 			var string = JSON.stringify(object),reg = /\\u([0-9A-Fa-f]{4,})/g;
+			  
 				return string.replace(reg,function(matched,p1){
 						//这里的arguments 代表的是function这个方法里的所有参数包括上述4种参数的值
 						// console.log(matched)
 						//这里是把第一个括号里必配得到的字符串强制转换成16进制的数字，最后通过String.fromCharCode方法将其转成中文并替换正则表达式匹配得到的结果！
-						//String.fromCharCode()把指定的unicode转换成字符串且unicode必须是16进制的正整数
-						//String.fromCharCode的参数更准确接收的是number，不是所有的unicode,所以只要
-						return String.fromCharCode(parseInt(p1,16));
+						//String.fromCharCode()把指定的unicode转换成字符串且unicode必须是16进制的正整数(number)
+						//String.fromCharCode的参数更准确接收的是number，不是所有的unicode,所以只有把unicode先强制转换成number类型
+						 var a = '{"user":"'+matched+'"}';
+						  var b = JSON.parse(a),
+						      c= b.user;
+                       
+						return String.fromCharCode(p1);//方法一
+						return c;//方法二
 				});
 			
 		}
 		document.write(transcoding(obj))
+// 把中文字符串转换成unicode编码;
+		var strs = "打扫打扫",
+		    arrs = [];
+		for(var j =0 ;j<strs.length;j++){
+
+		    
+		   arrs.push("\\u"+strs.charCodeAt(j).toString(16)) 
+		}
+		console.log(arrs.join(""))
 	</script>
 </body>
 </html>
