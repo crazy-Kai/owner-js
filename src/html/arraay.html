@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	 <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.min.js"></script>
+    
 </head>
 <body>
 	<script type="text/javascript">
@@ -56,6 +58,23 @@
 	//找出数组中指定下标的一个或者多个元素
 	function get(arr,index,strIndex,endIndex){
 		return arr.slice(index);//或者 return arr.slice(strIndex,endIndex)
+	}
+	//判断一个元素是否在指定的数组中存在！、
+	function testArray(arrays,targets){
+       	 var ref = -1;
+         for(var i= 0;i<arrays.length;i++){
+         	if(arrays[i] === targets){
+         		ref = i;
+         		break;
+         	}
+         }
+         
+       	return ref ;
+	}
+	var arrays = ["1","2","3","4"];
+	    targets = "1";
+	if ( testArray(arrays,targets) !== -1 ){
+		window.alert("success")
 	}
 	</script>
 </body>
