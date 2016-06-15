@@ -39,8 +39,8 @@
 						  var b = JSON.parse(a),
 						      c= b.user;
                        
-						return String.fromCharCode(p1);//方法一
-						return c;//方法二
+						return String.fromCharCode(parseInt(p1,16));//方法一
+						// return c;//方法二
 				});
 			
 		}
@@ -53,7 +53,18 @@
 		    
 		   arrs.push("\\u"+strs.charCodeAt(j).toString(16)) 
 		}
-		console.log(arrs.join(""))
+		console.log(arrs.join(""));
+		document.write(transcoding(strs));
+		//中文和unicode编码互相转换的列子：
+		var strings = "中文";
+		var a = strings.charCodeAt(0);//转换成unicode;
+        var b = String.fromCharCode(a);//转换成中文；
+        var c = "\\u"+a.toString(16);//将中文的unicode编码转换成字面量表示法，需要先将charCodeAt()方法得到的unicode转换成16进制的字符串，然后加上\u;
+        var json = '{"user":"'+c+'"}';
+        var parseJson = JSON.parse(json);
+        var result = parseJson.user;//得到的是转意后的中文！
+        console.log(a,b,c,result);
+
 	</script>
 </body>
 </html>
