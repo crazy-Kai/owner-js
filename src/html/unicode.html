@@ -39,8 +39,8 @@
 						  var b = JSON.parse(a),
 						      c= b.user;
                        
-						return String.fromCharCode(parseInt(p1,16));//方法一
-						// return c;//方法二
+						return String.fromCharCode(parseInt(p1,16));//方法一先将字面量的unicode表达式\u后面的字符串转换成16进制的数字，然后用String.fromCharCode方法将其转换成中文
+						// return c;//方法二直接用JSON.parse()方法将字面量格式的unicode转换成中文
 				});
 			
 		}
@@ -64,6 +64,12 @@
         var parseJson = JSON.parse(json);
         var result = parseJson.user;//得到的是转意后的中文！
         console.log(a,b,c,result);
+        //escape和unescaspe的用法
+        var escapes = escape("Visit W3School!"),
+            unescape = unescape(escapes);
+        document.write(escape("Visit W3School!") + "<br />");
+        document.write(unescape);
+        //该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _ + . / 。其他所有的字符都会被转义序列替换。
 
 	</script>
 </body>
