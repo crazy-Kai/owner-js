@@ -97,7 +97,7 @@
 
 	<script type="text/javascript">
        "use strict"
-        var pageLength = $("page").length,
+        var pageLength = $(".page").length,
             crountIndex = 1,
             $wrap = $(".wrap"),
             $btnUp = $(".btn-up"),
@@ -106,9 +106,29 @@
             scroll =false;
             //mousewheel 鼠标滚轮的意思，js原生的鼠标监听事件！使用chrome/ie
             //DOMMouseScroll firefox火狐
-$(document).on("mousewheel DOMMouseScroll",function(event){
-
-})
+$(document).on('mousewheel DOMMouseScroll', function(ev) {
+ if(!scroll){
+	if(ev.originalEvent.wheelDelta > 0 || ev.originalEvent.detail < 0 ){
+		console.log(crountIndex,pageLength);
+		if(crountIndex > 1){
+			console.log("1")
+			crountIndex--;
+			$wrap.animate({"top":"-"+((crountIndex-1)*100)+"%"},1000);
+		}
+		
+	}else{
+		console.log(crountIndex,pageLength);
+		if(crountIndex < pageLength){
+			console.log("2")
+			crountIndex++;
+		$wrap.animate({"top":"-"+((crountIndex-1)*100)+"%"},1000);
+		}
+		
+		
+		
+	}
+   }
+});
          
 	</script>
 </body>
