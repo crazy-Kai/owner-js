@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	//方法一：
+	$(function(){ 
+　　$("#a").click(function(){ 
+　　　　//adding your code here 
+　　}); 
+}); 
+	//方法二：
+$(document).ready(function(){ 
+　　$("#a").click(function(){ 
+　　　　//adding your code here　　 
+　　}); 
+}); 
+//方法三：
+window.onload = function(){ 
+　　$("#a").click(function(){ 
+　　　　//adding your code here 
+　　}); 
+} 
+</script>
+</body>
+</html>

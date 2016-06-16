@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滚动实现整屏切换</title>
+	 <!-- 公用的css-->
+    <link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.min.js"></script>
+	<style>
+	 .wrap {
+	 	width:100%;
+	 	height:100%;
+	 	position: absolute;
+	 	top:0;
+	 	left:0;
+	 	z-index:1;
+	 }
+     .wrap .page{
+        width: 100%;
+		height:100%;
+		position: relative;
+     }
+     .wrap .page h2{
+     	width: 200px;
+     	height: 30px;
+        line-height: 30px;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-left: -100px;
+        margin-top: -15px;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 2;
+     }
+     .nav-bars{
+     	position:fixed;
+     	top: 50%;
+     	right:0px;
+     	
+     	width: 50px;
+     	height:200px;
+        
+     }
+    .wrap .page1{
+    	background-color:#B866B3;
+    }
+    .wrap .page2{
+    	background-color:#66B5B8;
+    }
+    .wrap .page3{
+    	background-color:#96B866;
+    }
+    .wrap .page4{
+    	background-color:#B87466;
+    }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="page page1">
+			 <h2>FIRST PAGE</h2>
+		</div>
+		<div class="page page2">
+			 <h2>SECOND PAGE</h2>
+		</div>
+		<div class="page page3">
+			 <h2>THIRD PAGE</h2>
+		</div>
+		<div class="page page4">
+			  <h2>FOURTH PAGE</h2>
+		</div>
+		<div class="nav-bars">
+		     <div class="btn-up fn-btn-link">
+		     	上一页
+		     </div>
+				<ul>
+					<li class="nav-image" data-index="1">
+						page 1
+					</li>
+					<li class="nav-image" data-index="2">
+						page 2
+					</li>
+					<li class="nav-image" data-index="3">
+						page 3
+					</li>
+					<li class="nav-image" data-index="4">
+						page 4
+					</li>
+				</ul>	
+				<div class="btn-down fn-btn-link">
+					下一页
+				</div>
+		</div>
+	</div>	
+
+	<script type="text/javascript">
+       "use strict"
+        var pageLength = $("page").length,
+            crountIndex = 1,
+            $wrap = $(".wrap"),
+            $btnUp = $(".btn-up"),
+            $btnDown = $(".btn-down"),
+            $navImage = $(".btn-image"),
+            scroll =false;
+            //mousewheel 鼠标滚轮的意思，js原生的鼠标监听事件！使用chrome/ie
+            //DOMMouseScroll firefox火狐
+$(document).on("mousewheel DOMMouseScroll",function(event){
+
+})
+         
+	</script>
+</body>
+</html>
