@@ -14,7 +14,9 @@
 		return ('00' + val).slice(-2);
 	}
 	var date = new Date();
+	//Data.parse()函数 ie不能识别
 	var timestamp = Date.parse(date);//(Date.parse()方法，解析字符串并返回当前时间的毫秒数)
+	console.log(timestamp)
 	function formatData(format, timestamp){
 		var date = arguments.length === 1 ? new Date(): new Date(timestamp);
 		if( !isNaN(+date) ){
@@ -53,7 +55,18 @@
 			});
 		}
 	}
-	console.log(formatData("yyyy-MM-dd HH:mm:ss",timestamp))
+	console.log(formatData("yyyy-MM-dd HH:mm:ss",timestamp));
+
+	//检验 Date.parse() ie 下的兼容性问题!
+	 var startTime = "2012-3-6",
+	     endTime = "2016-6-17",
+	     bengin = new Date(startTime),
+	     endTime = new Date(endTime),
+	     result = Date.parse(endTime)-Date.parse(bengin),
+	     benginTime = Date.parse(endTime);
+         window.alert(result, benginTime);
+         //显示NaN,说明ie 浏览器不支持Date.parse()用于计算2个时间的间隔！
+
 	</script>
 </body>
 </html>
