@@ -13,15 +13,15 @@
     <!-- 公用的css-->
     <link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
     <!-- 公用的js-->
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/react-dom.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/common/browser.min.js"></script>
+   
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/libs/seaConfig.js"></script>
 </head>
 
 <body>
     <div id="test" class="lc-center-wrap"></div>
-    <script type="text/babel">
+   <!--  <script type="text/babel">
     "user strict";
     var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
     var TableBuild = React.createClass({
@@ -140,6 +140,9 @@
         ReactDOM.render(<TableBuild data = {data} />,
         	document.getElementById("test")
         	)
+    </script> -->
+    <script type="text/javascript">
+        seajs.use(['modules/react/main']);
     </script>
 
 </body>
