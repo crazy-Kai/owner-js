@@ -3,7 +3,7 @@
     //配置
     seajs.config({
         //基础路径
-        base: "http://wu-xiao-wen.github.io/src/js/",
+        base: "/src/js/",
         //配置路径
         paths: {
             'github'        : 'http://wu-xiao-wen.github.io/src/js',
@@ -28,7 +28,14 @@
             'araleBase'     : "arale/base/1.1.1/base",
             //arale widget
             'araleWidget'   : "arale/widget/1.1.1/widget"
-        }
+        },
+        crossorigin: true,
+        comboSyntax: ['??', ','],
+        comboMaxLength: 1000,
+        preload: [],
+        charset: 'utf-8',
+        timeout: 1000,
+        debug: true
     });
 
     // // 路由 http://localhost:9000/src/html/ang.html => ang
