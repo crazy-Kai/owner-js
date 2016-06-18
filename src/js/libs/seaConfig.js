@@ -1,4 +1,4 @@
-(function(){
+(function($, seajs, location){
 
     //配置
     seajs.config({
@@ -10,7 +10,7 @@
             'arale'         : 'https://a.alipayobjects.com/arale'
         },
          //基础路径
-        base: "http://wu-xiao-wen.github.io/src/js/",
+        base: "../../../src/js/",
         //别名配置
         alias: {
             'class'         : 'common/class',
@@ -82,4 +82,4 @@
     //     });
     // });
 
-})();
+})(jQuery, seajs, location);
