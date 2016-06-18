@@ -2,14 +2,15 @@
 
     //配置
     seajs.config({
-        //基础路径
-        base: "/src/js/",
+       
         //配置路径
         paths: {
             'github'        : 'http://wu-xiao-wen.github.io/src/js',
             //支付宝
             'arale'         : 'https://a.alipayobjects.com/arale'
         },
+         //基础路径
+        base: "http://wu-xiao-wen.github.io/src/js/",
         //别名配置
         alias: {
             'class'         : 'common/class',
