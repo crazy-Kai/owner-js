@@ -3,8 +3,7 @@
 define(function (require, exports, module) {
   //依赖
   var React = require('react'),
-      ReactDOM = require('reactDOM'),
-      Browser = require('common/browser.min');
+      ReactDOM = require('reactDOM');
   var data = [{ name: "wuxiaowen" }, { name: "wukai" }, { name: "zp" }, { name: "zl" }];
 
   var TableBuild = React.createClass({
