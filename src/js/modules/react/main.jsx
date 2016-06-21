@@ -1,5 +1,4 @@
 define(function(require,exports,module){
-  "use strict"
   //依赖
   var React = require('react'),
       ReactDOM = require('reactDOM'),
