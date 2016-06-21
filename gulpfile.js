@@ -1,10 +1,10 @@
 // 定义
 const gulp = require('gulp'),
-    babel = require('gulp-babel'),
-    browserSync = require('browser-sync');
+    babel = require('gulp-babel');
+    
  
 // 任务
-gulp.task('default', ['watch', 'brow']);
+gulp.task('default', ['watch']);
 
 // 观察者
 var matchRex = /(src.*)\/.*\.*/;
@@ -22,12 +22,12 @@ gulp.task('watch', () => {
         });
 });
 
-// 静态服务
-gulp.task('brow', () => {
-    browserSync({
-        files: ['src/css/**/*.css', 'src/js/**/*.js', 'src/html/**/*.html'],
-        server: {
-            baseDir: "./"
-        }
-    });
-});
+// // 静态服务
+// gulp.task('brow', () => {
+//     browserSync({
+//         files: ['src/css/**/*.css', 'src/js/**/*.js', 'src/html/**/*.html'],
+//         server: {
+//             baseDir: "./"
+//         }
+//     });
+// });
