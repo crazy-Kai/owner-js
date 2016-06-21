@@ -1,10 +1,10 @@
 (function(){
 
     //配置
-    seajs.config({
+    var config = {
        
          //基础路径
-        base: "/src/js/",
+        base: "../../src/js/",
         //配置路径
         paths: {
             'github'        : 'http://wu-xiao-wen.github.io/src/js',
@@ -37,8 +37,8 @@
         charset: 'utf-8',
         timeout: 1000,
         debug: true
-    });
-   
+    };
+    seajs.config(config);
      // 兼容cmd规范
     if (typeof define === 'function') {
         define(function(require, exports, module) {
@@ -46,7 +46,7 @@
         });
     }
 
-  
+    return config;
 
     // // 路由 http://localhost:9000/src/html/ang.html => ang
     // var REX = /\/html\/(.+)\./;
