@@ -38,6 +38,15 @@
         timeout: 1000,
         debug: true
     });
+    seajs.config(config);
+     // 兼容cmd规范
+    if (typeof define === 'function') {
+        define(function(require, exports, module) {
+            module.exports = config;
+        });
+    }
+
+    return config;
 
     // // 路由 http://localhost:9000/src/html/ang.html => ang
     // var REX = /\/html\/(.+)\./;
