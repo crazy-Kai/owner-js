@@ -1,3 +1,4 @@
+define(function(require, exports, module) {
  /**
   * React v15.0.1
   */
@@ -19339,4 +19340,6 @@ module.exports = Object.assign || function (target, source) {
 };
 
 },{}]},{},[90])(90)
+});
+
 });

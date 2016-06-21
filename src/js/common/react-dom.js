@@ -1,3 +1,4 @@
+define(function(require, exports, module) {
 /**
  * ReactDOM v15.0.1
  *
@@ -40,3 +41,4 @@
 })(function(React) {
   return React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 });
+})

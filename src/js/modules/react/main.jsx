@@ -4,7 +4,7 @@ define(function(require,exports,module){
       ReactDOM = require('reactDOM'),
       Browser = require('common/browser.min');
   var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
-  
+  console.log(React);
   var TableBuild = React.createClass({
    
     	// 这里可以添加初始化方法
