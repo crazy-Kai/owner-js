@@ -1,4 +1,4 @@
-(function($, seajs, location){
+(function(){
 
     //配置
     seajs.config({
@@ -82,4 +82,4 @@
     //     });
     // });
 
-})(jQuery, seajs, location);
+})();
