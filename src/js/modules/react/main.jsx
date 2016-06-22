@@ -3,7 +3,7 @@ define(function(require,exports,module){
   var React = require('react'),
       ReactDOM = require('reactDOM');
   var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
-       console.log("fuck")
+    
   var TableBuild = React.createClass({
    
     	// 这里可以添加初始化方法
