@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" charset="utf-8" src="../../src/js/libs/jQuery.js"></script>
 </head>
+
 <body>
-<script type="text/javascript">
-	//方法一：
-	$(function(){ 
-　　$("#a").click(function(){ 
-　　　　//adding your code here 
-　　}); 
-}); 
-	//方法二：
-$(document).ready(function(){ 
-　　$("#a").click(function(){ 
-　　　　//adding your code here　　 
-　　}); 
-}); 
-//方法三：
-window.onload = function(){ 
-　　$("#a").click(function(){ 
-　　　　//adding your code here 
-　　}); 
-} 
-</script>
+    <script type="text/javascript">
+    //方法一：
+    $(function() {　　
+        $("#a").click(function() {　　　　 //adding your code here 
+            　　});
+    });
+    //方法二：
+    $(document).ready(function() {　　
+        $("#a").click(function() {　　　　 //adding your code here　　 
+            　　});
+    });
+    //方法三：
+    window.onload = function() {　　
+        $("#a").click(function() {　　　　 //adding your code here 
+            　　});
+    }
+
+    $(window).on("error", function(event) {
+        console.log(event)
+
+    })
+    </script>
 </body>
+
 </html>

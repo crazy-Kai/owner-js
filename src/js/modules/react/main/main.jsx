@@ -3,9 +3,9 @@ define(function(require,exports,module){
   var React = require('react'),
       ReactDOM = require('reactDOM');
   var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
-    
-  var TableBuild = React.createClass({
    
+  var TableBuild = React.createClass({
+ 
     	// 这里可以添加初始化方法
     	//初始化state,与gitDefualtProps方法的区别是，每次实例化创建时都会被调用一次，在这方法里，你已经可以访问到this.props
     	getInitialState:function(){
