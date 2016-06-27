@@ -66,6 +66,28 @@
 	     benginTime = Date.parse(endTime);
          window.alert(result, benginTime);
          //显示NaN,说明ie 浏览器不支持Date.parse()用于计算2个时间的间隔！
+ //方法一：
+        // ~~ 按非位操作符
+         function random(form,to) {
+            //将参数强制类型转换为number 
+            var form = ~~form,
+                to = ~~to,
+                max = Math.max(form,to),
+                min = Math.min(form,to);
+                //Math.random()取0-1之间的随机数
+            return Math.floor(Math.random()*(max-min+1) +min);
+         };
+         function whois(array){
+         		window.alert("恭喜今天的幸运儿是：" +array[random(array.length-1)]);
+         }
+        whois(["村姑","宝剑","阿斌","小太阳","骄妹","老陈醋","吴大大"]);
+  //方法二：
+       function getName(array){
+       	 window.alert("恭喜今天的幸运儿是：" +array[Math.floor(Math.random()*array.length)]);
+       }
+       getName(["村姑","宝剑","阿斌","小太阳","骄妹","老陈醋","吴大大"]);
+   //两者的区别：    
+   // 方法一随机数可取到传入的参数中的最大一个值，而方法二取到的随机数只能是0～传入参数array.length 之间的值，却取不到array.length这个随机数
 
 	</script>
 </body>
