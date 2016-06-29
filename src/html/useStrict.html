@@ -27,12 +27,12 @@
 　　//- 为未来新版本的Javascript做好铺垫。
    //语法和行为改变 列子如下：
    //1: 禁止使用未声明的变量 
-    //v ＝ 1；//   报错 var 未声明
+    v ＝ 1；//   报错 var 未声明
    //2: 禁止使用with()语句，因为with雨具无法再编译时就确定，属性到底归属哪个对象
-   // with (location){
-   //  var url = href;
-   //  console.log(url)
-   // }
+   with (location){
+    var url = href;
+    console.log(url)
+   }
    //3:创设eval()作用域，除了全局作用，和函数作用域，又增加了eaval作用域，列子如下：
    var x = 4;
     console.log(eval("var x = 2; x"));
@@ -43,20 +43,20 @@
   }//返回 true this的值为false ,而正常模式下，this的值返回true
   //
   // 5:禁止在函数内部遍历调用栈
-// function callerDemo() { callerDemo.caller
-//      if (callerDemo.caller) {
-//          var a= callerDemo.caller.toString();
-//          alert(a);
-//      } else {
-//          alert("this is a top function");
-//      }
-// }
-// //callerDemo();
+function callerDemo() { callerDemo.caller
+     if (callerDemo.caller) {
+         var a= callerDemo.caller.toString();
+         alert(a);
+     } else {
+         alert("this is a top function");
+     }
+}
+callerDemo();
 
-// function handleCaller() {
-//      callerDemo();
-// }
-//  handleCaller()
+function handleCaller() {
+     callerDemo();
+}
+ handleCaller()
 
 //6:禁止删除变量 严格模式下无法删除变量。只有configurable设置为true的对象属性，才能被删除。
     var x;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>递归</title>
+    <!-- 公用的css-->
+    <!-- <link rel="stylesheet" href="/src/css/main.css" type="text/css"> -->
+    <!-- 公用的js-->
+   
+    <!-- <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script> -->
+   
+</head>
+<body>
+<script type="text/javascript">
+    //递归函数是在一个函数通过名字调用自身的情况下构成的，如下所示：
+    function factorial(num){
+        if (num <=1 ){
+            return 1;
+        }else{
+            return num*factorial(num-1);
+        }
+    }
+    console.log(factorial(2),factorial(3),factorial(4),factorial(5),factorial(6));
+    //这是一个典型的递归阶乘函数。
+    var anotherfactorial = factorial;
+        factorial = null;
+        // alert(anotherfactorial(4));
+        //解决方法：
+        var factorial = (function f(num){
+            if(num<=1){
+                return 1;
+            }else{
+                return num*f(num-1);
+            }
+        })
+         alert(anotherfactorial(4));
+</script>
+        
+
+</body>
+</html>
