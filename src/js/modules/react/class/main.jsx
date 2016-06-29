@@ -163,7 +163,7 @@ define(function(require,exports,module){
 	<div {...this.props} className="override">
 	    …
 	</div>
-	//这个例子则相反，如果属性中没有包含className，则提供默认的值，而如果属性中已经包含了，则使用属性中的值
+	
 
 	
 
