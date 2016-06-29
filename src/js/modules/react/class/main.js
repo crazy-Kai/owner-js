@@ -269,15 +269,7 @@ define(function (require, exports, module) {
 	});
 	//然而现在官方已经不再打算在ES6里继续推行Mixin，他们说：Mixins Are Dead. Long Live Composition。
 
-	//尽管如果要继续使用mixin，还是有一些第三方的方案可以用，譬如这个方案
-
-	//不过官方推荐，对于库编写者而言，应当尽快放弃Mixin的编写方式，上文中提到Sebastian Markbåge的一段代码推荐了一种新的编码方式：
-
-	//ES6 带来的其他好处
-	//解构&属性延展　###
-	//结合使用ES6+的解构和属性延展，我们给孩子传递一批属性更为方便了。这个例子把className以外的所有属性传递给div标签：
-
-	//下面这种写法，则是传递所有属性的同时，用覆盖新的className值：
+	//使用高阶组件替代Mixins方法如下:
 
 	React.createElement(
 		'div',
