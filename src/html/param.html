@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" charset="utf-8" src="../../src/js/libs/jQuery.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var count = 20;
+		function addCount (num){
+			num += 10;
+			return num ;
+		}
+	    console.log(addCount(count),count);
+	    //参数是按值传递的，count是个基本类型！
+        function setName (obj){
+           obj.name = "村姑";
+           obj = new Object();
+           obj.name = "宝剑";
+           console.log(obj.name)//
+        }
+        var object = {};
+        setName(object);
+        console.log(object.name)//
+        //首先 object 是个引用类型，当它被当作一个参数传入函数时，它和参数的指针指向的是同一个地址几同一个对象，所以当函数内部参数的name属性值被修改后，外面的object的属性值name同样也会被修改，而name值为什么不是“宝剑”，是因为obj ＝ new Object();的时候obj已经是一个局部变量 所以当函数被调用完以后局部变量自动释放，在外面输出时得到的就是“村姑”！
+	</script>
+</body>
+</html>

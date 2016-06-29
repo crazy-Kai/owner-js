@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var obj = {"吴晓雯":"我爱你"};
+		var obj = {"胆大":"心细"};
 		 document.write(JSON.stringify(obj));
 		 /*string.replace(reg,function(){match,p1,p1,offset,string})方法：
 			第一个参数是正则表达式，表要要匹配的正则表达式，返回匹配的字符串
@@ -38,7 +38,7 @@
 						 var a = '{"user":"'+matched+'"}';
 						  var b = JSON.parse(a),
 						      c= b.user;
-                       
+                       //return c;
 						return String.fromCharCode(parseInt(p1,16));//方法一先将字面量的unicode表达式\u后面的字符串转换成16进制的数字，然后用String.fromCharCode方法将其转换成中文
 						// return c;//方法二直接用JSON.parse()方法将字面量格式的unicode转换成中文
 				});

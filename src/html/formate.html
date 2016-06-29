@@ -89,6 +89,14 @@
    //两者的区别：    
    // 方法一随机数可取到传入的参数中的最大一个值，而方法二取到的随机数只能是0～传入参数array.length 之间的值，却取不到array.length这个随机数
 
+   //操作符 ～～和＋的区别
+   var sign = "0.1";
+       console.log(~~sign,+sign);//
+       
+   var undefineds = undefined;
+        console.log(+undefineds,~~undefined);
+//共同点：两者都是将字符串类型转化为数字类型；
+//区别在于：＋操作符 是用NUMber()方法来实现类型转换的，而～操作符是将字符串转化成2进制，返回将原来的数转换成负数再加上负一的整数，而～～操作符就是将字符串转换成number类型并且是整数！
 	</script>
 </body>
 </html>
