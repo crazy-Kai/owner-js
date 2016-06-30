@@ -5,8 +5,8 @@
 define(function(require, exports, module) {
 	
 	// 依赖
-	const $ = require('$');
-	const Control = require('common/react/control');
+	
+	const Control = require('common/controller');
 
 	// 隐藏方法 this.updateComponent().then();
 	return Control({

@@ -12,7 +12,6 @@ define(function (require, exports, module) {
 	var ReactDOM = require('reactDOM');
 	var React = require('react');
 	var limit = require('common/limit2.0');
-	var $ = require('$');
 
 	var Widget = function () {
 		function Widget(config) {

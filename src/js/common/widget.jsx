@@ -7,7 +7,7 @@ define(function(require, exports, module) {
 	const ReactDOM = require('reactDOM');
 	const React = require('react');
 	const limit = require('common/limit2.0');
-	const $ = require('$');
+	
 
 	class Widget {
 		constructor(config){

@@ -4,7 +4,7 @@ define(function(require, exports) {
 	// 依赖
 	const Reflux = require('common/reflux');
 	const limit = require('common/limit2.0');
-	const Ajax = require('model/ajax/main');
+	const Ajax = require('modules/ajax/main');
 	const REX = /on([A-Z]\w*)/;
 	const Promise = limit.promise();
 

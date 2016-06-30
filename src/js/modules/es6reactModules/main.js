@@ -30,5 +30,5 @@ define(function (require, exports, module) {
 		}]);
 
 		return myWidget;
-	}(require('common/react/widget'));
+	}(require('common/widget'));
 });

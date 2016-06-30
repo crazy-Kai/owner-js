@@ -4,7 +4,7 @@
  */
 define(function(require, exports, module) {
 	
-	return class myWidget extends require('common/react/widget') {
+	return class myWidget extends require('common/widget') {
 		getComponent(){
 			return require('./index');
 		}
