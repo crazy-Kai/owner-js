@@ -5,5 +5,5 @@
 
 define(function (require, exports, module) {
 
-  return require('common/react/hoc')(require('./view'), require('./controller'));
+  return require('common/hoc')(require('./view'), require('./controller'));
 });

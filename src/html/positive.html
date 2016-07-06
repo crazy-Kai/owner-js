@@ -11,14 +11,44 @@
     <meta name="keywords" content="" />
     <title>递归</title>
     <!-- 公用的css-->
-    <!-- <link rel="stylesheet" href="/src/css/main.css" type="text/css"> -->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
     <!-- 公用的js-->
    
-    <!-- <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
    
 </head>
 <body>
+<div id="doc">
+   <ul>
+       <li data-name = "引用类型" data-id="1">
+            <ul>
+                <li data-parent-id="1" data-name="引用类型">
+                   引用类型 <button data-trigger="submit" class="fn-btn">提交</button>
+                </li>
+                <li data-parent-id="1" data-name="Array类型">
+                    Array类型<button class="fn-btn" data-trigger="submit">提交</button>
+                </li>
+                <li data-parent-id="1" data-name="检测数组">
+                    检测数组<button class="fn-btn" data-trigger="submit">提交</button>
+                </li>
+            </ul> 
+       </li>
+    </ul>
+   
+</div>
 <script type="text/javascript">
+function loadCheck(dom){
+    var text = $(dom).prop(data-name);
+    if($(dom).prop(data-parent-id)!==undefined && $(dom).prop(data-parent-id)){
+         text = loadCheck(dom.parents("li")+"->"+text) ;
+    };
+    return text;
+}
+$("#doc").on("click",'[data-trigger="submit"]',function(e){
+    var domNode = $(e.target).parent();
+    console.log(loadCheck(domNode))
+
+})
     //递归函数是在一个函数通过名字调用自身的情况下构成的，如下所示：
     function factorial(num){
         if (num <=1 ){
@@ -41,6 +71,7 @@
             }
         })
          alert(anotherfactorial(4));
+
 </script>
         
 
