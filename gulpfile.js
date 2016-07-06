@@ -45,7 +45,7 @@ gulp.task('default', ['watch']);
          var match = e.path.replace(/\\/g,"/").match(matchRex),
             files = match[0];
             gulp.src(files)
-            .pipe(babel({presets:['es2015','react']}).on('error',(e) =>{
+            .pipe(babel({presets:['es2015','react','stage-0']}).on('error',(e) =>{
               console.error('error:'+e.message);
             }))
             .pipe(gulp.dest(match[1]));

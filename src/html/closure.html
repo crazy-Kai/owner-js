@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+     <script type="text/javascript" charset="utf-8" src="../../src/js/libs/jQuery.js"></script>
+</head>
+
+<body>
+    <form name="form1">
+        <input type="radio" name="radioGroups">
+        <input type="radio" name="radioGroups">
+        <input type="radio" name="radioGroups">
+        <input type="radio" name="radioGroups">
+        <input type="submit">
+    </form>
+    <script type="text/javascript">
+    "use strict"
+    var result;
+
+    function getCount() {
+        var n = 1;
+        return function() {
+            return n++;
+        }
+    }
+    result = getCount();
+
+    // console.log(result) //
+    console.log(result()) //
+    console.log(result()) //
+    console.log(result()) //
+    console.log(result()) //
+        //首先这里有2个全局对象 result 和getCount,这里把getCount()赋值给result,得到的其实就是function(){return n++;},
+        //它们两个的作用域都是指向getCount这个对象的，重点是result的活动对象没有定义但getCount的活动对象是定义的n++,而且被result对象接住并引用，所以当result()函数被调用后getCount对象会继续存在，局部变量 n 没有被释放，多次调用此方法会一直累加n的值
+
+    //闭包的问题用闭包来解决！
+    $(function(){
+    	 var theForm =$("[name='radioGroups']");
+    	 theForm.each(function(key,val){
+    	 		$(theForm[key]).on("click",function(){
+    	 			alert(key)
+    	 		})
+    	 })
+    })
+    //  window.onload = function() {
+    //     //获取所有单选按钮；
+    //     var theForm = document.form1.radioGroups;
+        
+    //     for (var i = 0; i < theForm.length; i++) {
+    //         theForm[i].onclick = function(){
+    //         	alert(i)
+    //         }
+
+    //     }
+
+    // }
+    //错误原因：闭包只能取得函数中任何变量的最后一个值。闭包保存的是作用域中整个变量对象，而不是某个特殊的变量！每个函数的作用域中都保存着对象window.onload函数的活动对象！所以她们引用的是最后一个变量i,当window.onload函数返回后i的值是4,所以内部i的值都是4
+    window.onload = function() {
+        //获取所有单选按钮；
+        var theForm = document.form1.radioGroups;
+        //js还支持这样写：document.forms[0].elements['radioGroups'];
+        //var j = theForm.length;     
+        //alert(j);
+        for (var i = 0; i < theForm.length; i++) {
+            theForm[i].onclick = (function(num) {
+                return function() {
+                    alert(num);
+                }
+
+            })(i);
+
+        }
+
+    }
+ //这个列子对的原因：没有把闭包函数直接赋值 给数组而是定义了一个易名函数，并将立即执行该易名函数的结果复制给数组，在调用这个易名函数时我们把i传入了该易名函数中，由于参数是按值传递的，所以就会将i的当前值复制给num，而在这个易名函数中又创建并返回了一个能访问num的闭包，这样一来thieForm数组中的每个函数都有它自己num变量的副本了，因此就返回了各自不同的数值；了！
+//闭包所保存的是整个变量的对象！而不是某个特殊的变量！所以这里要是不用闭包的方法来解决的话i 只能取到最后一个值！
+
+    //为什么用闭包：全局变量可共享，但容易被污染
+    //局部变量虽然私有，但不可重用/共享
+    //解决：3步：1. 用大的方法将变量和操作变量的方法封装起来
+    // 2. 在外层方法结尾，将操作变量的方法对象返回
+    //3. 在全局，使用专门的方法名接住外层方法返回的函数对象
+
+    //何时使用闭包：保护可反复使用的局部变量
+    //判断闭包：3特点：
+    //1. 方法嵌套；
+    //2. 内层方法使用了外层方法的局部变量
+    //3. 内层方法被外层方法返回到外部，被反复调用。
+
+    var GetId = (function() {
+        var id = 0;
+        return function() {
+            return id++;
+        }
+    })();
+    var newId1 = GetId();
+    var newId2 = GetId();
+    console.log(newId1,newId2)
+    </script>
+</body>
+
+</html>

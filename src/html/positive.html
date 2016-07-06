@@ -13,67 +13,71 @@
     <!-- 公用的css-->
     <link rel="stylesheet" href="/src/css/main.css" type="text/css">
     <!-- 公用的js-->
-   
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
-   
 </head>
-<body>
-<div id="doc">
-   <ul>
-       <li data-name = "引用类型" data-id="1">
-            <ul>
-                <li data-parent-id="1" data-name="引用类型">
-                   引用类型 <button data-trigger="submit" class="fn-btn">提交</button>
-                </li>
-                <li data-parent-id="1" data-name="Array类型">
-                    Array类型<button class="fn-btn" data-trigger="submit">提交</button>
-                </li>
-                <li data-parent-id="1" data-name="检测数组">
-                    检测数组<button class="fn-btn" data-trigger="submit">提交</button>
-                </li>
-            </ul> 
-       </li>
-    </ul>
-   
-</div>
-<script type="text/javascript">
-function loadCheck(dom){
-    var text = $(dom).prop(data-name);
-    if($(dom).prop(data-parent-id)!==undefined && $(dom).prop(data-parent-id)){
-         text = loadCheck(dom.parents("li")+"->"+text) ;
-    };
-    return text;
-}
-$("#doc").on("click",'[data-trigger="submit"]',function(e){
-    var domNode = $(e.target).parent();
-    console.log(loadCheck(domNode))
 
-})
-    //递归函数是在一个函数通过名字调用自身的情况下构成的，如下所示：
-    function factorial(num){
-        if (num <=1 ){
+<body>
+    <div id="doc">
+        <ul>
+            <li data-name="javascript" data-id="1" id="doc1">javascript
+                <button data-trigger="submit" class="fn-btn">提交</button>
+                <ul>
+                    <li data-parent-id="1" data-name="引用类型">
+                        引用类型
+                        <button data-trigger="submit" class="fn-btn">提交</button>
+                    </li>
+                    <li data-parent-id="1" data-name="Array类型">
+                        Array类型
+                        <button class="fn-btn" data-trigger="submit">提交</button>
+                    </li>
+                    <li data-parent-id="1" data-name="检测数组">
+                        检测数组
+                        <button class="fn-btn" data-trigger="submit">提交</button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    "use strict"
+
+    function loadCheck(dom) {
+        var text = dom.data("name");
+        if (dom.data("parentId") !== undefined && $(dom).data("parentId")) {
+            text = loadCheck(dom.parents("li")) + "->" + text;
+
+        };
+        return text;
+    }
+    $("#doc").on("click", '[data-trigger]', function(e) {
+            var domNode = $(e.target).parent();
+
+            var result = loadCheck(domNode);
+            console.log(result)
+        })
+        //递归函数是在一个函数通过名字调用自身的情况下构成的，如下所示：
+    function factorial(num) {
+        if (num <= 1) {
             return 1;
-        }else{
-            return num*factorial(num-1);
+        } else {
+            return num * factorial(num - 1);
         }
     }
-    console.log(factorial(2),factorial(3),factorial(4),factorial(5),factorial(6));
+    console.log(factorial(2), factorial(3), factorial(4), factorial(5), factorial(6));
     //这是一个典型的递归阶乘函数。
     var anotherfactorial = factorial;
-        factorial = null;
-        // alert(anotherfactorial(4));
-        //解决方法：
-        var factorial = (function f(num){
-            if(num<=1){
-                return 1;
-            }else{
-                return num*f(num-1);
-            }
-        })
-         alert(anotherfactorial(4));
-
-</script>
-        
-
+    factorial = null;
+    // alert(anotherfactorial(4));
+    //解决方法：
+    var factorial = (function f(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * f(num - 1);
+        }
+    })
+    alert(anotherfactorial(4));
+    </script>
 </body>
+
 </html>

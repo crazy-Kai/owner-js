@@ -13,122 +13,148 @@
     <!-- 公用的css-->
     <!-- <link rel="stylesheet" href="/src/css/main.css" type="text/css"> -->
     <!-- 公用的js-->
-   
     <!-- <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script> -->
-   
 </head>
+
 <body>
- <script type="text/javascript">
-   "use strict"
-     //严格模式的目的
+    <script type="text/javascript">
+    "use strict"
+    //严格模式的目的
     //- 消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
-　  //- 消除代码运行的一些不安全之处，保证代码运行的安全；
-　　//- 提高编译器效率，增加运行速度；
-　　//- 为未来新版本的Javascript做好铺垫。
-   //语法和行为改变 列子如下：
-   //1: 禁止使用未声明的变量 
-    v ＝ 1；//   报错 var 未声明
-   //2: 禁止使用with()语句，因为with雨具无法再编译时就确定，属性到底归属哪个对象
-   with (location){
-    var url = href;
-    console.log(url)
-   }
-   //3:创设eval()作用域，除了全局作用，和函数作用域，又增加了eaval作用域，列子如下：
-   var x = 4;
+    　 //- 消除代码运行的一些不安全之处，保证代码运行的安全；
+    　　 //- 提高编译器效率，增加运行速度；
+    　　 //- 为未来新版本的Javascript做好铺垫。
+    //语法和行为改变 列子如下：
+    //1: 禁止使用未声明的变量 
+    v＝ 1； //   报错 var 未声明
+    //2: 禁止使用with()语句，因为with雨具无法再编译时就确定，属性到底归属哪个对象
+    with(location) {
+            var url = href;
+            console.log(url)
+        }
+        //3:创设eval()作用域，除了全局作用，和函数作用域，又增加了eaval作用域，列子如下：
+    var x = 4;
     console.log(eval("var x = 2; x"));
-  console.log(x);
-  //4:增强的安全措施，this禁止指向全局对象
-  function k(){
-    return !this;
-  }//返回 true this的值为false ,而正常模式下，this的值返回true
-  //
-  // 5:禁止在函数内部遍历调用栈
-function callerDemo() { callerDemo.caller
-     if (callerDemo.caller) {
-         var a= callerDemo.caller.toString();
-         alert(a);
-     } else {
-         alert("this is a top function");
-     }
-}
-callerDemo();
+    console.log(x);
+    //4:增强的安全措施，this禁止指向全局对象
+    function k() {
+        return !this;
+    } //返回 true this的值为false ,而正常模式下，this的值返回true
+    //
+    // 5:禁止在函数内部遍历调用栈
+    function callerDemo() {
+        callerDemo.caller
+        if (callerDemo.caller) {
+            var a = callerDemo.caller.toString();
+            alert(a);
+        } else {
+            alert("this is a top function");
+        }
+    }
+    callerDemo();
 
-function handleCaller() {
-     callerDemo();
-}
- handleCaller()
+    function handleCaller() {
+        callerDemo();
+    }
+    handleCaller()
 
-//6:禁止删除变量 严格模式下无法删除变量。只有configurable设置为true的对象属性，才能被删除。
-    var x;
- 　　delete x; // 语法错误
-　　var o = {x:"11",b:"2"}
-　　delete o.x; // 删除成功
-console.log(o)
-//7:正常模式下，对一个对象的只读属性进行赋值，不会报错，只会默默地失败。严格模式下，将报错。
+    //6:禁止删除变量 严格模式下无法删除变量。只有configurable设置为true的对象属性，才能被删除。
+    var x;　　
+    delete x; // 语法错误
+    　　
+    var o = {
+        x: "11",
+        b: "2"
+    }　　
+    delete o.x; // 删除成功
+    console.log(o)
+        //7:正常模式下，对一个对象的只读属性进行赋值，不会报错，只会默默地失败。严格模式下，将报错。
 
 
 
-　　var o = {};
-　　Object.defineProperty(o, "v", { value: 1, writable: false });
-　　o.v = 2; // 报错
-//严格模式下，对一个使用getter方法读取的属性进行赋值，会报错。
-　
+    　　
+    var o = {};　　
+    Object.defineProperty(o, "v", {
+        value: 1,
+        writable: false
+    });　　
+    o.v = 2; // 报错
+    //严格模式下，对一个使用getter方法读取的属性进行赋值，会报错。
+    　
 
-　　var o = {
+    　　
+    var o = {
 
-　　　　get v() { return 1; }
-　　};
-　　o.v = 2; // 报错
-//严格模式下，对禁止扩展的对象添加新属性，会报错。
+        　　　　get v() {
+            return 1;
+        }　　
+    };　　
+    o.v = 2; // 报错
+    //严格模式下，对禁止扩展的对象添加新属性，会报错。
 
-　　var o = {};
-　　Object.preventExtensions(o);
-　　o.v = 1; // 报错
-//严格模式下，删除一个不可删除的属性，会报
-　　
-　　delete Object.prototype; // 报错
-//重名错误
-var o = {
-　　　　p: 1,
-　　　　p: 2
-　　}; //
-function f(a, a, b) { // 语法错误
-　　　　return ;
-　　}
-//8:arguments对象的限制 arguments是函数的参数对象，严格模式对它的使用做了限制。
-arguments++; // 语法错误
-　　var obj = { set p(arguments) { } }; // 语法错误
-　　try { } catch (arguments) { } // 语法错误
-　　function arguments() { } // 语法错误
-　　var f = new Function("arguments", "'use strict'; return 17;"); // 语法错误
-//arguments不再追踪参数的变化
-　function f(a) {
-　　　　a = 2;
-　　　　return [a, arguments[0]];
-　　}
-　　f(1); // 正常模式为[2,2]
-　　function f(a) {
-　　　　a = 2;
-　　　　return [a, arguments[0]];
-　　}
-　　f(1); // 严格模式为[2,1]
- //禁止使用arguments.callee 这意味着，你无法在匿名函数内部调用自身
- 　var f = function() { return arguments.callee; };
-　　f(); // 报错
-//9:函数必须声明在顶层将来Javascript的新版本会引入"块级作用域"。为了与新版本接轨，严格模式只允许在全局作用域或函数作用域的顶层声明函数。也就是说，不允许在非函数的代码块内声明函数。
-if (true) {
-　　　　function f() { } // 语法错误
-　　}
-　　for (var i = 0; i < 5; i++) {
-　　　　function f2() { } // 语法错误
-　　}
-//10:为了向将来Javascript的新版本过渡，严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield。
-　　function package(protected) { // 语法错误
-　　　　
-　　　　var implements; // 语法错误
-　　}
-
- </script>
-    
+    　　
+    var o = {};　　
+    Object.preventExtensions(o);　　
+    o.v = 1; // 报错
+    //严格模式下，删除一个不可删除的属性，会报
+    　　　　
+    delete Object.prototype; // 报错
+    //重名错误
+    var o = {　　　　
+        p: 1,
+        　　　　p: 2　　
+    }; //
+    function f(a, a, b) { // 语法错误
+        　　　　
+        return;　　
+    }
+    //8:arguments对象的限制 arguments是函数的参数对象，严格模式对它的使用做了限制。
+    arguments++; // 语法错误
+    　　
+    var obj = {set p(arguments) {}
+    }; // 语法错误
+    　　
+    try {} catch (arguments) {} // 语法错误
+    　　
+    function arguments() {} // 语法错误
+    　　
+    var f = new Function("arguments", "'use strict'; return 17;"); // 语法错误
+    //arguments不再追踪参数的变化
+    　
+    function f(a) {　　　　
+        a = 2;　　　　
+        return [a, arguments[0]];　　
+    }　　
+    f(1); // 正常模式为[2,2]
+    　　
+    function f(a) {　　　　
+        a = 2;　　　　
+        return [a, arguments[0]];　　
+    }　　
+    f(1); // 严格模式为[2,1]
+    //禁止使用arguments.callee 这意味着，你无法在匿名函数内部调用自身
+    　
+    var f = function() {
+        return arguments.callee;
+    };　　
+    f(); // 报错
+    //9:函数必须声明在顶层将来Javascript的新版本会引入"块级作用域"。为了与新版本接轨，严格模式只允许在全局作用域或函数作用域的顶层声明函数。也就是说，不允许在非函数的代码块内声明函数。
+    if (true) {　　　　
+        function f() {} // 语法错误
+        　　
+    }　　
+    for (var i = 0; i < 5; i++) {　　　　
+        function f2() {} // 语法错误
+        　　
+    }
+    //10:为了向将来Javascript的新版本过渡，严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield。
+    　　
+    function package(protected) { // 语法错误
+        　　　　　　　　
+        var implements; // 语法错误
+        　　
+    }
+    </script>
 </body>
+
 </html>
