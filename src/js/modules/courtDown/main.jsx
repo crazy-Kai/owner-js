@@ -47,7 +47,6 @@ define(function(require,exports,module){
 	let timer = new CourtDown("2016-07-6 15:59");
 	let interval =  window.setInterval(function(){
 		let data = timer.use();
-		console.log(data)
 		if(!data){
 			return window.clearInterval(interval);
 		}

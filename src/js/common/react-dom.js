@@ -1,8 +1,9 @@
 define(function(require, exports, module) {
+
 /**
- * ReactDOM v15.0.1
+ * ReactDOM v0.14.4
  *
- * Copyright 2013-present, Facebook, Inc.
+ * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
  *
  * This source code is licensed under the BSD-style license found in the
@@ -22,7 +23,7 @@ define(function(require, exports, module) {
 
   // <script>
   } else {
-    var g;
+    var g
     if (typeof window !== "undefined") {
       g = window;
     } else if (typeof global !== "undefined") {
@@ -41,4 +42,5 @@ define(function(require, exports, module) {
 })(function(React) {
   return React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 });
-})
+
+});

@@ -64,7 +64,6 @@ define(function (require, exports, module) {
 	var timer = new CourtDown("2016-07-6 15:59");
 	var interval = window.setInterval(function () {
 		var data = timer.use();
-		console.log(data);
 		if (!data) {
 			return window.clearInterval(interval);
 		}
