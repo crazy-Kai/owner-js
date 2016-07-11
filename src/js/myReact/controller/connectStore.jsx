@@ -9,10 +9,13 @@ define(function(require,exports,module){
 			isShow:false,
 			onAdd:function(){
 				var me =this;
+				console.log("草泥马")
 				me.trigger({
-					boxStyle:me.isShow?false:true
+					boxStyle:{
+						display:me.isShow ? "none" : "block"
+					}
 				},function(){
-					me.isShow = !isShow;
+					me.isShow = !me.isShow;
 				})
 			},
 			onGetTarget:function(e){

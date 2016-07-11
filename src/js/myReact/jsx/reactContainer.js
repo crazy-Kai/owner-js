@@ -17,11 +17,19 @@ define(function (require, exports, module) {
 	var Container = React.createClass({
 		displayName: 'Container',
 
+		mixins: [Reflux.connect(ConnectStore)],
 		getInitialState: function getInitialState() {
 			return {
 				boxBtnType: "add",
-				boxStyle: false
+				boxStyle: {
+					display: "none"
+				}
 			};
+		},
+		addItem: function addItem() {
+			console.log("1");
+			ConnectActions.add();
+			this.refs.contentBox.setState({ id: null });
 		},
 		render: function render() {
 			var textList = [],
@@ -49,9 +57,15 @@ define(function (require, exports, module) {
 					{ calssName: 'fn-MT20' },
 					React.createElement(
 						'h1',
-						{ className: 'fn-FS16 fn-FWB' },
+						{ className: 'fn-FS16 fn-FWB fn-disInBl' },
 						'　React 结合Reflux  增删增删改查Demo'
-					)
+					),
+					React.createElement(Pushbutton, { ref: 'addBtn', btnName: '添加', callbackParent: this.addItem, className: 'fn-btn' })
+				),
+				React.createElement(
+					'div',
+					{ style: this.state.boxStyle },
+					React.createElement(ContentBox, { ref: 'contentBox' })
 				)
 			);
 		}

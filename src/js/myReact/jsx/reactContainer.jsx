@@ -11,11 +11,19 @@ define(function(require,exports,module){
 		ConnectActions = require('myReact/controller/connectActions'),
 		ConnectStore = require('myReact/controller/connectStore');
 	var Container = React.createClass({
+		mixins: [Reflux.connect(ConnectStore)],
 		getInitialState:function(){
 			return {
 				boxBtnType:"add",
-				boxStyle : false
+				boxStyle : {
+					display:"none"
+				}
 			}
+		},
+		addItem:function(){
+			console.log("1")
+			ConnectActions.add();
+			this.refs.contentBox.setState({id:null});
 		},
 		render:function(){
 			var textList = [],
@@ -31,10 +39,14 @@ define(function(require,exports,module){
                 		 +++++++++++++
                 	</div>
                 	<div calssName="fn-MT20">
-                		<h1 className="fn-FS16 fn-FWB">
+                		<h1 className="fn-FS16 fn-FWB fn-disInBl">
                 		　React 结合Reflux  增删增删改查Demo
                 		</h1>
+                		< Pushbutton ref='addBtn' btnName="添加" callbackParent={this.addItem} className="fn-btn"/>
                 		
+                	</div>
+                	<div style= {this.state.boxStyle}>
+                		< ContentBox ref="contentBox" />
                 	</div>
                 	
 				</div>	
