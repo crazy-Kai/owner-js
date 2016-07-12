@@ -39,11 +39,12 @@ gulp.task('default', ['watch']);
 
  // })
  // //观察者
- var matchRex = /(src.*)\/.*\..*/;
+ var matchRex = /(src.*)\/.*\.*/;
    gulp.task("watch",() =>{
      gulp.watch(['src/**/*.babel','src/**/*.jsx']).on('change',(e)=>{
          var match = e.path.replace(/\\/g,"/").match(matchRex),
             files = match[0];
+            console.log(files,match[1])
             gulp.src(files)
             .pipe(babel({presets:['es2015','react','stage-0']}).on('error',(e) =>{
               console.error('error:'+e.message);

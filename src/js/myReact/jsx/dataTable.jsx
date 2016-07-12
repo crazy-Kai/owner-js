@@ -49,10 +49,20 @@ define(function(require,exports,module){
 				list.push(<DataRow key={value.id} data={value}/>)
 			}.bind(this));
 			return (
-
+				<table className="fn-tabale fn-table-data" width="100%">
+					<thead>
+						<th width="100">标题</th>
+						<th width="100">作者</th>
+						<th width="150">发布时间</th>
+						<th width="150">操作</th>
+					</thead>
+					<tbody>
+						{list}
+					</tbody>
+				</table>
 			)
 		}
 
 	})
-
+	module.exports = DataTable;
 })
