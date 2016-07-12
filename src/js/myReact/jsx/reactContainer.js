@@ -36,7 +36,7 @@ define(function (require, exports, module) {
 			    me = this;
 			return React.createElement(
 				'div',
-				{ className: ' fn-W500 fn-margin-center', style: { backgroundColor: "#FFF" } },
+				{ className: ' fn-W500 fn-margin-center' },
 				[1, 2, 3, 4].forEach(function (val, key) {
 					textList.push(React.createElement(
 						'button',
@@ -54,7 +54,7 @@ define(function (require, exports, module) {
 				),
 				React.createElement(
 					'div',
-					{ calssName: 'fn-TAC fn-MT20 ' },
+					{ className: 'fn-TAC fn-MT20 ' },
 					React.createElement(
 						'h1',
 						{ className: 'fn-TAC fn-FS16 fn-FWB fn-disInBl' },
@@ -64,8 +64,13 @@ define(function (require, exports, module) {
 				),
 				React.createElement(
 					'div',
-					{ className: '', style: this.state.boxStyle },
+					{ className: 'fn-MT20 fn-MB20 ', style: this.state.boxStyle },
 					React.createElement(ContentBox, { ref: 'contentBox' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'fn-MT20' },
+					React.createElement(DataTable, { ref: 'dataTable' })
 				)
 			);
 		}

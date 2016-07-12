@@ -1120,4 +1120,5 @@ input:disabled.fn-input-text-date{background: #F2F2F2 url("../img/date.png") no-
 .fn-table-payment td{vertical-align:top;padding:12px 10px;}
 .fn-div-paymentHrader{line-height:18px;padding:6px 10px;background:#F7F7F7;}
 .simCase-new-icon{display:inline-block;width:27px;height:11px;background:url("../img/new.gif") no-repeat 0 0;vertical-align:-1px;}
-
+/* react新增样式 */
+.fn-Pd{padding:10px;}

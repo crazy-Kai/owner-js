@@ -2,7 +2,8 @@
 
 define(function (require, exports, module) {
 	//依赖
-	var React = require('react');
+	var React = require('react'),
+	    Pushbutton = require('./pushbutton');
 
 	var ContentBox = React.createClass({
 		displayName: 'ContentBox',
@@ -13,41 +14,51 @@ define(function (require, exports, module) {
 		render: function render() {
 
 			return React.createElement(
-				'div',
-				null,
+				'table',
+				{ className: 'fn-table fn-table-border' },
 				React.createElement(
-					'ul',
+					'tr',
 					null,
 					React.createElement(
-						'li',
-						null,
+						'td',
+						{ width: '250' },
 						React.createElement(
-							'span',
-							null,
-							'标题'
+							'div',
+							{ className: 'fn-MB5' },
+							React.createElement(
+								'span',
+								{ className: 'fn-MR5' },
+								'标题'
+							),
+							React.createElement(
+								'span',
+								null,
+								React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180', ref: 'title', name: 'title', type: 'text', value: this.state.title })
+							)
 						),
 						React.createElement(
-							'span',
+							'div',
 							null,
-							' ',
-							React.createElement('input', { ref: 'title', name: 'title', type: 'text', value: this.state.title }),
-							' '
+							React.createElement(
+								'span',
+								{ className: 'fn-MR5' },
+								'作者'
+							),
+							React.createElement(
+								'span',
+								null,
+								React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180 ', ref: 'author', name: 'author', type: 'text', value: this.state.author })
+							)
 						)
 					),
 					React.createElement(
-						'li',
-						null,
+						'td',
+						{ width: '250' },
 						React.createElement(
-							'span',
-							null,
-							'作者'
-						),
-						React.createElement(
-							'span',
-							null,
-							' ',
-							React.createElement('input', { ref: 'author', name: 'author', type: 'text', value: this.state.author }),
-							' '
+							'div',
+							{ className: 'fn-TAC' },
+							React.createElement(Pushbutton, { className: 'fn-btn fn-MR5', btnName: '确认' }),
+							React.createElement(Pushbutton, { className: 'fn-btn', btnName: '取消' })
 						)
 					)
 				)

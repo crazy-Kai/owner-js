@@ -29,7 +29,7 @@ define(function(require,exports,module){
 			var textList = [],
 			    me = this;
 			return (
-				<div className=" fn-W500 fn-margin-center" style={{backgroundColor:"#FFF"}}>
+				<div className=" fn-W500 fn-margin-center" >
                 	{[1,2,3,4].forEach(function(val,key){
                 		textList.push(<button key ={key} onClick = {ConnectActions.getTarget}>target{val}</button>)
                 	})}
@@ -38,17 +38,19 @@ define(function(require,exports,module){
                 		 {textList}
                 		 +++++++++++++
                 	</div>
-                	<div calssName="fn-TAC fn-MT20 ">
+                	<div className="fn-TAC fn-MT20 ">
                 		<h1 className="fn-TAC fn-FS16 fn-FWB fn-disInBl">
                 		　React 结合Reflux  增删增删改查Demo
                 		</h1>
                 		< Pushbutton ref='addBtn' btnName="添加" callbackParent={this.addItem} className="fn-btn"/>
                 		
                 	</div>
-                	<div className="" style= {this.state.boxStyle}>
+                	<div className="fn-MT20 fn-MB20 " style= {this.state.boxStyle}>
                 		< ContentBox ref="contentBox" />
                 	</div>
-                	
+                	<div className="fn-MT20">
+                		<DataTable ref="dataTable" />
+                	</div>
 				</div>	
 
 
