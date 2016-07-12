@@ -29,23 +29,23 @@ define(function(require,exports,module){
 			var textList = [],
 			    me = this;
 			return (
-				<div className="fn-TAC" style={{backgroundColor:"#FFF"}}>
+				<div className=" fn-W500 fn-margin-center" style={{backgroundColor:"#FFF"}}>
                 	{[1,2,3,4].forEach(function(val,key){
                 		textList.push(<button key ={key} onClick = {ConnectActions.getTarget}>target{val}</button>)
                 	})}
-                	<div className=" fn-LH30">
+                	<div className=" fn-LH30 fn-TAC">
                 		 测试用Actions里的方法来获取e.target
                 		 {textList}
                 		 +++++++++++++
                 	</div>
-                	<div calssName="fn-MT20">
-                		<h1 className="fn-FS16 fn-FWB fn-disInBl">
+                	<div calssName="fn-TAC fn-MT20 ">
+                		<h1 className="fn-TAC fn-FS16 fn-FWB fn-disInBl">
                 		　React 结合Reflux  增删增删改查Demo
                 		</h1>
                 		< Pushbutton ref='addBtn' btnName="添加" callbackParent={this.addItem} className="fn-btn"/>
                 		
                 	</div>
-                	<div style= {this.state.boxStyle}>
+                	<div className="" style= {this.state.boxStyle}>
                 		< ContentBox ref="contentBox" />
                 	</div>
                 	
