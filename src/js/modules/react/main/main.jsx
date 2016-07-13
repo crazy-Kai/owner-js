@@ -62,7 +62,22 @@ define(function(require,exports,module){
     	render:function(){
     		//这里可以设置变量
     		//有循环元素的时候必须用key 等于一个变量来区分循环后的每个元素，就相当与给每个tr 加了ID 
-    		var self = this;
+    		var self = this,
+                arr = [];
+            this.state.data.map(function(v,i){
+                arr.push(<tr key = {i}>
+                            <td width="300">
+                                {++i}
+                            </td >
+                            <td width="300">
+                                {v.name}
+                            </td>
+                            <td>
+                                <button className="fn-btn fn-btn-primary fn-MR10" data-index = {i} onClick = {self.editName} >编辑</button>
+                                <button className="fn-btn fn-btn-primary" data-index = {i} onClick = {self.deleteName}  >删除</button>
+                            </td>
+                        </tr>)
+            }.bind(this));
     		return (
         			<div className="fn-FS16">
         					<div width="100%">
@@ -84,26 +99,7 @@ define(function(require,exports,module){
 		        				</thead>
 		        				<tbody>
 
-		        					{
-		        						this.state.data.map(function(v,i){
-		        							return (
-		        								<tr key = {i}>
-		        									<td width="300">
-		        										{++i}
-		        									</td >
-		        									<td width="300">
-		        										{v.name}
-		        									</td>
-		        									<td>
-		        										<button className="fn-btn fn-btn-primary fn-MR10" data-index = {i} onClick = {self.editName} >编辑</button>
-		        										<button className="fn-btn fn-btn-primary" data-index = {i} onClick = {self.deleteName}  >删除</button>
-		        									</td>
-		        								</tr>
-
-		        								)
-		        						})	
-
-		        						}
+		        					{arr}
 		        				</tbody>	
 
 		        			</table>
