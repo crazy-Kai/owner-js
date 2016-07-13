@@ -20,11 +20,7 @@ define(function(require,exports,module){
 				}
 			}
 		},
-		addItem:function(){
-			console.log("1")
-			ConnectActions.add();
-			this.refs.contentBox.setState({id:null});
-		},
+		
 		render:function(){
 			var textList = [],
 			    me = this;
@@ -42,7 +38,7 @@ define(function(require,exports,module){
                 		<h1 className="fn-TAC fn-FS16 fn-FWB fn-disInBl">
                 		　React 结合Reflux  增删增删改查Demo
                 		</h1>
-                		< Pushbutton ref='addBtn' btnName="添加" callbackParent={this.addItem} className="fn-btn"/>
+                		< Pushbutton ref='addBtn' btnName="添加"  className="fn-btn"/>
                 		
                 	</div>
                 	<div className="fn-MT20 fn-MB20 " style= {this.state.boxStyle}>

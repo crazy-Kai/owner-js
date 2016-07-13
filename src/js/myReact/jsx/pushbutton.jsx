@@ -1,17 +1,22 @@
 define(function(require,exports,module){
 	"use strict"
 	//引用
-	var React = require('react');
+	var React = require('react'),
+		ConnectActions = require('myReact/controller/connectActions');
+
+		
 	var Pushbutton = React.createClass({
+
 		getInitialState:function(){
 			return {}
 		},
 		clickButton:function(e){
-             
-             console.log(this.props.btnName)
+			e.preventDefault();
+            e.stopPropagation();
+            
              switch(this.props.btnName){
              	case "添加":
-             	this.props.callbackParent();
+             	ConnectActions.add();
              	break;
              }
 		},

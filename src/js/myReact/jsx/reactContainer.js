@@ -26,11 +26,7 @@ define(function (require, exports, module) {
 				}
 			};
 		},
-		addItem: function addItem() {
-			console.log("1");
-			ConnectActions.add();
-			this.refs.contentBox.setState({ id: null });
-		},
+
 		render: function render() {
 			var textList = [],
 			    me = this;
@@ -60,7 +56,7 @@ define(function (require, exports, module) {
 						{ className: 'fn-TAC fn-FS16 fn-FWB fn-disInBl' },
 						'　React 结合Reflux  增删增删改查Demo'
 					),
-					React.createElement(Pushbutton, { ref: 'addBtn', btnName: '添加', callbackParent: this.addItem, className: 'fn-btn' })
+					React.createElement(Pushbutton, { ref: 'addBtn', btnName: '添加', className: 'fn-btn' })
 				),
 				React.createElement(
 					'div',

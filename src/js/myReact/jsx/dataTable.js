@@ -5,7 +5,7 @@ define(function (require, exports, module) {
 	var React = require('react'),
 	    Reflux = require('reflux'),
 	    Pushbutton = require('./pushbutton'),
-	    DateRow = require('./dataRow'),
+	    DataRow = require('./dataRow'),
 	    ListenToActions = require('myReact/controller/listenToActions'),
 	    ListenToStore = require('myReact/controller/listenToStore');
 	var DataTable = React.createClass({
@@ -45,7 +45,53 @@ define(function (require, exports, module) {
 					this.setState({ data: sourceData });
 					break;
 			}
+		},
+		render: function render() {
+			var list = [],
+			    a = [1, 2, 3];
+			this.state.data.map(function (val, i) {
+				list.push(React.createElement(DataRow, { key: i, data: val }));
+			}.bind(this));
+
+			return React.createElement(
+				'table',
+				{ className: 'fn-tabale fn-table-data', width: '100%' },
+				React.createElement(
+					'thead',
+					null,
+					React.createElement(
+						'tr',
+						null,
+						React.createElement(
+							'th',
+							{ width: '100' },
+							'标题'
+						),
+						React.createElement(
+							'th',
+							{ width: '100' },
+							'作者'
+						),
+						React.createElement(
+							'th',
+							{ width: '150' },
+							'发布时间'
+						),
+						React.createElement(
+							'th',
+							{ width: '150' },
+							'操作'
+						)
+					)
+				),
+				React.createElement(
+					'tbody',
+					null,
+					list
+				)
+			);
 		}
 
 	});
+	module.exports = DataTable;
 });

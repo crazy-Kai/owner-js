@@ -21,6 +21,7 @@
     console.log(timestamp)
 
     function formatData(format, timestamp) {
+        
         var date = arguments.length === 1 ? new Date() : new Date(timestamp);
         if (!isNaN(+date)) {
             return format.replace(formatDataRex, function() {
@@ -46,6 +47,7 @@
                         if (index === 1) {
                             arr.push("" + val);
                         } else {
+                            index ===2 && val++
                             arr.push(obj.slice(0, 1) + formatDataAddZero(val));
                         }
                     } else {
@@ -58,7 +60,7 @@
             });
         }
     }
-    console.log(formatData("yyyy-MM-dd HH:mm:ss", timestamp));
+    console.log(formatData("yyyy-MM-dd HH:mm:ss"));
 
     //检验 Date.parse() ie 下的兼容性问题!
     var startTime = "2012-03-06",

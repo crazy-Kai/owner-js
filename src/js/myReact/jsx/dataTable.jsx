@@ -44,17 +44,21 @@ define(function(require,exports,module){
 			}
 		},
 		render:function(){
-			var list = [];
-			this.state.data.map(function(val){
-				list.push(<DataRow key={value.id} data={value}/>)
-			}.bind(this));
+			var list = [],
+				a=[1,2,3];
+			this.state.data.map(function(val,i){
+				list.push(<DataRow key= {i} data={val}/>)
+			}.bind(this))
+		
 			return (
 				<table className="fn-tabale fn-table-data" width="100%">
 					<thead>
-						<th width="100">标题</th>
-						<th width="100">作者</th>
-						<th width="150">发布时间</th>
-						<th width="150">操作</th>
+						<tr>
+							<th width="100">标题</th>
+							<th width="100">作者</th>
+							<th width="150">发布时间</th>
+							<th width="150">操作</th>
+						</tr>
 					</thead>
 					<tbody>
 						{list}

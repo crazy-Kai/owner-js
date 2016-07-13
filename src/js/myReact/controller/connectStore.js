@@ -12,12 +12,13 @@ define(function (require, exports, module) {
 		isShow: false,
 		onAdd: function onAdd() {
 			var me = this;
-			console.log("草泥马");
+			console.log(me);
 			me.trigger({
 				boxStyle: {
 					display: me.isShow ? "none" : "block"
 				}
 			}, function () {
+				console.log(11111);
 				me.isShow = !me.isShow;
 			});
 		},
@@ -26,5 +27,5 @@ define(function (require, exports, module) {
 		}
 	});
 
-	module.exports = ConnectStore;
+	return ConnectStore;
 });
