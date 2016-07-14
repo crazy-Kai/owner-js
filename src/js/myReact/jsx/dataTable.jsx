@@ -31,7 +31,7 @@ define(function(require,exports,module){
 					if(val.id == data.value.id){
 						val = data.value;
 					}
-					return item;
+					return val;
 				});
 				this.setState({data:newData});
 				break;
@@ -43,11 +43,14 @@ define(function(require,exports,module){
 				break;
 			}
 		},
+		switchOperating:function(data){
+				this.props.callbackParent(data);
+		},
 		render:function(){
 			var list = [],
 				a=[1,2,3];
 			this.state.data.map(function(val,i){
-				list.push(<DataRow key= {i} data={val}/>)
+				list.push(<DataRow key= {i} data={val} callbackParent={this.switchOperating}/>)
 			}.bind(this))
 		
 			return (

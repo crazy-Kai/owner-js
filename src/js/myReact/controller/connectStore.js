@@ -12,13 +12,13 @@ define(function (require, exports, module) {
 		isShow: false,
 		onAdd: function onAdd() {
 			var me = this;
-			console.log(me);
+
 			me.trigger({
 				boxStyle: {
 					display: me.isShow ? "none" : "block"
 				}
 			}, function () {
-				console.log(11111);
+
 				me.isShow = !me.isShow;
 			});
 		},

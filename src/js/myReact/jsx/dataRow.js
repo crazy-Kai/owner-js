@@ -9,6 +9,9 @@ define(function (require, exports, module) {
 	var DataRow = React.createClass({
 		displayName: 'DataRow',
 
+		operatingButton: function operatingButton(data) {
+			this.props.callbackParent(data);
+		},
 		render: function render() {
 			var formate = "yyyy-MM-dd HH:mm";
 			var value = this.props.data;
@@ -34,7 +37,7 @@ define(function (require, exports, module) {
 				React.createElement(
 					'td',
 					null,
-					React.createElement(Pushbutton, { btnName: '修改', className: 'fn-btn', data: value }),
+					React.createElement(Pushbutton, { btnName: '修改', className: 'fn-btn', data: value, callbackParent: this.operatingButton }),
 					' ',
 					React.createElement(Pushbutton, { btnName: '删除', className: 'fn-btn', data: value })
 				)

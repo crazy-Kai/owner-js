@@ -5,7 +5,8 @@ define(function (require, exports, module) {
 	//引用
 
 	var React = require('react'),
-	    ConnectActions = require('myReact/controller/connectActions');
+	    ConnectActions = require('myReact/controller/connectActions'),
+	    ListenToActions = require('myReact/controller/listenToActions');
 
 	var Pushbutton = React.createClass({
 		displayName: 'Pushbutton',
@@ -22,6 +23,15 @@ define(function (require, exports, module) {
 				case "添加":
 					ConnectActions.add();
 					break;
+				case "修改":
+					this.props.callbackParent(this.props.data);
+					break;
+				case "删除":
+					ListenToActions.delete(this.props.data);
+					break;
+				default:
+					this.props.callbackParent();
+
 			}
 		},
 		render: function render() {

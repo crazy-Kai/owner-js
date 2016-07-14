@@ -27,7 +27,7 @@ define(function(require,exports,module){
 		},
 		onDataChange:function(newData){
 			var me = this;
-			newData.id ? me.OnModidy() : me.OnAdd()
+			newData.id ? me.onModify(newData) : me.onAdd(newData)
 		},
 		onAdd:function(newData){
 		

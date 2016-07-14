@@ -6,6 +6,9 @@ define(function(require,exports,module){
 		Pushbutton = require('./pushbutton');
 	//表单行
 	var DataRow = React.createClass({
+		operatingButton:function(data){
+			this.props.callbackParent(data);
+		 },
 		render:function(){
 			var formate = "yyyy-MM-dd HH:mm" ;
 			var value = this.props.data;
@@ -16,9 +19,9 @@ define(function(require,exports,module){
                       <td>{value.author}</td>
                       <td>{util.formateDate(formate,value.addTime)}</td>
                       <td>
-                          <Pushbutton btnName="修改" className="fn-btn" data={value}/>
+                          <Pushbutton btnName="修改" className="fn-btn" data={value} callbackParent = {this.operatingButton}/>
                           &nbsp;
-                          <Pushbutton btnName="删除" className="fn-btn" data={value}/>
+                          <Pushbutton btnName="删除" className="fn-btn" data={value} />
                       </td>
                 </tr>
             )

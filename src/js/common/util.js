@@ -43,12 +43,13 @@ define(function(require, exports, module) {
         formattingVal:function(val){
             return ("00"+val).slice(-1)
         },
-        mathRandom: function(max, min) {
-            var max = ~max,
-                min = ~min,
-                maxNum = Math.max(max, min),
-                minNum = Math.min(max, min);
-            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum)
+        mathRandom: function(form, to) {
+            var form = ~~form,
+            to = ~~to,
+            max = Math.max(form, to),
+            min = Math.min(form, to);
+        //Math.random()取0-1之间的随机数
+        return Math.floor(Math.random() * (max - min + 1) + min);
         },
         getInitData: function(url) {
             var promise =  new Promise(function(resolve, reject) {

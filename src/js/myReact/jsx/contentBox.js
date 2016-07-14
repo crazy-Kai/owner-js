@@ -3,7 +3,9 @@
 define(function (require, exports, module) {
 	//依赖
 	var React = require('react'),
-	    Pushbutton = require('./pushbutton');
+	    Pushbutton = require('./pushbutton'),
+	    util = require('common/util'),
+	    ListenToActions = require('myReact/controller/listenToActions');
 
 	var ContentBox = React.createClass({
 		displayName: 'ContentBox',
@@ -11,8 +13,44 @@ define(function (require, exports, module) {
 		getInitialState: function getInitialState() {
 			return { id: null, title: '', author: '' };
 		},
-		render: function render() {
+		clicKaffirmButton: function clicKaffirmButton() {
+			var newData, showBox;
+			if (!this.refs.title.value) {
+				showBox = "block";
+				window.alert("标题不能为空");
+			} else {
 
+				showBox = "none";
+				newData = {
+					id: this.state.id,
+					title: this.refs.title.value,
+					author: this.refs.author.value,
+					description: "none",
+					addTime: util.formateDate('yyyy-MM-dd HH:mm')
+				};
+				ListenToActions.dataChange(newData);
+			}
+			this.reset();
+			this.props.callbackParent(showBox);
+		},
+		reset: function reset() {
+			this.setState({
+				title: "",
+				author: ""
+			});
+		},
+		clickCancel: function clickCancel() {
+			this.reset();
+			this.props.callbackParent("none");
+		},
+		changeHandler: function changeHandler(e) {
+			var obj = {};
+			obj[$(e.target).attr('name')] = e.target.value;
+			this.setState(obj);
+		},
+
+		render: function render() {
+			var me = this;
 			return React.createElement(
 				'table',
 				{ className: 'fn-table fn-table-border' },
@@ -36,7 +74,7 @@ define(function (require, exports, module) {
 								React.createElement(
 									'span',
 									null,
-									React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180', ref: 'title', name: 'title', type: 'text', value: this.state.title })
+									React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180', ref: 'title', name: 'title', type: 'text', value: me.state.title, onChange: me.changeHandler })
 								)
 							),
 							React.createElement(
@@ -50,7 +88,7 @@ define(function (require, exports, module) {
 								React.createElement(
 									'span',
 									null,
-									React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180 ', ref: 'author', name: 'author', type: 'text', value: this.state.author })
+									React.createElement('input', { className: 'fn-input-text fn-input-text-sm fn-W180 ', ref: 'author', name: 'author', type: 'text', value: me.state.author, onChange: me.changeHandler })
 								)
 							)
 						),
@@ -60,8 +98,8 @@ define(function (require, exports, module) {
 							React.createElement(
 								'div',
 								{ className: 'fn-TAC' },
-								React.createElement(Pushbutton, { className: 'fn-btn fn-MR5', btnName: '确认' }),
-								React.createElement(Pushbutton, { className: 'fn-btn', btnName: '取消' })
+								React.createElement(Pushbutton, { className: 'fn-btn fn-MR5', btnName: '确认', callbackParent: me.clicKaffirmButton }),
+								React.createElement(Pushbutton, { className: 'fn-btn', btnName: '取消', callbackParent: me.clickCancel })
 							)
 						)
 					)

@@ -26,21 +26,45 @@ define(function (require, exports, module) {
 				}
 			};
 		},
+		switchBox: function switchBox(show) {
+			var me = this;
+			me.setState({
+				boxStyle: {
+					display: show
+				}
+			});
 
+			ConnectStore.isShow = show === "none" ? false : true;
+		},
+		onModify: function onModify(data) {
+			var me = this;
+			me.refs.contentBox.setState({
+				id: data.id,
+				title: data.title,
+				author: data.author
+			});
+			me.setState({
+				boxStyle: {
+					display: "block"
+				}
+			});
+			ConnectStore.isShow = true;
+		},
 		render: function render() {
 			var textList = [],
 			    me = this;
+			[1, 2, 3, 4].forEach(function (val, key) {
+				textList.push(React.createElement(
+					'button',
+					{ key: key, onClick: ConnectActions.getTarget },
+					'target',
+					val
+				));
+			});
+
 			return React.createElement(
 				'div',
 				{ className: ' fn-W500 fn-margin-center' },
-				[1, 2, 3, 4].forEach(function (val, key) {
-					textList.push(React.createElement(
-						'button',
-						{ key: key, onClick: ConnectActions.getTarget },
-						'target',
-						val
-					));
-				}),
 				React.createElement(
 					'div',
 					{ className: ' fn-LH30 fn-TAC' },
@@ -60,13 +84,13 @@ define(function (require, exports, module) {
 				),
 				React.createElement(
 					'div',
-					{ className: 'fn-MT20 fn-MB20 ', style: this.state.boxStyle },
-					React.createElement(ContentBox, { ref: 'contentBox' })
+					{ className: 'fn-MT20 fn-MB20 ', style: me.state.boxStyle },
+					React.createElement(ContentBox, { ref: 'contentBox', callbackParent: me.switchBox })
 				),
 				React.createElement(
 					'div',
 					{ className: 'fn-MT20' },
-					React.createElement(DataTable, { ref: 'dataTable' })
+					React.createElement(DataTable, { ref: 'dataTable', callbackParent: me.onModify })
 				)
 			);
 		}

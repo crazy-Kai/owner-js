@@ -20,15 +20,40 @@ define(function(require,exports,module){
 				}
 			}
 		},
-		
+		switchBox:function(show){
+				var me = this;
+				me.setState({
+					boxStyle:{
+						display:show
+					}
+				})
+
+			ConnectStore.isShow = show === "none"?false:true;
+		},
+		onModify:function(data){
+			var me = this;
+			me.refs.contentBox.setState({
+				id:data.id,
+				title:data.title,
+				author:data.author
+			});
+			me.setState({
+				boxStyle:{
+					display:"block"
+				}
+			})
+			ConnectStore.isShow = true;
+
+		},
 		render:function(){
 			var textList = [],
 			    me = this;
+            	[1,2,3,4].forEach(function(val,key){
+            		textList.push(<button key ={key} onClick = {ConnectActions.getTarget}>target{val}</button>)
+            	});
+                		 
 			return (
 				<div className=" fn-W500 fn-margin-center" >
-                	{[1,2,3,4].forEach(function(val,key){
-                		textList.push(<button key ={key} onClick = {ConnectActions.getTarget}>target{val}</button>)
-                	})}
                 	<div className=" fn-LH30 fn-TAC">
                 		 测试用Actions里的方法来获取e.target
                 		 {textList}
@@ -41,11 +66,11 @@ define(function(require,exports,module){
                 		< Pushbutton ref='addBtn' btnName="添加"  className="fn-btn"/>
                 		
                 	</div>
-                	<div className="fn-MT20 fn-MB20 " style= {this.state.boxStyle}>
-                		< ContentBox ref="contentBox" />
+                	<div className="fn-MT20 fn-MB20 " style= {me.state.boxStyle}>
+                		< ContentBox ref="contentBox" callbackParent={me.switchBox}/>
                 	</div>
                 	<div className="fn-MT20">
-                		<DataTable ref="dataTable" />
+                		<DataTable ref="dataTable" callbackParent={me.onModify} />
                 	</div>
 				</div>	
 
