@@ -21,6 +21,7 @@ define(function (require, exports, module) {
 		// 监听时间
 		onChange: function onChange(data, fn) {
 			var sourceData = this.state.data;
+			console.log(data);
 			switch (data.type) {
 				case "init":
 					this.setState({ data: data.value });

@@ -18,13 +18,16 @@
             'aspect'        : 'common/aspect',
             'attrs'         : 'common/attrs',
             'base'          : 'common/base',
-            'widget'        : 'common/widget',
+            'handlebars'    : 'alinw/handlebars/1.3.0/handlebars',
+            'widget'        : "arale/widget/1.1.1/widget",
             'limit'         : 'common/limit',
             'react'         : 'common/react',
             'reactDOM'      : 'common/react-dom',
             'reflux'        : 'common/reflux',
-            '$'             : 'common/jQuery',
+            '$'             : 'libs/jQuery',
             '_'             : 'common/underscore1.8',
+              //弹出层
+            "dialog"        : "alinw/dialog/2.0.6/dialog",
             //arale Base
             'araleBase'     : "arale/base/1.1.1/base",
             //arale widget

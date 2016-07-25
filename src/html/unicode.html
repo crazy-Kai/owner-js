@@ -43,8 +43,8 @@
             var a = '{"user":"' + matched + '"}';
             var b = JSON.parse(a),
                 c = b.user;
-            //return c;
-            return String.fromCharCode(parseInt(p1, 16)); //方法一先将字面量的unicode表达式\u后面的字符串转换成16进制的数字，然后用String.fromCharCode方法将其转换成中文
+            return c;
+            // return String.fromCharCode(parseInt(p1, 16)); //方法一先将字面量的unicode表达式\u后面的字符串转换成16进制的数字，然后用String.fromCharCode方法将其转换成中文
             // return c;//方法二直接用JSON.parse()方法将字面量格式的unicode转换成中文
         });
 
