@@ -6,10 +6,11 @@ define(function (require, exports, module) {
 
 	//依赖
 	var $ = require('$'),
-		Handlebars = require('handlebars'),
+		Handlebars = require('common/handlebars-v4.0.5'),
 		util = require('common/util'),
 		limit = require('common/limit'),
 		areaData = require('common/data');
+		
 
 	//变量;
 

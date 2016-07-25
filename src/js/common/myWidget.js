@@ -12,7 +12,7 @@ define(function(require, exports, module) {
             util = require('common/myUtil'),
             daparser = require('common/daparser'),
             domUtil = require('common/domUtil');
-            console.log(Widget)
+            
         //类
         var myWidget = Widget.extend({
             //类名

@@ -7,9 +7,9 @@ define(function(require, exports, module) {
 
 	//依赖
 	var $ = require('$'),
-		Widget = require('widget'),
-		Dialog = require('dialog'),
-		Loading = require('alinw/loading/1.1.0/loading');
+		Widget = require('widget');
+		// Dialog = require('dialog'),
+		// Loading = require('alinw/loading/1.1.0/loading');
 
 	//类
 	var Poploading = Widget.extend({
