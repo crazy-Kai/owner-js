@@ -20,8 +20,13 @@
 <body>
 
 	<script type="text/javascript">
-			seajs.use(['modules/Paging/main'],function(main){
-				
+			seajs.use(['modules/Paging/main'],function(Main){
+					new Main({
+						totle:100,
+						nowTarget:1,
+						size:10,
+						diff:3
+					})
 			})
 	</script>
 </body>

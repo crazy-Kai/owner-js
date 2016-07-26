@@ -5,8 +5,8 @@
      var $ = require('$'), //JQ
          util = require('common/util'), //工具类
          limit = require('common/limit'),
-         handlerbars = require('common/handlerbars'), //模板
-         Poploading = require('model/poploading/main');
+         handlerbars = require('common/handlerbars');//模板
+         // Poploading = require('model/poploading/main');
 
      /*--变量--*/
      var domUtil = {},

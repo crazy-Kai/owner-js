@@ -8,15 +8,33 @@ const gulp = require('gulp'),
       util = require('gulp-util'),
       notify = require('gulp-notify'),
       plumber = require('gulp-plumber');
+      fs = require("fs"),
+      path = require("path"),
+      _ = require("underscore"),
+      shutils = require("shutils"),
+      filesystem = shutils.filesystem,
+      StringUtils = require("underscore.string"),
+      uglify = require("gulp-uglify"),
+      GulpCmdNice = require("gulp-cmd-nice"),
+      rename = require("gulp-rename"),
+      gulpFilter = require("gulp-filter"),
+      gulpif = require("gulp-if"),
+      minifyCSS = require("gulp-minify-css"),
+      // GulpChanged = require("@ali/gulp-changed"),
+      CmdNice = require("cmd-nice"),
+      getRepoInfo = require("libs/repoInfo"),
+      argv = require("yargs").argv,
+      repoInfo = getRepoInfo(argv);
+
     
  
 // 任务
 gulp.task('default', ['brow','watch']);
 
   //观察者
-let matchRex = /(src.*)\/.*\.*/ ;
- let babelTask = (e) => {
-   let match = e.path.replace(/\\/g,"/").match(matchRex),
+var matchRex = /(src.*)\/.*\.*/ ;
+ var babelTask = (e) => {
+    var match = e.path.replace(/\\/g,"/").match(matchRex),
        files = match[0],
        paths = match[1];
        gulp.src(files)

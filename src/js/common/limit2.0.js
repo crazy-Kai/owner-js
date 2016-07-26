@@ -702,11 +702,13 @@ define(function (require, exports) {
 				return obj;
 			} else if (limit.isArrayLike(obj)) {
 				// 如果是类数组对象的话就格式化数组
+				let arr;
 				try {
 					return slice.call(obj);
 				} catch (e) {
 					return sliceFix(obj);
 				};
+				return limit.from(arr);
 			} else {
 				return typeWarn.toArray(obj), [];
 			};
