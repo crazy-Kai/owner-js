@@ -22,9 +22,9 @@ const gulp = require('gulp'),
       minifyCSS = require("gulp-minify-css"),
       // GulpChanged = require("@ali/gulp-changed"),
       CmdNice = require("cmd-nice"),
-      getRepoInfo = require("libs/repoInfo"),
-      argv = require("yargs").argv,
-      repoInfo = getRepoInfo(argv);
+      // getRepoInfo = require("libs/repoInfo"),
+      argv = require("yargs").argv;
+      // repoInfo = getRepoInfo(argv);
 
     
  
