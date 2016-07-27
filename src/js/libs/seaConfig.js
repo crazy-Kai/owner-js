@@ -1,4 +1,4 @@
-(function(){
+;(function(){
 
     //配置
     var config = {
@@ -35,7 +35,14 @@
         charset: 'utf-8',
         debug: true
     };
-    seajs.config(config);
+   if (typeof seajs !== 'undefined') {
+        config.paths = {
+            'github'     : 'http://wu-xiao-wen.github.io/src/js',
+            //支付宝
+            'arale'       : 'https://a.alipayobjects.com/arale'
+        }
+        seajs.config(config);
+   }
      // 兼容cmd规范
     if (typeof define === 'function') {
         define(function(require, exports, module) {
