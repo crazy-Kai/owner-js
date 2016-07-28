@@ -13,19 +13,19 @@
         },
         //别名配置
         alias: {
-            'class'         : 'myWidget/class',
-            'events'        : 'myWidget/events',
-            'aspect'        : 'myWidget/aspect',
-            'attrs'         : 'myWidget/attrs',
-            'base'          : 'myWidget/base',
-            'widget'        : 'myWidget/widget',
+            'class'         : 'common/class',
+            'events'        : 'common/events',
+            'aspect'        : 'common/aspect',
+            'attrs'         : 'common/attrs',
+            'base'          : 'common/base',
+            'widget'        : 'common/widget',
             'limit'         : 'common/limit',
-            'react'         : 'common/react',
-            'reactDOM'      : 'common/react-dom',
+            'react'         : 'bus/common/react',
+            'reactDOM'      : 'bus/common/react-dom',
             'reflux'        : 'common/reflux',
             '$'             : 'common/jquery',
-            '_'             : 'common/underscore1.8',
               //弹出层
+            "handlebars"    : "alinw/handlebars/1.3.0/handlebars", 
             "dialog"        : "alinw/dialog/2.0.6/dialog",
            //arale Base
             'araleBase'     : "arale/base/1.1.1/base",

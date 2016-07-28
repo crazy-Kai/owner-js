@@ -9,10 +9,10 @@
 define(function(require, exports) {
 
 	//依赖
-	var Class 	= require('class'),
-		Attrs 	= require('attrs'),
-		Aspect 	= require('aspect'),
-		limit 	= require('limit');
+	var Class 	= require('./class'),
+		Attrs 	= require('./attrs'),
+		Aspect 	= require('./aspect'),
+		limit 	= require('./limit');
 
 	//变量
 	var REX = /^on([A-Z])(.*)/;

@@ -4,7 +4,7 @@
  * 对ES的增强
  * version: 1.0.0
  */
-define(function(require, exports) {
+define(function(require,exports,module) {
 
 	// 依赖
 	var limitDom = require('./limit-dom');

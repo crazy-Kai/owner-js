@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="/src/css/main.css" type="text/css">
     <!-- 公用的js-->
    
-    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/bus/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/bus/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/bus/libs/seaConfig.js"></script>
 </head>
 <body>
  <!--   <div widget="modules/es6reactModules/main"></div> -->
  <div id="test"></div>
 	<script type="text/javascript">
-  		seajs.use(['modules/es6reactModules/main'], function(C){
+  		seajs.use(['bus/modules/es6reactModules/main'], function(C){
   			new C({element: '#test'})
   		})
 	</script>	
