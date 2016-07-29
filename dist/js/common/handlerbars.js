@@ -1,0 +1,1 @@
+define("js/common/handlerbars",[],function(require,exports,module){});

@@ -2,8 +2,8 @@ define(function(require,exports,module){
 	"use strict"
 	//引用
 	var React = require('react'),
-		ConnectActions = require('myReact/controller/connectActions'),
-		ListenToActions = require('myReact/controller/listenToActions')
+		ConnectActions = require('bus/myReact/controller/connectActions'),
+		ListenToActions = require('bus/myReact/controller/listenToActions')
 
 		
 	var Pushbutton = React.createClass({

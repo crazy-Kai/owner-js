@@ -113,14 +113,15 @@ if (isConfigFileExist) {
     //去掉path中配置的绝对路径
     var keys = [];
     var paths = configFileContent.paths = configFileContent.paths || {};
-    for (var key in paths) {
-        if (/^(https?:)?\/\//.test(paths[key])) {
-            keys.push(key);
-        }
-    }
-    for (var i = 0; i < keys.length; i++) {
-        delete paths[keys[i]];
-    }
+    console.log(isConfigFileExist)
+    // for (var key in paths) {
+    //     if (/^(https?:)?\/\//.test(paths[key])) {
+    //         keys.push(key);
+    //     }
+    // }
+    // for (var i = 0; i < keys.length; i++) {
+    //     delete paths[keys[i]];
+    // }
 }
 
 //依赖注入

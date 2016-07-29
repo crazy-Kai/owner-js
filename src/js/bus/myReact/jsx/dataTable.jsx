@@ -5,8 +5,8 @@ define(function(require,exports,module){
 		Reflux = require('reflux'),
 		Pushbutton = require('./pushbutton'),
 		DataRow = require('./dataRow'),
-		ListenToActions = require('myReact/controller/listenToActions'),
-		ListenToStore = require('myReact/controller/listenToStore');
+		ListenToActions = require('bus/myReact/controller/listenToActions'),
+		ListenToStore = require('bus/myReact/controller/listenToStore');
 	var DataTable = React.createClass({
 		mixins: [Reflux.listenTo(ListenToStore,'onChange')],
 

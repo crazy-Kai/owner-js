@@ -12,8 +12,8 @@ define(function (require, exports, module) {
 	    DataTable = require('./dataTable'),
 
 	//用reflux.connect方法来传递数据
-	ConnectActions = require('myReact/controller/connectActions'),
-	    ConnectStore = require('myReact/controller/connectStore');
+	ConnectActions = require('bus/myReact/controller/connectActions'),
+	    ConnectStore = require('bus/myReact/controller/connectStore');
 	var Container = React.createClass({
 		displayName: 'Container',
 

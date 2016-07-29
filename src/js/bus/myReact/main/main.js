@@ -6,7 +6,7 @@ define(function (require, exports, module) {
 
 	var React = require('react'),
 	    ReactDOM = require('reactDOM'),
-	    Container = require('myReact/jsx/reactContainer');
+	    Container = require('bus/myReact/jsx/reactContainer');
 
-	ReactDOM.render(React.createElement(Container, { sourceData: 'myReact/data.json' }), document.getElementById('test'));
+	ReactDOM.render(React.createElement(Container, { sourceData: 'bus/myReact/data.json' }), document.getElementById('test'));
 });
