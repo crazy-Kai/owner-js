@@ -1,1 +1,9 @@
-"use strict";define("js/common/jquery",[],function(require,exports){return jQuery});
+"use strict";
+/**
+ * jQuery 的桥梁
+ */
+define(function(require, exports) {
+
+	return jQuery;
+
+});

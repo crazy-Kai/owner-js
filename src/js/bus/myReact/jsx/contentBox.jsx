@@ -3,7 +3,7 @@ define(function(require,exports,module){
 	var React = require('react'),
 		Pushbutton = require('./pushbutton'),
 		util = require('common/util'),
-		ListenToActions = require('bus/myReact/controller/listenToActions');
+		ListenToActions = require('github/bus/myReact/controller/listenToActions');
 
 	var ContentBox = React.createClass({
 		 getInitialState: function() { 

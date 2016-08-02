@@ -1,9 +1,9 @@
 "use strict";
-define("js/bus/react/reflux/linstentTO-debug", ["react-debug", "reactDOM-debug", "js/bus/react/reflux/listenActions-debug", "reflux-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
-        ReactDOM = require("reactDOM-debug"),
+define("js/bus/react/reflux/linstentTO-debug", ["common/react-debug", "common/react-dom-debug", "js/bus/react/reflux/listenActions-debug", "common/reflux-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
+        ReactDOM = require("common/react-dom-debug"),
         Controller = require("js/bus/react/reflux/listenActions-debug"),
-        Reflux = require("reflux-debug"),
+        Reflux = require("common/reflux-debug"),
         TableBuild = React.createClass({
             displayName: "TableBuild",
             mixins: [Reflux.listenTo(Controller.Store, "onChanges")],
@@ -71,8 +71,8 @@ define("js/bus/react/reflux/linstentTO-debug", ["react-debug", "reactDOM-debug",
         });
     ReactDOM.render(React.createElement(TableBuild, null), document.getElementById("test"))
 });
-define("js/bus/react/reflux/listenActions-debug", ["reflux-debug"], function(require, exports, module) {
-    var Reflux = require("reflux-debug"),
+define("js/bus/react/reflux/listenActions-debug", ["common/reflux-debug"], function(require, exports, module) {
+    var Reflux = require("common/reflux-debug"),
         TableActions = Reflux.createActions(["getInit", "deleteName", "addName", "editName"]),
         TableStore = Reflux.createStore({
             listenables: [TableActions],

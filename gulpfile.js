@@ -21,13 +21,17 @@ const gulp = require('gulp'),
     gulpFilter = require("gulp-filter"),
     gulpif = require("gulp-if"),
     minifyCSS = require("gulp-minify-css"),
-    // GulpChanged = require("@ali/gulp-changed"),
+    GulpChanged = require("gulp-changed"),
     CmdNice = require("cmd-nice"),
     // getRepoInfo = require("libs/repoInfo"),
     argv = require("yargs").argv;
 // repoInfo = getRepoInfo(argv);
 
 //fn
+var isNotDebugFile = function(file) {
+    var stats = fs.lstatSync(file.path);
+    return stats.isFile() && !/\-debug.*?\.js/.test(file.path);
+};
 var isAbsolutePath = function(filePath) {
     //path.resolve(filePath) 返回的是源路径 //path.noemalize()返回的是符合规范的路径字符串
     return path.resolve(filePath) === path.normalize(filePath);
@@ -36,7 +40,7 @@ var filterByRequire = function(filePath, dependencyUtils, rootPath) {
     var keywords = StringUtils.lstrip(fs.realpathSync(filePath), {source: rootPath});
     keywords = StringUtils.lstrip(keywords, {source: "/"});
     var whoDepend = dependencyUtils.analyseWhoDepend(keywords);
-    return whoDepend.length > 0;
+    return whoDepend.length>0;
 };
 // 任务
 gulp.task('default', ['transport','concat_scripts','brow', 'watch']);
@@ -94,7 +98,7 @@ var configFileContent = {
     paths: {}
 };
 //获取seajs的配置项文件
-var seaCfgUrl = "/js/bus/libs/seaConfig.js";
+var seaCfgUrl = "/js/libs/seaConfig.js";
 
 var configFile = path.join(sourcePath, seaCfgUrl);
 var  alias,paths;
@@ -109,19 +113,19 @@ if (isConfigFileExist) {
     configFileContent = eval(configFileContent);
         alias = configFileContent.alias = configFileContent.alias || {};
         paths = configFileContent.paths = configFileContent.paths || {};
-        console.log(alias,paths)
+     
     //去掉path中配置的绝对路径
     var keys = [];
     var paths = configFileContent.paths = configFileContent.paths || {};
-    console.log(isConfigFileExist)
-    // for (var key in paths) {
-    //     if (/^(https?:)?\/\//.test(paths[key])) {
-    //         keys.push(key);
-    //     }
-    // }
-    // for (var i = 0; i < keys.length; i++) {
-    //     delete paths[keys[i]];
-    // }
+    
+    for (var key in paths) {
+        if (/^(https?:)?\/\//.test(paths[key])) {
+            keys.push(key);
+        }
+    }
+    for (var i = 0; i < keys.length; i++) {
+        delete paths[keys[i]];
+    }
 }
 
 //依赖注入
@@ -131,9 +135,9 @@ var dependencyUtils = new CmdNice.DependencyUtils({
     aliasPaths: configFileContent.paths
 });
 
-console.log(configFileContent.paths)
 //transportConfig 配置参数
 var transportConfig = {
+    
     debug: true,
     useCache: true,
     rootPath: sourcePath,
@@ -165,6 +169,7 @@ var debugOptions = {
     success: options.debug.success,
     fail: options.debug.fail
 };
+console.log(sourcePath)
 var getTransportSource = function() {
     return gulp.src([
         sourcePath + "/**/*.js",
@@ -175,15 +180,17 @@ var getTransportSource = function() {
         '!'+sourcePath + "/**/*.tpl"
     ]);
 };
+
 var handleTransport = function(source) {
     return source
         // 可能导致重复 concat
-        // .pipe(GulpChanged(distPath, {
-        //     extensions: {
-        //         '.handlebars': '.handlebars.js'
-        //     }
-        // }))
+        .pipe(GulpChanged(distPath, {
+            extensions: {
+                '.handlebars': '.handlebars.js'
+            }
+        }))
         .pipe(gulpFilter(function(file) {
+             console.log(filterByRequire(file.path, dependencyUtils, transportConfig.rootPath))
             var extName = path.extname(file.path);
             if (extName === ".js" || extName === ".jsx" || extName === ".handlebars" || extName === ".tpl"){
                 return true;
@@ -332,3 +339,5 @@ gulp.task('brow', () => {
         }
     });
 });
+
+console.log(dependencyUtils.analyseDependencies())

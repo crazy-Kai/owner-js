@@ -1,6 +1,6 @@
 "use strict";
-define("js/bus/myReact/controller/listenToStore-debug", ["react-debug", "reflux-debug", "common/util-debug", "js/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var Reflux = (require("react-debug"), require("reflux-debug")),
+define("js/bus/myReact/controller/listenToStore-debug", ["common/react-debug", "common/reflux-debug", "common/util-debug", "js/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
         util = require("common/util-debug"),
         ListenToActions = require("js/bus/myReact/controller/listenToActions-debug"),
         ListenToStore = Reflux.createStore({
@@ -46,8 +46,8 @@ define("js/bus/myReact/controller/listenToStore-debug", ["react-debug", "reflux-
     module.exports = ListenToStore
 });
 "use strict";
-define("js/bus/myReact/controller/listenToActions-debug", ["react-debug", "reflux-debug"], function(require, exports, module) {
-    var Reflux = (require("react-debug"), require("reflux-debug")),
+define("js/bus/myReact/controller/listenToActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
         ListenToActions = Reflux.createActions(["dataChange", "getInitData", "delete"]);
     module.exports = ListenToActions
 });

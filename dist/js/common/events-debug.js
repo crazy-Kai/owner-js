@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/events-debug", ["class-debug"], function(require, exports) {
+define("js/common/events-debug", ["common/class-debug"], function(require, exports) {
     function getNameSpace(type) {
         if (Rex.test(type)) return {
             eventType: RegExp.$1,
@@ -33,7 +33,7 @@ define("js/common/events-debug", ["class-debug"], function(require, exports) {
             f.apply(context, args) === !1 && (val = !1)
         }), val
     }
-    var Class = require("class-debug"),
+    var Class = require("common/class-debug"),
         Rex = /(\w+)\.?(.*)/,
         arrProSlice = Array.prototype.slice,
         Events = Class.create({

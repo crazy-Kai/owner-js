@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/attrs-debug", ["class-debug"], function(require, exports) {
+define("js/common/attrs-debug", ["common/class-debug"], function(require, exports) {
     function K(k) {
         return k
     }
@@ -68,7 +68,7 @@ define("js/common/attrs-debug", ["class-debug"], function(require, exports) {
         var val;
         return noSetGet(option) ? option && option.value : (val = option.get.call(attrs), val && val.__isAttr__ ? fixGet(val, attrs) : val)
     }
-    var Class = require("class-debug"),
+    var Class = require("common/class-debug"),
         objectDefineProperty = Object.defineProperty,
         isEcma5 = (Object.getOwnPropertyDescriptor, !!Object.create),
         REX = /\w+/g,

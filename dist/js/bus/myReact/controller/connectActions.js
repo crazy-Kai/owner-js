@@ -1,1 +1,12 @@
-"use strict";define("js/bus/myReact/controller/connectActions",["react","reflux"],function(require,exports,module){var Reflux=(require("react"),require("reflux")),ConnectActions=Reflux.createActions(["add","getTarget"]);module.exports=ConnectActions});
+'use strict';
+
+define(function (require, exports, module) {
+  "use strict";
+  //依赖
+
+  var React = require('react'),
+      Reflux = require('reflux'),
+      ConnectActions = Reflux.createActions(['add', "getTarget"]);
+
+  module.exports = ConnectActions;
+});

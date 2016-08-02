@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/base-debug", ["js/common/class-debug", "js/common/attrs-debug", "class-debug", "js/common/aspect-debug", "events-debug", "js/common/limit-debug", "js/common/limit-dom-debug"], function(require, exports) {
+define("js/common/base-debug", ["js/common/class-debug", "js/common/attrs-debug", "common/class-debug", "js/common/aspect-debug", "common/events-debug", "js/common/limit-debug", "js/common/limit-dom-debug"], function(require, exports) {
     function bindEvent(me) {
         var attrsName = (me.getAttrs("attrs"), me.getAttrs("attrsName"));
         me.limit.breakEach(attrsName, function(key) {
@@ -822,7 +822,7 @@ define("js/common/limit-dom-debug", [], function(require, exports) {
     return limitDom.isChrome = !!WIN.chrome, limitDom
 });
 "use strict";
-define("js/common/attrs-debug", ["class-debug"], function(require, exports) {
+define("js/common/attrs-debug", ["common/class-debug"], function(require, exports) {
     function K(k) {
         return k
     }
@@ -891,7 +891,7 @@ define("js/common/attrs-debug", ["class-debug"], function(require, exports) {
         var val;
         return noSetGet(option) ? option && option.value : (val = option.get.call(attrs), val && val.__isAttr__ ? fixGet(val, attrs) : val)
     }
-    var Class = require("class-debug"),
+    var Class = require("common/class-debug"),
         objectDefineProperty = Object.defineProperty,
         isEcma5 = (Object.getOwnPropertyDescriptor, !!Object.create),
         REX = /\w+/g,
@@ -965,7 +965,7 @@ define("js/common/attrs-debug", ["class-debug"], function(require, exports) {
     return Attrs
 });
 "use strict";
-define("js/common/aspect-debug", ["events-debug", "class-debug"], function(require, exports) {
+define("js/common/aspect-debug", ["common/events-debug"], function(require, exports) {
     function indexOfArr(arr, ele, formIndex) {
         if (arr.indexOf) return arr.indexOf(ele, formIndex);
         var length = arr.length;
@@ -981,7 +981,7 @@ define("js/common/aspect-debug", ["events-debug", "class-debug"], function(requi
             return args.unshift("beforeMethod." + methodName), me.trigger.apply(me, args) === !1 ? me : (args.shift(), val = oldMethod.apply(me, args), args.unshift(val), args.unshift("afterMethod." + methodName), me.trigger.apply(me, args), val)
         }, newMethod.__isAspect__ = !0)
     }
-    var Events = require("events-debug"),
+    var Events = require("common/events-debug"),
         arrProSlice = Array.prototype.slice,
         except = ["trigger"],
         Aspect = Events.extend({

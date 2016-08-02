@@ -14,9 +14,9 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/common/widgets-debug", ["reactDOM-debug", "react-debug", "common/limit2-debug.0"], function(require, exports, module) {
-    var ReactDOM = require("reactDOM-debug"),
-        React = require("react-debug"),
+define("js/common/widgets-debug", ["common/react-dom-debug", "common/react-debug", "common/limit2-debug.0"], function(require, exports, module) {
+    var ReactDOM = require("common/react-dom-debug"),
+        React = require("common/react-debug"),
         limit = require("common/limit2-debug.0"),
         Widget = function() {
             function Widget(config) {

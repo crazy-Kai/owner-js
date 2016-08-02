@@ -31,9 +31,9 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/common/hoc-debug", ["react-debug", "reflux-debug", "common/limit2-debug.0"], function(require, exports) {
-    var React = require("react-debug"),
-        Reflux = require("reflux-debug"),
+define("js/common/hoc-debug", ["common/react-debug", "common/reflux-debug", "common/limit2-debug.0"], function(require, exports) {
+    var React = require("common/react-debug"),
+        Reflux = require("common/reflux-debug"),
         limit = require("common/limit2-debug.0");
     return function(Wrapper, Controller) {
         Controller = Reflux.connect(Controller.Store);

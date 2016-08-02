@@ -1,1 +1,19 @@
-"use strict";define("js/common/limit-dom",[],function(require,exports){var limitDom={},WIN=window;WIN.document;return limitDom.isChrome=!!WIN.chrome,limitDom});
+"use strict";
+/**
+ * 2015.02.28
+ * dom工具类
+ * version: 1.0.0
+ */
+define(function(require, exports) {
+
+	//变量
+	var limitDom = {},
+		WIN = window,
+		DOC = WIN.document;
+
+	// chrom浏览器
+	limitDom.isChrome = !!WIN.chrome;
+
+	return limitDom;
+
+});

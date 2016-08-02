@@ -31,7 +31,7 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/model/es6reactModules/main-debug", ["js/model/es6reactModules/index-debug", "common/hoc-debug", "js/model/es6reactModules/view-debug", "react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug", "common/widget-debug"], function(require, exports, module) {
+define("js/model/es6reactModules/main-debug", ["js/model/es6reactModules/index-debug", "common/hoc-debug", "js/model/es6reactModules/view-debug", "common/react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug", "common/widget-debug"], function(require, exports, module) {
     return function(_require) {
         function myWidget() {
             return _classCallCheck(this, myWidget), _possibleConstructorReturn(this, Object.getPrototypeOf(myWidget).apply(this, arguments))
@@ -45,7 +45,7 @@ define("js/model/es6reactModules/main-debug", ["js/model/es6reactModules/index-d
     }(require("common/widget-debug"))
 });
 "use strict";
-define("js/model/es6reactModules/index-debug", ["common/hoc-debug", "js/model/es6reactModules/view-debug", "react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug"], function(require, exports, module) {
+define("js/model/es6reactModules/index-debug", ["common/hoc-debug", "js/model/es6reactModules/view-debug", "common/react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug"], function(require, exports, module) {
     return require("common/hoc-debug")(require("js/model/es6reactModules/view-debug"), require("js/model/es6reactModules/controller-debug"))
 });
 "use strict";
@@ -81,8 +81,8 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/model/es6reactModules/view-debug", ["react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/model/es6reactModules/view-debug", ["common/react-debug", "js/model/es6reactModules/controller-debug", "common/controller-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         Actions = require("js/model/es6reactModules/controller-debug").Actions,
         View = function(_React$Component) {
             function View() {

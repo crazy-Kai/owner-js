@@ -1,7 +1,7 @@
 "use strict";
-define("js/bus/react/main/main-debug", ["react-debug", "reactDOM-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
-        ReactDOM = require("reactDOM-debug"),
+define("js/bus/react/main/main-debug", ["common/react-debug", "common/react-dom-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
+        ReactDOM = require("common/react-dom-debug"),
         data = [{
             name: "wuxiaowen"
         }, {

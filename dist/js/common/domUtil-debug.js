@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/domUtil-debug", ["$-debug", "common/util-debug", "common/limit-debug", "common/handlerbars-debug"], function(require, exports, module) {
+define("js/common/domUtil-debug", ["common/jquery-debug", "common/util-debug", "common/limit-debug", "common/handlerbars-debug"], function(require, exports, module) {
     function request(URL, DATA, TYPE, CALLBACK, CONFIG) {
         return CONFIG = CONFIG || {}, void 0 === CONFIG.needPop && (CONFIG.needPop = !0), CONFIG.needPop && Poploading.show(CONFIG), $.ajax({
             url: URL,
@@ -20,7 +20,7 @@ define("js/common/domUtil-debug", ["$-debug", "common/util-debug", "common/limit
     function requestParam(URL, DATA, TYPE, CALLBACK, CONFIG) {
         return "function" == typeof DATA ? (CALLBACK = maybeCallback(DATA), DATA = {}, TYPE = "post") : "function" == typeof TYPE ? (CALLBACK = maybeCallback(TYPE), TYPE = "post") : CALLBACK = maybeCallback(CALLBACK), [URL, DATA, TYPE, CALLBACK, CONFIG]
     }
-    var $ = require("$-debug"),
+    var $ = require("common/jquery-debug"),
         util = require("common/util-debug"),
         limit = require("common/limit-debug"),
         handlerbars = require("common/handlerbars-debug"),

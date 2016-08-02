@@ -1,7 +1,7 @@
 "use strict";
-define("js/bus/myReact/jsx/reactContainer-debug", ["react-debug", "reactDOM-debug", "reflux-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "js/bus/myReact/jsx/contentBox-debug", "common/util-debug", "js/bus/myReact/jsx/dataTable-debug", "js/bus/myReact/jsx/dataRow-debug", "bus/myReact/controller/listenToStore-debug", "bus/myReact/controller/connectStore-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
-        Reflux = (require("reactDOM-debug"), require("reflux-debug")),
+define("js/bus/myReact/jsx/reactContainer-debug", ["common/react-debug", "common/react-dom-debug", "common/reflux-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "js/bus/myReact/jsx/contentBox-debug", "common/util-debug", "github/bus/myReact/controller/listenToActions-debug", "js/bus/myReact/jsx/dataTable-debug", "js/bus/myReact/jsx/dataRow-debug", "bus/myReact/controller/listenToStore-debug", "bus/myReact/controller/connectStore-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
+        Reflux = (require("common/react-dom-debug"), require("common/reflux-debug")),
         Pushbutton = require("js/bus/myReact/jsx/pushbutton-debug"),
         ContentBox = require("js/bus/myReact/jsx/contentBox-debug"),
         DataTable = require("js/bus/myReact/jsx/dataTable-debug"),
@@ -75,8 +75,8 @@ define("js/bus/myReact/jsx/reactContainer-debug", ["react-debug", "reactDOM-debu
     module.exports = Container
 });
 "use strict";
-define("js/bus/myReact/jsx/pushbutton-debug", ["react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         ConnectActions = require("bus/myReact/controller/connectActions-debug"),
         ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
         Pushbutton = React.createClass({
@@ -109,11 +109,11 @@ define("js/bus/myReact/jsx/pushbutton-debug", ["react-debug", "bus/myReact/contr
     module.exports = Pushbutton
 });
 "use strict";
-define("js/bus/myReact/jsx/contentBox-debug", ["react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/bus/myReact/jsx/contentBox-debug", ["common/react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug", "github/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         Pushbutton = require("js/bus/myReact/jsx/pushbutton-debug"),
         util = require("common/util-debug"),
-        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
+        ListenToActions = require("github/bus/myReact/controller/listenToActions-debug"),
         ContentBox = React.createClass({
             displayName: "ContentBox",
             getInitialState: function() {
@@ -190,9 +190,9 @@ define("js/bus/myReact/jsx/contentBox-debug", ["react-debug", "js/bus/myReact/js
     return ContentBox
 });
 "use strict";
-define("js/bus/myReact/jsx/dataTable-debug", ["react-debug", "reflux-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "js/bus/myReact/jsx/dataRow-debug", "common/util-debug", "bus/myReact/controller/listenToStore-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
-        Reflux = require("reflux-debug"),
+define("js/bus/myReact/jsx/dataTable-debug", ["common/react-debug", "common/reflux-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "js/bus/myReact/jsx/dataRow-debug", "common/util-debug", "bus/myReact/controller/listenToStore-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
+        Reflux = require("common/reflux-debug"),
         DataRow = (require("js/bus/myReact/jsx/pushbutton-debug"), require("js/bus/myReact/jsx/dataRow-debug")),
         ListenToStore = (require("bus/myReact/controller/listenToActions-debug"), require("bus/myReact/controller/listenToStore-debug")),
         DataTable = React.createClass({
@@ -259,9 +259,9 @@ define("js/bus/myReact/jsx/dataTable-debug", ["react-debug", "reflux-debug", "js
     module.exports = DataTable
 });
 "use strict";
-define("js/bus/myReact/jsx/dataRow-debug", ["common/util-debug", "react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+define("js/bus/myReact/jsx/dataRow-debug", ["common/util-debug", "common/react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
     var util = require("common/util-debug"),
-        React = require("react-debug"),
+        React = require("common/react-debug"),
         Pushbutton = require("js/bus/myReact/jsx/pushbutton-debug"),
         DataRow = React.createClass({
             displayName: "DataRow",

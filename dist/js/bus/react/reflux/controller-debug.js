@@ -1,5 +1,5 @@
-define("js/bus/react/reflux/controller-debug", ["reflux-debug"], function(require, exports, module) {
-    var Reflux = require("reflux-debug"),
+define("js/bus/react/reflux/controller-debug", ["common/reflux-debug"], function(require, exports, module) {
+    var Reflux = require("common/reflux-debug"),
         TableActions = Reflux.createActions(["deleteName", "addName", "editName"]),
         TableStore = Reflux.createStore({
             listenables: [TableActions],

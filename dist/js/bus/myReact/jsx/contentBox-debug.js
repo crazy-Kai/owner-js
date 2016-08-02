@@ -1,9 +1,9 @@
 "use strict";
-define("js/bus/myReact/jsx/contentBox-debug", ["react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/bus/myReact/jsx/contentBox-debug", ["common/react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug", "github/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         Pushbutton = require("js/bus/myReact/jsx/pushbutton-debug"),
         util = require("common/util-debug"),
-        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
+        ListenToActions = require("github/bus/myReact/controller/listenToActions-debug"),
         ContentBox = React.createClass({
             displayName: "ContentBox",
             getInitialState: function() {
@@ -80,8 +80,8 @@ define("js/bus/myReact/jsx/contentBox-debug", ["react-debug", "js/bus/myReact/js
     return ContentBox
 });
 "use strict";
-define("js/bus/myReact/jsx/pushbutton-debug", ["react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         ConnectActions = require("bus/myReact/controller/connectActions-debug"),
         ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
         Pushbutton = React.createClass({

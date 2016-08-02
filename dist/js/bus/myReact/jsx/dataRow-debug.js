@@ -1,7 +1,7 @@
 "use strict";
-define("js/bus/myReact/jsx/dataRow-debug", ["common/util-debug", "react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+define("js/bus/myReact/jsx/dataRow-debug", ["common/util-debug", "common/react-debug", "js/bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
     var util = require("common/util-debug"),
-        React = require("react-debug"),
+        React = require("common/react-debug"),
         Pushbutton = require("js/bus/myReact/jsx/pushbutton-debug"),
         DataRow = React.createClass({
             displayName: "DataRow",
@@ -28,8 +28,8 @@ define("js/bus/myReact/jsx/dataRow-debug", ["common/util-debug", "react-debug", 
     module.exports = DataRow
 });
 "use strict";
-define("js/bus/myReact/jsx/pushbutton-debug", ["react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var React = require("react-debug"),
+define("js/bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
         ConnectActions = require("bus/myReact/controller/connectActions-debug"),
         ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
         Pushbutton = React.createClass({

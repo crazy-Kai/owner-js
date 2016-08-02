@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/aspect-debug", ["events-debug", "class-debug"], function(require, exports) {
+define("js/common/aspect-debug", ["common/events-debug"], function(require, exports) {
     function indexOfArr(arr, ele, formIndex) {
         if (arr.indexOf) return arr.indexOf(ele, formIndex);
         var length = arr.length;
@@ -15,7 +15,7 @@ define("js/common/aspect-debug", ["events-debug", "class-debug"], function(requi
             return args.unshift("beforeMethod." + methodName), me.trigger.apply(me, args) === !1 ? me : (args.shift(), val = oldMethod.apply(me, args), args.unshift(val), args.unshift("afterMethod." + methodName), me.trigger.apply(me, args), val)
         }, newMethod.__isAspect__ = !0)
     }
-    var Events = require("events-debug"),
+    var Events = require("common/events-debug"),
         arrProSlice = Array.prototype.slice,
         except = ["trigger"],
         Aspect = Events.extend({

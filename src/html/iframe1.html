@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe1</title>
+	<link rel="stylesheet" href="/src/css/main.css" type="text/css">
+	<script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
+</head>
+<body>
+	<div id="main"></div>
+	<script>
+	$(window).on("message",function(event){
+		alert(event)
+	})
+	</script>
+</body>
+</html>
