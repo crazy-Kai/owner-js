@@ -9,11 +9,21 @@
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
 </head>
 <body>
-	<div id="main"></div>
+	<div id="message"></div>
 	<script>
-	$(window).on("message",function(event){
-		alert(event)
+	$(function(){
+		window.top.postMessage("cao ni ma ","http://192.168.1.100:8006")
 	})
+	console.log(333	)
+	window.addEventListener('message', function(event){
+			 //$('#message').html( $('#message').html()+ '<br>' +event.data)
+        	//console.log('in frame',event.data, event.origin);
+	        // 通过origin属性判断消息来源地址
+	        console.log(1114234234231)
+	       window.alert(111323242341)
+	            $('#message').html( $('#message').html()+ '<br>' +event.data)
+	        
+    	}, false);
 	</script>
 </body>
 </html>

@@ -9,9 +9,10 @@
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
 </head>
 <body>
-	<iframe id="iframe1" src="src/html/iframe1.html" frameborder="1px" width="400px" height="200px" style="margin:0 auto; margin-top:50px;"></iframe>
+	<iframe id="iframe1" name="test" src="http://192.168.1.100:8006/src/html/iframe1.html" frameborder="1px" width="400px" height="200px" style="margin:0 auto; margin-top:50px;"></iframe>
+	<div id="message"></div>
 	<script>
-	seajs.use(['bus/postMessage/main'])
+	seajs.use(['bus/postMssage/main'])
 	</script>
 </body>
 </html>

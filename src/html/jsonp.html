@@ -15,26 +15,26 @@
 
         // 简写形式，效果相同  
 
-        $.getJSON("http://127.0.0.1:8004/src/html/jsonp.json?callback=receive",
-            function(receive) {
+        // $.getJSON("http://127.0.0.1:8004/src/html/jsonp.json?callback=receive",
+        //     function(receive) {
 
-                $("#showcontent").text("Result:" +receive.c)
-            })
+        //         $("#showcontent").text("Result:" +receive.c)
+        //     })
 
-        // $.ajax({  
-        //        type : "post",  
-        //        async:false,  
-        //        url : "http://127.0.0.1:8004/src/html/jsonp.json",  
-        //        dataType : "jsonp",//数据类型为jsonp  
-        //        jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数  
-        //        jsonpCallback: "receive",
-        //        success : function(data){  
-        //            $("#showcontent").text("Result:"+data.c)  
-        //        },  
-        //        error:function(){
-        //                    alert('fail');  
-        //        }  
-        //    });   
+        $.ajax({  
+               type : "post",  
+               async:false,  
+               url : "http://127.0.0.1:8004/src/html/jsonp.json",  
+               dataType : "jsonp",//数据类型为jsonp  
+               jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数  
+               jsonpCallback: "receive",
+               success : function(data){  
+                   $("#showcontent").text("Result:"+data.c)  
+               },  
+               error:function(){
+                           alert('fail');  
+               }  
+           });   
     })
     </script>
     <div id="showcontent">Result:</div>
