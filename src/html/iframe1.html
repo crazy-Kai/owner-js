@@ -11,9 +11,15 @@
 <body>
 	<div id="main"></div>
 	<script>
-	$(window).on("message",function(event){
-		alert(event)
-	})
+	window.addEventListener('message', function(event){
+			 //$('#message').html( $('#message').html()+ '<br>' +event.data)
+        	//console.log('in frame',event.data, event.origin);
+	        // 通过origin属性判断消息来源地址
+	  
+	            // $('#message').html( $('#message').html()+ '<br>' +event.data)
+	            console.log("1111")
+	       
+    	}, false);
 	</script>
 </body>
 </html>
