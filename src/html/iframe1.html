@@ -11,28 +11,14 @@
 <body>
 	<div id="message"></div>
 	<script>
-<<<<<<< HEAD
-=======
 	$(function(){
-		window.top.postMessage("cao ni ma ","http://192.168.1.100:8006")
+		window.top.postMessage("what are you doing now? ","http://127.0.0.1:8004")
 	})
-	console.log(333	)
->>>>>>> d95b183efde50710930ab9bce72aaae0350cefa1
 	window.addEventListener('message', function(event){
 			 //$('#message').html( $('#message').html()+ '<br>' +event.data)
         	//console.log('in frame',event.data, event.origin);
 	        // 通过origin属性判断消息来源地址
-<<<<<<< HEAD
-	  
-	            // $('#message').html( $('#message').html()+ '<br>' +event.data)
-	            console.log("1111")
-	       
-=======
-	        console.log(1114234234231)
-	       window.alert(111323242341)
-	            $('#message').html( $('#message').html()+ '<br>' +event.data)
-	        
->>>>>>> d95b183efde50710930ab9bce72aaae0350cefa1
+	         $('#message').html( $('#message').html()+ '<br>' +event.data)
     	}, false);
 	</script>
 </body>

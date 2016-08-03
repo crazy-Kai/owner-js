@@ -1,7 +1,14 @@
 "use strict";
 define(function(require,exports,module){
-	$(function(){
-		$("#iframe1")[0].contentWindow.postMessage("welcome to my home!~~","http://30.10.1.168:8004")
+	window.onload = function(){
+		var fram = document.getElementById("iframe1");
+		fram.contentWindow.postMessage("welcome to my home!~~","http://127.0.0.1:8008/src/html/iframe1.html")
 
-	})
+	}
+
+	window.addEventListener("message",function(event){
+	      $("#message").html(event.data)
+
+	},false)
+	
 })
