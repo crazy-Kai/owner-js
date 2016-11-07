@@ -35,31 +35,26 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("common/hoc-debug", ["common/react-debug", "common/reflux-debug", "common/limit2-debug.0"], function(require, exports) {
+define("model/es6reactModules/view-debug", ["common/react-debug", "model/es6reactModules/controller-debug", "common/controller-debug", "common/reflux-debug", "common/limit2-debug.0", "modules/ajax/main-debug"], function(require, exports, module) {
     var React = require("common/react-debug"),
-        Reflux = require("common/reflux-debug"),
-        limit = require("common/limit2-debug.0");
-    return function(Wrapper, Controller) {
-        Controller = Reflux.connect(Controller.Store);
-        var state = Controller.getInitialState();
-        delete Controller.getInitialState;
-        var WrapperComponent = function(_React$Component) {
-            function WrapperComponent() {
-                var _Object$getPrototypeO;
-                _classCallCheck(this, WrapperComponent);
-                for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
-                var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(WrapperComponent)).call.apply(_Object$getPrototypeO, [this].concat(args)));
-                return _this.state = limit.assign(state, _this.props), _this
+        Actions = require("model/es6reactModules/controller-debug").Actions,
+        View = function(_React$Component) {
+            function View() {
+                return _classCallCheck(this, View), _possibleConstructorReturn(this, Object.getPrototypeOf(View).apply(this, arguments))
             }
-            return _inherits(WrapperComponent, _React$Component), _createClass(WrapperComponent, [{
+            return _inherits(View, _React$Component), _createClass(View, [{
                 key: "render",
                 value: function() {
-                    return React.createElement(Wrapper, this.state)
+                    var me = this,
+                        props = me.props;
+                    return React.createElement("div", null, props.a, " ", props.b, " ", React.createElement("a", {
+                        href: "javascript:;",
+                        onClick: Actions.add
+                    }, "点击"))
                 }
-            }]), WrapperComponent
+            }]), View
         }(React.Component);
-        return limit.extend(WrapperComponent.prototype, Controller), WrapperComponent
-    }
+    return View
 });
 "use strict";
 
@@ -94,26 +89,31 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("model/es6reactModules/view-debug", ["common/react-debug", "model/es6reactModules/controller-debug", "common/controller-debug", "common/reflux-debug", "common/limit2-debug.0", "modules/ajax/main-debug"], function(require, exports, module) {
+define("common/hoc-debug", ["common/react-debug", "common/reflux-debug", "common/limit2-debug.0"], function(require, exports) {
     var React = require("common/react-debug"),
-        Actions = require("model/es6reactModules/controller-debug").Actions,
-        View = function(_React$Component) {
-            function View() {
-                return _classCallCheck(this, View), _possibleConstructorReturn(this, Object.getPrototypeOf(View).apply(this, arguments))
+        Reflux = require("common/reflux-debug"),
+        limit = require("common/limit2-debug.0");
+    return function(Wrapper, Controller) {
+        Controller = Reflux.connect(Controller.Store);
+        var state = Controller.getInitialState();
+        delete Controller.getInitialState;
+        var WrapperComponent = function(_React$Component) {
+            function WrapperComponent() {
+                var _Object$getPrototypeO;
+                _classCallCheck(this, WrapperComponent);
+                for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+                var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(WrapperComponent)).call.apply(_Object$getPrototypeO, [this].concat(args)));
+                return _this.state = limit.assign(state, _this.props), _this
             }
-            return _inherits(View, _React$Component), _createClass(View, [{
+            return _inherits(WrapperComponent, _React$Component), _createClass(WrapperComponent, [{
                 key: "render",
                 value: function() {
-                    var me = this,
-                        props = me.props;
-                    return React.createElement("div", null, props.a, " ", props.b, " ", React.createElement("a", {
-                        href: "javascript:;",
-                        onClick: Actions.add
-                    }, "点击"))
+                    return React.createElement(Wrapper, this.state)
                 }
-            }]), View
+            }]), WrapperComponent
         }(React.Component);
-    return View
+        return limit.extend(WrapperComponent.prototype, Controller), WrapperComponent
+    }
 });
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
