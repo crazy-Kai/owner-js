@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>iframe1</title>
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
+</head>
+
+<body>
+    <div id="message"></div>
+    <script>
+    //而这里没有用window.onload()方法是因为父窗口的所有资源已经全部加在完毕了，所以这里用$(function(){}方法已不会影响postMessage方法传送数据了！)
+    $(function() {
+        window.top.postMessage("what are you doing now? ", "http://127.0.0.1:8004")
+    })
+    //原声的捕获postMessage消息方法
+    // window.addEventListener('message', function(event) {
+    //     if (event.origin === "http://127.0.0.1:8004") {
+
+    //         alert('接收父窗口的数据')
+    //             //$('#message').html( $('#message').html()+ '<br>' +event.data)
+    //             //console.log('in frame',event.data, event.origin);
+    //             // 通过origin属性判断消息来源地址
+    //         $('#message').html($('#message').html() + '<br>' + event.data)
+    //     }
+    // }, false)
+//jquery捕获postMessage消息方法
+$(window).on("message",function(event){
+	console.log(event)
+	if(event.originalEvent.origin  === "http://127.0.0.1:8004"){
+			 alert('接收父窗口的数据')
+			   $('#message').html($('#message').html() + '<br>' + event.originalEvent.data)
+	}
+	
+})
+    </script>
+</body>
+
+</html>

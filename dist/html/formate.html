@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //格式化日期 ? 代表 {0,1}没有则别配前一个
+    var formatDataRex = /^(yyyy)(.MM)?(.dd)?(.HH)?(.mm)?(.ss)?$/,
+        formatDataFoo = ['getFullYear', 'getMonth', 'getDate', 'getHours', 'getMinutes', 'getSeconds'];
+    //函数:增加0
+    function formatDataAddZero(val) {
+        return ('00' + val).slice(-2);
+    }
+    var date = new Date();
+    //Data.parse()函数 ie不能识别
+    var timestamp = Date.parse(date); //(Date.parse()方法，解析字符串并返回当前时间的毫秒数)
+    console.log(timestamp)
+
+    function formatData(format, timestamp) {
+        
+        var date = arguments.length === 1 ? new Date() : new Date(timestamp);
+        if (!isNaN(+date)) {
+            return format.replace(formatDataRex, function() {
+
+                var val,
+                    obj,
+                    arr = [];
+                console.log(arguments);
+                // while(obj=arguments[++index] ){
+                // 	val = date[formatDataFoo[index - 1]]();
+                // 	//年份的处理
+                // 	if(index === 1){
+                // 		arr.push(''+val);
+                // 	}else{
+                // 		//月份的处理
+                // 		index === 2 && val++;
+                // 		arr.push(obj.slice(0, 1) + formatDataAddZero(val));
+                // 	}
+                // }
+                for (var index = 1; index < arguments.length; index++) {
+                    if (obj = arguments[index]) {
+                        val = date[formatDataFoo[index - 1]]();
+                        if (index === 1) {
+                            arr.push("" + val);
+                        } else {
+                            index ===2 && val++
+                            arr.push(obj.slice(0, 1) + formatDataAddZero(val));
+                        }
+                    } else {
+                        break;
+                    }
+
+
+                }
+                return arr.join('');
+            });
+        }
+    }
+    console.log(formatData("yyyy-MM-dd HH:mm:ss"));
+
+    //检验 Date.parse() ie 下的兼容性问题!
+    var startTime = "2012-03-06",
+        endTime = "2016-06-17",
+        bengin = new Date(startTime),
+        endTime = new Date(endTime),
+        result = Date.parse(endTime) - Date.parse(bengin),
+        benginTime = Date.parse(endTime);
+    window.alert(result, benginTime);
+    //显示NaN,说明ie 浏览器不支持Date.parse()用于计算2个时间的间隔！
+    //方法一：
+    // ~~ 按非位操作符
+    function random(form, to) {
+        //将参数强制类型转换为number 
+        var form = ~~form,
+            to = ~~to,
+            max = Math.max(form, to),
+            min = Math.min(form, to);
+        //Math.random()取0-1之间的随机数
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+
+    function whois(array) {
+        window.alert("恭喜今天的幸运儿是：" + array[random(array.length - 1)]);
+    }
+    whois(["村姑", "宝剑", "阿斌", "小太阳", "骄妹", "老陈醋", "吴大大"]);
+    //方法二：
+    function getName(array) {
+        window.alert("恭喜今天的幸运儿是：" + array[Math.floor(Math.random() * array.length)]);
+    }
+    getName(["村姑", "宝剑", "阿斌", "小太阳", "骄妹", "老陈醋", "吴大大"]);
+    //两者的区别：    
+    // 方法一随机数可取到传入的参数中的最大一个值，而方法二取到的随机数只能是0～传入参数array.length 之间的值，却取不到array.length这个随机数
+
+    //操作符 ～～和＋的区别
+    var sign = "0.1";
+    console.log(~~sign, +sign); //
+
+    var undefineds = undefined;
+    console.log(+undefineds, ~~undefined);
+    //共同点：两者都是将字符串类型转化为数字类型；
+    //区别在于：＋操作符 是用Number()方法来实现类型转换的，而～操作符是将字符串转化成2进制，返回将原来的数转换成负数再加上负一的整数，而～～操作符就是将字符串转换成number类型并且是整数！
+    </script>
+</body>
+
+</html>

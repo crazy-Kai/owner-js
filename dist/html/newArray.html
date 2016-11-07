@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //便利循环二维数组
+    var arr = [
+        [1, 2],
+        [3, 4],
+        [5, 6],
+        [7, 8],
+        [9, 10]
+    ];
+    for (var i = 0; i < arr.length; i++) {
+        var arrs = arr[i];
+        for (var j = 0; j < arrs.length; j++) {
+            //console.log(arrs[j]);
+        }
+
+    };
+    //冒泡排序；
+    var arrs = [1, 3, 6, 7, 4, 5, 9, 0,11 ];
+    for (var i = 1; i < arrs.length; i++) {
+       
+        //i代表循环次数
+        for (var j = 0; j < arrs.length - i; j++) {
+            console.log(j)
+            //j代表元素的下标
+            if (arrs[j] > arrs[j + 1]) {
+                var temp = arrs[j];
+                arrs[j] = arrs[j + 1];
+                arrs[j + 1] = temp;
+            }
+            console.log(arrs)
+        }
+    }
+    console.log(arrs);
+   var limit = {},
+       objectProto  = Object.prototype,
+       toString = objectProto.toString;
+    'String,Number,Array,Date,RegExp,Error,Math'.replace(/\w+/g, function(k){
+        console.log(k)
+            limit['is' + k] = function(n){
+                return toString.call(n) === '[object '+k+']';
+            };
+        });
+console.log(limit.isNumber(22),toString.call(11) )
+
+//Object.prototype.toString.call(n) 表示判断n的数据类型！而不是把N转换成字符串类型
+    </script>
+</body>
+
+</html>

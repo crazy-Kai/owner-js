@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" charset="utf-8" src="../../src/js/libs/jQuery.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var count = 20;
+
+    function addCount() {
+        count += 10;
+        return count;
+    }
+    console.log(addCount(count), count);
+    //参数是按值传递的，count是个基本类型！
+    function setName(obj) {
+        obj.name = "村姑";
+        obj = new Object();
+        obj.name = "宝剑";
+        console.log(obj.name) //
+    }
+    var object = {};
+    setName(object);
+    console.log(object.name) //
+       
+    </script>
+</body>
+
+</html>

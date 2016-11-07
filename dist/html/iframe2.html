@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe2</title>
+	<link rel="stylesheet" href="/src/css/main.css" type="text/css">
+	<script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
+</head>
+<body>
+	<div id="message"></div>
+	<script type="text/javascript">
+	 $(window).on("message",function(event){
+	 	if(event.originalEvent.origin === "http://127.0.0.1:8004"){
+	 		
+	 		$("#message").html(event.originalEvent.data);
+
+	 	}
+	 })
+	</script>
+</body>
+</html>

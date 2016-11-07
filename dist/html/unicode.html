@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var obj = {
+        "胆大": "心细"
+    }
+    document.write(JSON.stringify(obj));
+    /*string.replace(reg,function(){match,p1,p1,offset,string})方法：
+			第一个参数是正则表达式，表要要匹配的正则表达式，返回匹配的字符串
+			第二个参数是一个fn，返回值将代替第一个参数所匹配的结果
+			fn方法中的参数一共有4中：
+			1：macth,返回正则表达式所匹配的所有字符串
+			2：p1，返回正则中第一个（）内所匹配的字符串
+			3：offset，返回所匹配的字符串在原来字符串的偏离位置
+			4：string,返回原本的字符串
+			而function内的arguments包含以上这4种所有参数的返回值
+			正则表达式中"\\"特殊字符代表"\"
+			parseInt（p1,16）方法:
+			把p1返回的字符串强制转成16进制的unicode (number);
+			String.fromCharCode(parseInt(p1,16)):
+			是把指定的16进制的unicode码转换成中文！
+			string.charCodeAt(i):
+			将指定位置的字符转换成unicode码
+			string.charAt()返回指定位置的字符！
+		 */
+    function transcoding(object) {
+        var string = JSON.stringify(object),
+            reg = /\\u([0-9A-Fa-f]{4,})/g;
+
+        return string.replace(reg, function(matched, p1) {
+            //这里的arguments 代表的是function这个方法里的所有参数包括上述4种参数的值
+            // console.log(matched)
+            //这里是把第一个括号里必配得到的字符串强制转换成16进制的数字，最后通过String.fromCharCode方法将其转成中文并替换正则表达式匹配得到的结果！
+            //String.fromCharCode()把指定的unicode转换成字符串且unicode必须是16进制的正整数(number)
+            //String.fromCharCode的参数更准确接收的是number，不是所有的unicode,所以只有把unicode先强制转换成number类型
+            var a = '{"user":"' + matched + '"}';
+            var b = JSON.parse(a),
+                c = b.user;
+            return c;
+            // return String.fromCharCode(parseInt(p1, 16)); //方法一先将字面量的unicode表达式\u后面的字符串转换成16进制的数字，然后用String.fromCharCode方法将其转换成中文
+            // return c;//方法二直接用JSON.parse()方法将字面量格式的unicode转换成中文
+        });
+
+    }
+    document.write(transcoding(obj))
+        // 把中文字符串转换成unicode编码;
+    var strs = "打扫打扫",
+        arrs = [];
+    for (var j = 0; j < strs.length; j++) {
+
+
+        arrs.push("\\u" + strs.charCodeAt(j).toString(16))
+    }
+    console.log(arrs.join(""));
+    document.write(transcoding(strs));
+    //中文和unicode编码互相转换的列子：
+    var strings = "中文";
+    var a = strings.charCodeAt(0); //转换成unicode;
+    var b = String.fromCharCode(a); //转换成中文；
+    var c = "\\u" + a.toString(16); //将中文的unicode编码转换成字面量表示法，需要先将charCodeAt()方法得到的unicode转换成16进制的字符串，然后加上\u;
+    var json = '{"user":"' + c + '"}';
+    var parseJson = JSON.parse(json);
+    var result = parseJson.user; //得到的是转意后的中文！
+    console.log(a, b, c, result);
+    //escape和unescaspe的用法
+    var escapes = escape("Visit W3School!"),
+        unescape = unescape(escapes);
+    document.write(escape("Visit W3School!") + "<br />");
+    document.write(unescape);
+    //该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _ + . / 。其他所有的字符都会被转义序列替换。
+    //parsInt();
+    parseInt("010") //没有第2参数的情况下，0开头的，字符串转换成数字，默认是转成10进制的，而不是8进制！
+    parseInt("0xFFA") //没有第2个参数的情况下，0X开头的的，字符串转换成数字，默认是将0x后面的字符转换成16进制的！
+        //toString()
+        (0731).toString() //没有参数的情况下，0开头的数字转换成字符串，默认是转成10进制的，而不是8进制的！
+        (0xFFA).toString() //没有参数的情况下，0X开头的数字转换成字符串，默认是转成10进制的，而不是16进制的，这个和parseInt()方法的区别在这里！
+    </script>
+</body>
+
+</html>

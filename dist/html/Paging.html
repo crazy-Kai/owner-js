@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +17,17 @@
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
 </head>
+<body>
 
-<body style="background:#eff7cb">
-    <div id="test" class="lc-center-wrap"></div>
-        
-    <script type="text/javascript">
-        seajs.use(['bus/myReact/main/main']);
-    </script>
-
+	<script type="text/javascript">
+			seajs.use(['model/Paging/main'],function(Main){
+					new Main({
+						totle:100,
+						nowTarget:1,
+						size:10,
+						diff:3
+					})
+			})
+	</script>
 </body>
-
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .fixed {
+        table-layout: fixed;
+        word-wrap: break-word;
+        white-space: nowrap;
+        word-break: break-all;
+        /*边框与边框之间的距离*/
+        /* cellspadding:单元格的内边距，但只有left，right方向的距离，并没有垂直方向上的内边距; */
+        /*cellspacing:单元格与单元格之间的间距，但要注意它代表的是每个单元格,和border-spacing这个属性作用是一样的，但border-spacing代表的是边框与边框之间的间距--------所以cellpsacing和cellpadding两个属性很少用*/
+        border-spacing: 4px;
+    }
+    
+    .fixed td {
+        border: 1px solid #ddd;
+        padding: 6px 9px;
+        line-height: 18px;
+        text-align: center;
+    }
+    /*多出的字用省略号代替  */
+    
+    .ellipsis {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+    /* 让汉子和英文两端对齐 */
+    /*.text{
+		text-align: justify;
+		letter-spacing:-.15em;
+	}*/
+    /*letter-spacing和word-spacing之间的区别
+       letter-spacing代表每个字母之间的区别，
+       而word-sapcing代表每个单词之间的区别
+       重要的事word-spacing对中文无效1
+	*/
+    
+    #box {
+        font-family: "微软雅黑";
+    }
+    /*table如果未设固定宽度的话，又是用table的百分比和单元格的宽度来设定单元格宽度的话，随着页面的放大缩小单元格内的内容会叠在一起，要是给了固定宽度就不会有上述问题*/
+    </style>
+</head>
+
+<body>
+    <div class="900px" style="margin:0 auto;">
+        <table class="fixed" width="100%">
+            <thead>
+                <tr>
+                    <th width="100">名字</th>
+                    <th width="100">年龄</th>
+                    <th>住址</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="100" class="ellipsis">吴凯大师的撒打算的</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦dfsdfsdfdsfsdf发生大法师打发第三方士大夫士大夫的师傅的说法是的范德萨范德萨范德萨瑞特让他热太热太热太热太热太热太热他</td>
+                </tr>
+                <tr>
+                    <td width="100">吴凯</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦</td>
+                </tr>
+                <tr>
+                    <td width="100">吴凯</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦</td>
+                </tr>
+                <tr>
+                    <td width="100">吴凯</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦</td>
+                </tr>
+                <tr>
+                    <td width="100">吴凯</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦</td>
+                </tr>
+                <tr>
+                    <td width="100">吴凯</td>
+                    <td width="100">27</td>
+                    <td>撒旦撒旦撒旦撒旦撒旦撒旦撒旦撒旦</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="box" style="margin-top:10px;padding:5px 20px">
+        的刷卡机返回多少空间换房间看电视客服电话付款单是否可见当时金卡戴珊 看到回复的时间看房活动空间是否进口 动画分开都是开放的数据库恢复就看到,回复可见当时看积分换就是打开后房价的还,是看的空间划分的首.付款的设计开发就打开后房价快速的恢复健康决定.是否进口的还是快发货的时刻发挥空间的！！！！！！！！！！！！是否可见的时》刻就发货速度快结婚快的撒旦撒旦撒倒萨大的撒旦撒旦撒倒萨大就是大家的时间撒旦撒旦撒旦dssffsdfsdfdsfsf撒旦多少分多少分活动空间和国《家考试辅导和会计师费贷款机构和疯狂的集合计划价格范德萨范德萨发生发生的！发的是打发斯蒂芬！第三方第三方是的发送到！的范德萨发的所发生的！
+
+        kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+    </div>
+    <script>
+    var box = document.getElementById("box")
+    // box.style.textAlign = "justify";
+    box.style.letterSpacing = '-.15em'; /*(字体间距)*/
+    box.innerHTML = box.innerHTML.split("").join(" ");
+    /*如何有英文字母的片段*/
+    /*box.innerHTML.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '').split("").join(" ").replace(/\s{3}/g, " &nbsp; ");*/
+    </script>
+</body>
+
+</html>
