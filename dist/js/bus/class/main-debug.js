@@ -38,7 +38,7 @@ var _extends = Object.assign || function(target) {
             return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
         }
     }();
-define("js/bus/class/main-debug", ["react-addons-pure-render-mixin-debug"], function(require, exports, module) {
+define("bus/class/main-debug", ["react-addons-pure-render-mixin-debug"], function(require, exports, module) {
     var Video2 = (React.createClass({
         displayName: "Photo1",
         render: function() {

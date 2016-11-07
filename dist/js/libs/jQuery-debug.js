@@ -3220,13 +3220,13 @@
                 }, n, a ? i : t, a, null)
             }
         })
-    }), e.jQuery = e.$ = b, "function" == typeof define && define.amd && define.amd.jQuery && define("js/libs/jQuery-debug", [], function() {
+    }), e.jQuery = e.$ = b, "function" == typeof define && define.amd && define.amd.jQuery && define("libs/jQuery-debug", [], function() {
         return b
     })
 }(window),
 function(t, e) {
     "use strict";
-    "function" == typeof define && define.amd ? define("js/libs/jQuery-debug", [], e) : "object" == typeof exports ? module.exports = e() : t.returnExports = e()
+    "function" == typeof define && define.amd ? define("libs/jQuery-debug", [], e) : "object" == typeof exports ? module.exports = e() : t.returnExports = e()
 }(this, function() {
     var v, t = Array.prototype,
         e = Object.prototype,
@@ -3754,7 +3754,7 @@ function(t, e) {
 }),
 function(e, t) {
     "use strict";
-    "function" == typeof define && define.amd ? define("js/libs/jQuery-debug", [], t) : "object" == typeof exports ? module.exports = t() : e.returnExports = t()
+    "function" == typeof define && define.amd ? define("libs/jQuery-debug", [], t) : "object" == typeof exports ? module.exports = t() : e.returnExports = t()
 }(this, function() {
     var n, o, c, i, e = Function.prototype.call,
         t = Object.prototype,

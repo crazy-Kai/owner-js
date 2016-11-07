@@ -1,5 +1,5 @@
 "use strict";
-define("js/bus/es6/es6test/es6-debug", [], function(require, exprots, module) {
+define("bus/es6/es6test/es6-debug", [], function(require, exprots, module) {
     var test = 2,
         promise = new Promise(function(resolve, reject) {
             1 === test ? resolve() : reject()

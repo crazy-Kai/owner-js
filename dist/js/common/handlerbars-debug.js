@@ -1,1 +1,1 @@
-define("js/common/handlerbars-debug", [], function(require, exports, module) {});
+define("common/handlerbars-debug", [], function(require, exports, module) {});

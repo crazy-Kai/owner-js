@@ -14,7 +14,7 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/bus/class/classTest-debug", [], function(require, exports, module) {
+define("bus/class/classTest-debug", [], function(require, exports, module) {
     var Point = function() {
         function Point(x, y) {
             _classCallCheck(this, Point), Object.assign(this, {

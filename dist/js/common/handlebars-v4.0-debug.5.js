@@ -1,5 +1,5 @@
 ! function(root, factory) {
-    "object" == typeof exports && "object" == typeof module ? module.exports = factory() : "function" == typeof define && define.amd ? define("js/common/handlebars-v4.0-debug.5", [], factory) : "object" == typeof exports ? exports.Handlebars = factory() : root.Handlebars = factory()
+    "object" == typeof exports && "object" == typeof module ? module.exports = factory() : "function" == typeof define && define.amd ? define("common/handlebars-v4.0-debug.5", [], factory) : "object" == typeof exports ? exports.Handlebars = factory() : root.Handlebars = factory()
 }(this, function() {
     return function(modules) {
         function __webpack_require__(moduleId) {

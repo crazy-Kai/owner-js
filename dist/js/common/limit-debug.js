@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require, exports, module) {
+define("common/limit-debug", ["common/limit-dom-debug"], function(require, exports, module) {
     function equalBase(a, b, type) {
         var fn = WIN[type];
         return fn(a) === fn(b)
@@ -121,7 +121,7 @@ define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require,
             })
         })
     }
-    var limitDom = require("js/common/limit-dom-debug"),
+    var limitDom = require("common/limit-dom-debug"),
         limit = {},
         arrayProto = Array.prototype,
         objectProto = Object.prototype,
@@ -714,7 +714,7 @@ define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require,
     }, limit
 });
 "use strict";
-define("js/common/limit-dom-debug", [], function(require, exports) {
+define("common/limit-dom-debug", [], function(require, exports) {
     var limitDom = {},
         WIN = window;
     WIN.document;

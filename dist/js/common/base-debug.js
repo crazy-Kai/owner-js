@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/base-debug", ["js/common/class-debug", "js/common/attrs-debug", "common/class-debug", "js/common/aspect-debug", "common/events-debug", "js/common/limit-debug", "js/common/limit-dom-debug"], function(require, exports) {
+define("common/base-debug", ["common/class-debug", "common/attrs-debug", "common/aspect-debug", "common/events-debug", "common/limit-debug", "common/limit-dom-debug"], function(require, exports) {
     function bindEvent(me) {
         var attrsName = (me.getAttrs("attrs"), me.getAttrs("attrsName"));
         me.limit.breakEach(attrsName, function(key) {
@@ -9,10 +9,10 @@ define("js/common/base-debug", ["js/common/class-debug", "js/common/attrs-debug"
             }
         })
     }
-    var Class = require("js/common/class-debug"),
-        Attrs = require("js/common/attrs-debug"),
-        Aspect = require("js/common/aspect-debug"),
-        limit = require("js/common/limit-debug"),
+    var Class = require("common/class-debug"),
+        Attrs = require("common/attrs-debug"),
+        Aspect = require("common/aspect-debug"),
+        limit = require("common/limit-debug"),
         REX = /^on([A-Z])(.*)/,
         Base = Class.create({
             Implements: [Attrs, Aspect, {
@@ -42,7 +42,7 @@ define("js/common/base-debug", ["js/common/class-debug", "js/common/attrs-debug"
     return Base
 });
 "use strict";
-define("js/common/class-debug", [], function(require, exports) {
+define("common/class-debug", [], function(require, exports) {
     function noName(key) {
         return "extend" !== key && "superClass" !== key
     }
@@ -100,7 +100,7 @@ define("js/common/class-debug", [], function(require, exports) {
     }, Class
 });
 "use strict";
-define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require, exports, module) {
+define("common/limit-debug", ["common/limit-dom-debug"], function(require, exports, module) {
     function equalBase(a, b, type) {
         var fn = WIN[type];
         return fn(a) === fn(b)
@@ -222,7 +222,7 @@ define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require,
             })
         })
     }
-    var limitDom = require("js/common/limit-dom-debug"),
+    var limitDom = require("common/limit-dom-debug"),
         limit = {},
         arrayProto = Array.prototype,
         objectProto = Object.prototype,
@@ -815,14 +815,14 @@ define("js/common/limit-debug", ["js/common/limit-dom-debug"], function(require,
     }, limit
 });
 "use strict";
-define("js/common/limit-dom-debug", [], function(require, exports) {
+define("common/limit-dom-debug", [], function(require, exports) {
     var limitDom = {},
         WIN = window;
     WIN.document;
     return limitDom.isChrome = !!WIN.chrome, limitDom
 });
 "use strict";
-define("js/common/attrs-debug", ["common/class-debug"], function(require, exports) {
+define("common/attrs-debug", ["common/class-debug"], function(require, exports) {
     function K(k) {
         return k
     }
@@ -965,7 +965,7 @@ define("js/common/attrs-debug", ["common/class-debug"], function(require, export
     return Attrs
 });
 "use strict";
-define("js/common/aspect-debug", ["common/events-debug"], function(require, exports) {
+define("common/aspect-debug", ["common/events-debug", "common/class-debug"], function(require, exports) {
     function indexOfArr(arr, ele, formIndex) {
         if (arr.indexOf) return arr.indexOf(ele, formIndex);
         var length = arr.length;
@@ -995,4 +995,91 @@ define("js/common/aspect-debug", ["common/events-debug"], function(require, expo
             }
         });
     return Aspect
+});
+"use strict";
+define("common/events-debug", ["common/class-debug"], function(require, exports) {
+    function getNameSpace(type) {
+        if (Rex.test(type)) return {
+            eventType: RegExp.$1,
+            nameSpace: RegExp.$2
+        }
+    }
+
+    function removeTarget(arr, tar) {
+        var index = indexOf(arr, tar);
+        index !== -1 && arr.splice(index, 1)
+    }
+
+    function indexOf(arr, ele, formIndex) {
+        if (arr.indexOf) {
+            var length = arr.length;
+            for (formIndex = ~~formIndex; formIndex < length; formIndex++)
+                if (arr[formIndex] === ele) return formIndex;
+            return -1
+        }
+        return arr.indexOf(ele, formIndex)
+    }
+
+    function forEach(arr, callback) {
+        if (arr.forEach) return arr.forEach(callback);
+        for (var index = 0, length = arr.length; index < length; index++) callback(arr[index], index, arr)
+    }
+
+    function eachTrigger(arr, context, args) {
+        var val = !0;
+        return forEach(arr.slice(0), function(f) {
+            f.apply(context, args) === !1 && (val = !1)
+        }), val
+    }
+    var Class = require("common/class-debug"),
+        Rex = /(\w+)\.?(.*)/,
+        arrProSlice = Array.prototype.slice,
+        Events = Class.create({
+            add: function(type, callback) {
+                var meEventsSpace, meEventsNameSpace, me = this,
+                    meEvents = me.__events__,
+                    ns = getNameSpace(type);
+                return ns && (meEvents || (meEvents = me.__events__ = {}), (meEventsSpace = meEvents[ns.eventType]) || (meEventsSpace = meEvents[ns.eventType] = []), meEventsSpace.push(callback), ns.nameSpace && ((meEventsNameSpace = meEventsSpace[ns.nameSpace]) || (meEventsNameSpace = meEventsSpace[ns.nameSpace] = []), meEventsNameSpace.push(callback))), me
+            },
+            remove: function(type) {
+                var meEventsSpace, meEventsNameSpace, me = this,
+                    meEvents = me.__events__,
+                    ns = getNameSpace(type);
+                ns && meEvents && (meEventsSpace = meEvents[ns.eventType]) && (ns.nameSpace ? ((meEventsNameSpace = meEventsSpace[ns.nameSpace]) && forEach(meEventsNameSpace, function(a) {
+                    removeTarget(meEventsSpace, a)
+                }), delete meEventsSpace[ns.nameSpace]) : delete meEvents[ns.eventType])
+            },
+            on: function(type, callback) {
+                var me = this;
+                return forEach(type.split(","), function(a) {
+                    me.add(a, callback)
+                }), me
+            },
+            off: function(type) {
+                var me = this;
+                return forEach(type.split(","), function(a) {
+                    me.remove(a)
+                }), me
+            },
+            once: function(type, callback) {
+                var me = this;
+                return forEach(type.split(","), function(a) {
+                    me.on(a, function() {
+                        me.off(a), callback.call(this)
+                    })
+                }), me
+            },
+            trigger: function(type, context) {
+                var meEventsSpace, meEventsNameSpace, me = this,
+                    meEvents = me.__events__,
+                    args = arrProSlice.call(arguments),
+                    ns = getNameSpace(args.shift());
+                return !(ns && meEvents && (meEventsSpace = meEvents[ns.eventType])) || (ns.nameSpace ? (meEventsNameSpace = meEventsSpace[ns.nameSpace]) && eachTrigger(meEventsNameSpace, me, args) : eachTrigger(meEventsSpace, me, args))
+            },
+            clearEvents: function() {
+                var me = this;
+                return delete me.__events__, me
+            }
+        });
+    return Events
 });

@@ -26,6 +26,16 @@ const gulp = require('gulp'),
     // getRepoInfo = require("libs/repoInfo"),
     argv = require("yargs").argv;
 // repoInfo = getRepoInfo(argv);
+var del = require('del');
+// 所有任务之前先清除dist目录
+gulp.task('del', function(){
+    del.sync(['dist']);
+    console.log('清除dist目录');
+});
+
+// gulp.tasks.transport.dep.push('del');
+// // gulp.tasks.less.dep.push('del');
+// gulp.tasks.copy.dep.push('del');
 
 //fn
 var isNotDebugFile = function(file) {
@@ -126,7 +136,6 @@ if (isConfigFileExist) {
         delete paths[keys[i]];
     }
 }
-console.log(configFileContent.alias)
 //依赖注入
 var dependencyUtils = new CmdNice.DependencyUtils({
     rootPath: sourcePath,
@@ -139,9 +148,9 @@ var transportConfig = {
     
     debug: true,
     useCache: true,
-    rootPath: sourcePath,
+    rootPath: sourcePath + '/js',
     paths: [
-        sourcePath
+        sourcePath + '/js'
     ],
     ignoreTplCompile: !!argv.ignoreTplCompile,
     alias: configFileContent.alias,
@@ -162,7 +171,7 @@ var transportConfig = {
 //debugOptions配置
 var debugOptions = {
     paths: [
-        distPath
+        distPath + '/js'
     ],
     total: options.debug.total,
     success: options.debug.success,
@@ -189,7 +198,7 @@ var handleTransport = function(source) {
         //     }
         // }))
         .pipe(gulpFilter(function(file) {
-             console.log(filterByRequire(file.path, dependencyUtils, transportConfig.rootPath))
+        
             var extName = path.extname(file.path);
             if (extName === ".js" || extName === ".jsx" || extName === ".handlebars" || extName === ".tpl"){
                 return true;
@@ -219,7 +228,7 @@ var handleTransport = function(source) {
                 file.extname = ".js";
             }
         }))
-        .pipe(gulp.dest(distPath))
+        .pipe(gulp.dest(distPath ))
         .pipe(GulpCmdNice.cmdDebug(debugOptions))
         .pipe(rename(function(file) {
             var extName = path.extname(file.basename);
@@ -231,24 +240,23 @@ var handleTransport = function(source) {
                 file.extname = "-debug" + extName + file.extname;
             }
         }))
-        .pipe(gulp.dest(distPath))
+        .pipe(gulp.dest(distPath ))
 };
 
 gulp.task("transport", function() {
     return handleTransport(getTransportSource());
 });
- console.log(distPath)
 //合并
 gulp.task("concat_scripts", ["transport"], function() {
     var source = distPath + "/**/*.js";
    
-    return gulp.src(source, { base: distPath + "/" })
+    return gulp.src(source, { base: distPath + "/js/" })
         .pipe(gulpFilter(function(file) {
             return path.extname(file.path) === ".js";
         }))
         .pipe(GulpCmdNice.cmdConcat({
             paths: [
-                distPath
+                distPath + '/js'
             ],
             useCache: false,
             // idp: function(name) {
@@ -265,7 +273,7 @@ gulp.task("concat_scripts", ["transport"], function() {
             fail: options.concat.fail
         }))
        
-        .pipe(gulp.dest(distPath));
+        .pipe(gulp.dest(distPath + '/js'));
 });
 
 gulp.task("copy", function() {
@@ -301,7 +309,7 @@ gulp.task("watch", () => {
         console.log('files:' + e.path + 'was' + e.type + ',running tasks ....[babel]');
         babelTask(e);
     })
-    gulp.watch('./src/css/**/*.less', ['less'])
+    gulp.watch('src/css/**/*.less', ['less'])
 })
 
 //less
@@ -316,7 +324,7 @@ gulp.task('less', () => {
 })
 //css压缩
 gulp.task("cssmin", ["less"], function() {
-    return gulp.src("./src/css/**/*.css")
+    return gulp.src("src/css/**/*.css")
         .pipe(minifyCSS({
             keepBreaks:false,
             keepSpecialComments: 0,
@@ -329,16 +337,10 @@ gulp.task("cssmin", ["less"], function() {
         .pipe(rename({suffix: '-min'}))
         .pipe(gulp.dest(distPath));
 });
-//css 压缩
-// 静态服务
-gulp.task('brow', () => {
-    browserSync({
-        files: ['./src/css/**/*.css', './src/js/**/*.js', './src/html/**/*.html'],
-        server: {
-            baseDir: "./"
-        }
-    });
-});
+
+gulp.tasks.transport.dep.push('del');
+// gulp.tasks.less.dep.push('del');
+gulp.tasks.copy.dep.push('del');
 
 //任务
 gulp.task('default', ['concat_scripts']);

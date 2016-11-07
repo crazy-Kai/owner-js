@@ -332,7 +332,7 @@
             } else g.appendChild(c.createTextNode(e));
             f || (a = g)
         }
-    }, define("js/libs/sea-debug", [], {})
+    }, define("libs/sea-debug", [], {})
 }(), ! function() {
     function a(a) {
         h[a.name] = a
@@ -403,5 +403,5 @@
         b && (d(a.requestUri, function(c) {
             h[b].exec(a.uri, c), a.onRequest()
         }), a.requested = !0)
-    }), define("js/libs/sea-debug", [], {})
+    }), define("libs/sea-debug", [], {})
 }();

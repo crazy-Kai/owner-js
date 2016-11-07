@@ -1,1 +1,0 @@
-"use strict";define("js/bus/myReact/controller/connectActions",["common/react","common/reflux"],function(require,exports,module){var Reflux=(require("common/react"),require("common/reflux")),ConnectActions=Reflux.createActions(["add","getTarget"]);module.exports=ConnectActions});

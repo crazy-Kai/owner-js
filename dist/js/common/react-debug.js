@@ -1,4 +1,4 @@
-define("js/common/react-debug", [], function(require, exports, module) {
+define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = f();
         else if ("function" == typeof define && define.amd) define([], f);

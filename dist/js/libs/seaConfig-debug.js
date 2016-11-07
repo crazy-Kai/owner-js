@@ -28,7 +28,7 @@
     return "undefined" != typeof seajs && (config.paths = {
         github: "http://wu-xiao-wen.github.io/src/js",
         arale: "https://a.alipayobjects.com/arale"
-    }, seajs.config(config)), "function" == typeof define && define("js/libs/seaConfig-debug", [], function(require, exports, module) {
+    }, seajs.config(config)), "function" == typeof define && define("libs/seaConfig-debug", [], function(require, exports, module) {
         module.exports = config
     }), config
 }();

@@ -1,4 +1,4 @@
 "use strict";
-define("js/common/jquery-debug", [], function(require, exports) {
+define("common/jquery-debug", [], function(require, exports) {
     return jQuery
 });

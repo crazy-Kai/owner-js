@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/class-debug", [], function(require, exports) {
+define("common/class-debug", [], function(require, exports) {
     function noName(key) {
         return "extend" !== key && "superClass" !== key
     }

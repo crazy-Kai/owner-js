@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/myUtil-debug", [], function(require, exports) {
+define("common/myUtil-debug", [], function(require, exports) {
     function formatDataAddZero(val) {
         return ("00" + val).slice(-2)
     }

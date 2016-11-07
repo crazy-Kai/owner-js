@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/data-debug", [], function(require, exports, module) {
+define("common/data-debug", [], function(require, exports, module) {
     return {
         152522: ["阿巴嘎旗", "152500"],
         513231: ["阿坝县", "513200"],

@@ -3,7 +3,7 @@
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function")
 }
-define("js/bus/objectExtends/main-debug", [], function(require, exports, module) {
+define("bus/objectExtends/main-debug", [], function(require, exports, module) {
     function Item(x, y) {
         this.name = x, this.old = this.name + y
     }

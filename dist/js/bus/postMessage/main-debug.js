@@ -1,5 +1,5 @@
 "use strict";
-define("js/bus/postMessage/main-debug", [], function(require, exports, module) {
+define("bus/postMessage/main-debug", [], function(require, exports, module) {
     window.onload = function() {
         var fram = document.getElementById("iframe1");
         fram.contentWindow.postMessage("welcome to my home!~~", "http://127.0.0.1:8007")

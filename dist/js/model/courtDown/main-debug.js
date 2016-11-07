@@ -14,7 +14,7 @@ var _createClass = function() {
         return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor
     }
 }();
-define("js/model/courtDown/main-debug", [], function(require, exports, module) {
+define("model/courtDown/main-debug", [], function(require, exports, module) {
     var CourtDown = function() {
             function CourtDown(timestamp) {
                 _classCallCheck(this, CourtDown), Object.assign(this, {

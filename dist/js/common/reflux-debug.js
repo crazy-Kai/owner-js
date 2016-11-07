@@ -1,4 +1,4 @@
-define("js/common/reflux-debug", [], function(require, exports, module) {
+define("common/reflux-debug", [], function(require, exports, module) {
     ! function(a) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = a();
         else if ("function" == typeof define && define.amd) define([], a);

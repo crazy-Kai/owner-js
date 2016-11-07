@@ -1,1 +1,0 @@
-define("js/common/handlerbars-debug", [], function(require, exports, module) {});

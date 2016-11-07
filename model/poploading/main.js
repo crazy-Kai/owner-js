@@ -1,1 +1,0 @@
-"use strict";define("js/model/poploading/main",["common/jquery","common/widget"],function(require,exports,module){require("common/jquery"),require("common/widget");return Poploading});

@@ -1,5 +1,5 @@
 "use strict";
-define("js/common/voidWidget-debug", ["arale-base-debug", "jquery-debug", "-debug"], function(require, exports, module) {
+define("common/voidWidget-debug", ["arale-base-debug", "jquery-debug", "-debug"], function(require, exports, module) {
     function uniqueCid() {
         return "widget-" + cidCounter++
     }
