@@ -343,4 +343,4 @@ gulp.tasks.transport.dep.push('del');
 gulp.tasks.copy.dep.push('del');
 
 //任务
-gulp.task('default', ['concat_scripts']);
+gulp.task('default', ['concat_scripts','copy']);
