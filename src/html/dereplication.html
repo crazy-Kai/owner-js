@@ -24,6 +24,7 @@
                 return true;
                 // 方法内只要返回true 函数就会将参数item 返回出去并组成一个新的数组
             };
+            console.log(array.indexOf(item),index)
             //保留item在数组中的下标等于当前filter方法循环次数的index的item元素，即（删除重复的item）
             return array.indexOf(item) === index;
             //这里的操作新创建的数组不会改变到原来的数组

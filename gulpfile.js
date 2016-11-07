@@ -42,8 +42,7 @@ var filterByRequire = function(filePath, dependencyUtils, rootPath) {
     var whoDepend = dependencyUtils.analyseWhoDepend(keywords);
     return whoDepend.length>0;
 };
-// 任务
-gulp.task('default', ['transport','concat_scripts','brow', 'watch']);
+
 
 // console.log( process.cwd())
 
@@ -127,7 +126,7 @@ if (isConfigFileExist) {
         delete paths[keys[i]];
     }
 }
-
+console.log(configFileContent.alias)
 //依赖注入
 var dependencyUtils = new CmdNice.DependencyUtils({
     rootPath: sourcePath,
@@ -169,7 +168,7 @@ var debugOptions = {
     success: options.debug.success,
     fail: options.debug.fail
 };
-console.log(sourcePath)
+
 var getTransportSource = function() {
     return gulp.src([
         sourcePath + "/**/*.js",
@@ -184,11 +183,11 @@ var getTransportSource = function() {
 var handleTransport = function(source) {
     return source
         // 可能导致重复 concat
-        .pipe(GulpChanged(distPath, {
-            extensions: {
-                '.handlebars': '.handlebars.js'
-            }
-        }))
+        // .pipe(GulpChanged(distPath, {
+        //     extensions: {
+        //         '.handlebars': '.handlebars.js'
+        //     }
+        // }))
         .pipe(gulpFilter(function(file) {
              console.log(filterByRequire(file.path, dependencyUtils, transportConfig.rootPath))
             var extName = path.extname(file.path);
@@ -238,10 +237,11 @@ var handleTransport = function(source) {
 gulp.task("transport", function() {
     return handleTransport(getTransportSource());
 });
+ console.log(distPath)
 //合并
 gulp.task("concat_scripts", ["transport"], function() {
     var source = distPath + "/**/*.js";
-    
+   
     return gulp.src(source, { base: distPath + "/" })
         .pipe(gulpFilter(function(file) {
             return path.extname(file.path) === ".js";
@@ -250,8 +250,8 @@ gulp.task("concat_scripts", ["transport"], function() {
             paths: [
                 distPath
             ],
-            useCache: true,
-            // idExtractor: function(name) {
+            useCache: false,
+            // idp: function(name) {
             //     var pattern = new RegExp(idRule("(.*)", true), "g");
             //     var matched = pattern.exec(name);
             //     if (matched) {
@@ -340,4 +340,5 @@ gulp.task('brow', () => {
     });
 });
 
-console.log(dependencyUtils.analyseDependencies())
+//任务
+gulp.task('default', ['concat_scripts']);

@@ -4,7 +4,7 @@
     var config = {
        
          //基础路径
-        base: "/src/js/",
+        base: "/src/js/bus/",
         //配置路径
         paths: {
             'github'        : 'http://wu-xiao-wen.github.io/src/js',
@@ -36,6 +36,7 @@
         debug: true
     };
    if (typeof seajs !== 'undefined') {
+    console.log(config)
         config.paths = {
             'github'     : 'http://wu-xiao-wen.github.io/src/js',
             //支付宝

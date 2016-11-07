@@ -22,7 +22,8 @@
     function getCount() {
         var n = 1;
         return function() {
-            return n++;
+             n++;
+             return n;
         }
     }
     result = getCount();
@@ -64,12 +65,18 @@
         //var j = theForm.length;     
         //alert(j);
         for (var i = 0; i < theForm.length; i++) {
-            theForm[i].onclick = (function(num) {
-                return function() {
+            // theForm[i].onclick = (function(num) {
+            //     return function() {
+            //         alert(num);
+            //     }
+
+            // })(i);
+            (function(num){
+                theForm[i].onclick = function(){
                     alert(num);
                 }
-
-            })(i);
+            
+            })(i)
 
         }
 
@@ -95,9 +102,18 @@
             return id++;
         }
     })();
+
     var newId1 = GetId();
     var newId2 = GetId();
-    console.log(newId1,newId2)
+    console.log(newId1,newId2);
+     (function(){
+        var a = 1;
+       function test(){
+        return a;
+       }
+       test()   
+    })()
+
     </script>
 </body>
 

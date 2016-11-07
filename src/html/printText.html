@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自动打印出字体</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="http://wu-xiao-wen.github.io/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+    <script type="text/javascript" charset="utf-8" src="http://wu-xiao-wen.github.io/src/js/libs/jQuery.js"></script>
+</head>
+<body>
+<div class="fn-PosRel fn-W1000 fn-H650 fn-BGC-eaf7ff" style="margin:0 auto;">
+    <div class="fn-PosAbs fn-LH30"  >
+        <span id="printMyLove" class="fn-FS14 fn-FWB"></span>
+        <span id ="sign" class="fn-disInBl" style="height:30px;width:5px;background: red;vertical-align: -10px;"></span>
+    </div>
+</div>
+    <script>
+     var str = "不管这条路有多么艰辛，我都会一直咬牙坚持下去，毕竟我爱我现在所做的事我爱我身边的人",
+            i = 0,
+            targetText;
+            var a = setInterval(test,200),bbbb = null;
+               
+            
+
+   
+  
+  function test(){
+    targetText = str.slice(0,i++);
+    $('#printMyLove').html(targetText)
+    console.log(i,str.length)
+   if(i  === str.length){
+     
+        clearInterval(a);
+        if(bbbb){
+            clearInterval(bbbb)
+        }
+       
+        var b =setInterval(function(){
+        targetText = str.slice(0,i--);
+        $('#printMyLove').html(targetText)
+        if(i == 0){
+            clearInterval(b);
+             $('#printMyLove').html("");
+              bbbb = setInterval(test,200)
+             
+        }},100)
+   }
+  }
+          
+            
+        function switchVisibility(){
+            var sign = $('#sign');
+            if (sign.is(':visible')){
+                sign.hide()
+            }else if (sign.is(':hidden')){
+                sign.show() 
+            }
+
+        }
+       setInterval(switchVisibility,100)
+    </script>
+</body>
+
+</html>
