@@ -71,6 +71,62 @@ define("bus/react/reflux/linstentTO-debug", ["common/react-debug", "common/react
         });
     ReactDOM.render(React.createElement(TableBuild, null), document.getElementById("test"))
 });
+define("bus/react/reflux/listenActions-debug", ["common/reflux-debug"], function(require, exports, module) {
+    var Reflux = require("common/reflux-debug"),
+        TableActions = Reflux.createActions(["getInit", "deleteName", "addName", "editName"]),
+        TableStore = Reflux.createStore({
+            listenables: [TableActions],
+            store: {
+                data: [{
+                    name: "wuxiaowen"
+                }, {
+                    name: "wukai"
+                }, {
+                    name: "一丙"
+                }, {
+                    name: "保健"
+                }],
+                key: ""
+            },
+            init: function() {
+                this.onGetInit()
+            },
+            onGetInit: function() {
+                var me = this;
+                window.setTimeout(function() {
+                    me.trigger(me.store)
+                }, 0)
+            },
+            onDeleteName: function(event) {
+                var self = this,
+                    target = $(event.target),
+                    index = target.data("index");
+                self.store.data.splice(index - 1, 1), self.trigger(self.store)
+            },
+            onEditName: function(event, myInput) {
+                var self = this,
+                    index = $(event.target).data("index"),
+                    key = index - 1,
+                    value = self.store.data[key].name,
+                    input = myInput;
+                input.value = value, self.store.key = key, input.nextSibling.textContent = "保存", input.focus(), self.trigger(self.store)
+            },
+            onAddName: function(event, myInput) {
+                var self = this,
+                    input = myInput,
+                    keys = self.store.key,
+                    targetName = $(event.target).text();
+                "保存" === targetName ? (self.store.data[keys].name = input.value, input.value = "", $(event.target).text("增加")) : "增加" === targetName && (self.store.data.push({
+                    name: input.value
+                }), input = "", self.trigger(self.store))
+            }
+        });
+    module.exports = {
+        Actions: TableActions,
+        Store: TableStore,
+        Reflux: Reflux
+    }
+});
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = f();
@@ -8633,62 +8689,6 @@ define("common/react-debug", [], function(require, exports, module) {
             }]
         }, {}, [1])(1)
     })
-});
-define("bus/react/reflux/listenActions-debug", ["common/reflux-debug"], function(require, exports, module) {
-    var Reflux = require("common/reflux-debug"),
-        TableActions = Reflux.createActions(["getInit", "deleteName", "addName", "editName"]),
-        TableStore = Reflux.createStore({
-            listenables: [TableActions],
-            store: {
-                data: [{
-                    name: "wuxiaowen"
-                }, {
-                    name: "wukai"
-                }, {
-                    name: "一丙"
-                }, {
-                    name: "保健"
-                }],
-                key: ""
-            },
-            init: function() {
-                this.onGetInit()
-            },
-            onGetInit: function() {
-                var me = this;
-                window.setTimeout(function() {
-                    me.trigger(me.store)
-                }, 0)
-            },
-            onDeleteName: function(event) {
-                var self = this,
-                    target = $(event.target),
-                    index = target.data("index");
-                self.store.data.splice(index - 1, 1), self.trigger(self.store)
-            },
-            onEditName: function(event, myInput) {
-                var self = this,
-                    index = $(event.target).data("index"),
-                    key = index - 1,
-                    value = self.store.data[key].name,
-                    input = myInput;
-                input.value = value, self.store.key = key, input.nextSibling.textContent = "保存", input.focus(), self.trigger(self.store)
-            },
-            onAddName: function(event, myInput) {
-                var self = this,
-                    input = myInput,
-                    keys = self.store.key,
-                    targetName = $(event.target).text();
-                "保存" === targetName ? (self.store.data[keys].name = input.value, input.value = "", $(event.target).text("增加")) : "增加" === targetName && (self.store.data.push({
-                    name: input.value
-                }), input = "", self.trigger(self.store))
-            }
-        });
-    module.exports = {
-        Actions: TableActions,
-        Store: TableStore,
-        Reflux: Reflux
-    }
 });
 define("common/react-dom-debug", ["common/react-debug"], function(require, exports, module) {
     ! function(f) {
