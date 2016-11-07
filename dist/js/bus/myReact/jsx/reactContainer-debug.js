@@ -74,6 +74,27 @@ define("bus/myReact/jsx/reactContainer-debug", ["common/react-debug", "common/re
         });
     module.exports = Container
 });
+"use strict";
+define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
+        ConnectStore = Reflux.createStore({
+            listenables: [ConnectActions],
+            isShow: !1,
+            onAdd: function() {
+                var me = this;
+                me.trigger({
+                    boxStyle: {
+                        display: me.isShow ? "none" : "block"
+                    }
+                }, function() {
+                    me.isShow = !me.isShow
+                })
+            },
+            onGetTarget: function(e) {}
+        });
+    return ConnectStore
+});
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = f();
@@ -10499,25 +10520,4 @@ define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "com
             }
         });
     module.exports = ListenToStore
-});
-"use strict";
-define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
-        ConnectStore = Reflux.createStore({
-            listenables: [ConnectActions],
-            isShow: !1,
-            onAdd: function() {
-                var me = this;
-                me.trigger({
-                    boxStyle: {
-                        display: me.isShow ? "none" : "block"
-                    }
-                }, function() {
-                    me.isShow = !me.isShow
-                })
-            },
-            onGetTarget: function(e) {}
-        });
-    return ConnectStore
 });
