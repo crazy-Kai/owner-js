@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	  <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+   
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+<body>
+  <div class="fn-W900 fn-H650 fn-BGC-999 fn-PosRel" style="margin:0 auto;">
+  	 <div class="fn-W600 fn-H300 fn-BGC-FFF fn-PosAbs" style="left:50%;top:50%;margin-left: -300px;margin-top: -150px;">
+  	 	<ul>
+  	 		<li>test 1</li>
+  	 		<li>test 2</li>
+  	 		<li>test 3</li>
+  	 		<li>test 4</li>
+  	 		<li>test 5</li>
+  	 	</ul>
+  	 </div>
+  </div>
+	<script>
+	document.addEventListener('click',function(e){
+		console.log(e.target.nodeName)
+		alert('8888888')
+	},false)
+	document.getElementsByTagName('li')[0].addEventListener('click',function(e){
+		alert('li');
+		e.stopPropagation()
+	},false)
+	</script>
+</body>
+</html>
