@@ -4,7 +4,7 @@
     var config = {
        
          //基础路径
-        base: "/src/js/bus/",
+        base: "/src/js/",
         //配置路径
         paths: {
             'github'        : 'http://wu-xiao-wen.github.io/src/js',

@@ -1,6 +1,6 @@
 ! function() {
     var config = {
-        base: "/src/js/bus/",
+        base: "/src/js/",
         paths: {
             github: "http://wu-xiao-wen.github.io/src/js",
             arale: "https://a.alipayobjects.com/arale"

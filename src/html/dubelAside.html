@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯布局</title>
+	<style>
+		*{
+			box-sizing:border-box;
+		}
+		body{
+			background: #ddd;
+		}
+		header,.main,footer,aside{
+			background: #fff;
+			margin-bottom: 10px;
+			padding: 10px;
+		}
+		section{
+			overflow: hidden;
+			padding-left: 210px;
+			padding-right: 210px;
+		}
+		section .main,section aside{
+			float: left;
+		}
+		section .main{
+			width: 100%;
+			
+		}
+		section aside.left{
+			width:200px;
+			height:100%;
+			margin-left: -100%;
+			position:relative;
+			left:-210px;
+		}
+		section aside.right{
+			width:200px;
+			margin-left: -200px;
+			position: relative;
+			right:-210px;
+		}
+		section aside ul {
+
+		}
+	</style>
+</head>
+<body>
+	<header>
+		This is header
+	</header>
+	<section>
+		<div class="main">
+		 <h3>This is main section</h3>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		 <p>this is p </p>
+		</div>
+		 <aside class="left">
+		   <ul>
+		   	<li><a href="#"></a>link1</li>
+		   	<li><a href="#"></a>link2</li>
+		   	<li><a href="#"></a>link3</li>
+		   	<li><a href="#"></a>link4</li>
+		   	<li><a href="#"></a>link5</li>
+		   	<li><a href="#"></a>link6</li>
+		   </ul>
+		 </aside>
+		  <aside class="right">
+		   <ul>
+		   	<li><a href="#"></a>link1</li>
+		   	<li><a href="#"></a>link2</li>
+		   	<li><a href="#"></a>link3</li>
+		   	<li><a href="#"></a>link4</li>
+		   	<li><a href="#"></a>link5</li>
+		   	<li><a href="#"></a>link6</li>
+		   </ul>
+		 </aside>
+		</section>
+	<footer>
+		This is footer
+	</footer>
+</body>
+</html>
