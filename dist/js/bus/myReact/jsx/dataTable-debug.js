@@ -67,53 +67,6 @@ define("bus/myReact/jsx/dataTable-debug", ["common/react-debug", "common/reflux-
         });
     module.exports = DataTable
 });
-"use strict";
-define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "common/reflux-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        util = require("common/util-debug"),
-        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
-        ListenToStore = Reflux.createStore({
-            listenables: [ListenToActions],
-            init: function() {
-                this.onGetInitData()
-            },
-            onGetInitData: function() {
-                var me = this;
-                util.getInitData("../data.json").then(function(data) {
-                    me.trigger({
-                        type: "init",
-                        value: data
-                    })
-                })["catch"](function(err) {})
-            },
-            onDataChange: function(newData) {
-                var me = this;
-                newData.id ? me.onModify(newData) : me.onAdd(newData)
-            },
-            onAdd: function(newData) {
-                var me = this;
-                newData.id = util.mathRandom(500), me.trigger({
-                    type: "add",
-                    value: newData
-                })
-            },
-            onModify: function(newData) {
-                var me = this;
-                me.trigger({
-                    type: "modify",
-                    value: newData
-                })
-            },
-            onDelete: function(delData) {
-                var me = this;
-                me.trigger({
-                    type: "delete",
-                    value: delData
-                })
-            }
-        });
-    module.exports = ListenToStore
-});
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = f();
@@ -10330,4 +10283,51 @@ define("common/limit-dom-debug", [], function(require, exports) {
         WIN = window;
     WIN.document;
     return limitDom.isChrome = !!WIN.chrome, limitDom
+});
+"use strict";
+define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "common/reflux-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        util = require("common/util-debug"),
+        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
+        ListenToStore = Reflux.createStore({
+            listenables: [ListenToActions],
+            init: function() {
+                this.onGetInitData()
+            },
+            onGetInitData: function() {
+                var me = this;
+                util.getInitData("../data.json").then(function(data) {
+                    me.trigger({
+                        type: "init",
+                        value: data
+                    })
+                })["catch"](function(err) {})
+            },
+            onDataChange: function(newData) {
+                var me = this;
+                newData.id ? me.onModify(newData) : me.onAdd(newData)
+            },
+            onAdd: function(newData) {
+                var me = this;
+                newData.id = util.mathRandom(500), me.trigger({
+                    type: "add",
+                    value: newData
+                })
+            },
+            onModify: function(newData) {
+                var me = this;
+                me.trigger({
+                    type: "modify",
+                    value: newData
+                })
+            },
+            onDelete: function(delData) {
+                var me = this;
+                me.trigger({
+                    type: "delete",
+                    value: delData
+                })
+            }
+        });
+    module.exports = ListenToStore
 });

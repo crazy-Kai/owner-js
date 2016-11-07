@@ -79,52 +79,6 @@ define("bus/myReact/jsx/contentBox-debug", ["common/react-debug", "bus/myReact/j
         });
     return ContentBox
 });
-"use strict";
-define("bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/controller/connectActions-debug", "common/reflux-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var React = require("common/react-debug"),
-        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
-        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
-        Pushbutton = React.createClass({
-            displayName: "Pushbutton",
-            getInitialState: function() {
-                return {}
-            },
-            clickButton: function(e) {
-                switch (e.preventDefault(), e.stopPropagation(), this.props.btnName) {
-                    case "添加":
-                        ConnectActions.add();
-                        break;
-                    case "修改":
-                        this.props.callbackParent(this.props.data);
-                        break;
-                    case "删除":
-                        ListenToActions["delete"](this.props.data);
-                        break;
-                    default:
-                        this.props.callbackParent()
-                }
-            },
-            render: function() {
-                return React.createElement("button", {
-                    className: this.props.className,
-                    onClick: this.clickButton
-                }, this.props.btnName)
-            }
-        });
-    module.exports = Pushbutton
-});
-"use strict";
-define("bus/myReact/controller/connectActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = Reflux.createActions(["add", "getTarget"]);
-    module.exports = ConnectActions
-});
-"use strict";
-define("bus/myReact/controller/listenToActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ListenToActions = Reflux.createActions(["dataChange", "getInitData", "delete"]);
-    module.exports = ListenToActions
-});
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = f();
@@ -8688,6 +8642,46 @@ define("common/react-debug", [], function(require, exports, module) {
         }, {}, [1])(1)
     })
 });
+"use strict";
+define("bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/controller/connectActions-debug", "common/reflux-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var React = require("common/react-debug"),
+        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
+        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
+        Pushbutton = React.createClass({
+            displayName: "Pushbutton",
+            getInitialState: function() {
+                return {}
+            },
+            clickButton: function(e) {
+                switch (e.preventDefault(), e.stopPropagation(), this.props.btnName) {
+                    case "添加":
+                        ConnectActions.add();
+                        break;
+                    case "修改":
+                        this.props.callbackParent(this.props.data);
+                        break;
+                    case "删除":
+                        ListenToActions["delete"](this.props.data);
+                        break;
+                    default:
+                        this.props.callbackParent()
+                }
+            },
+            render: function() {
+                return React.createElement("button", {
+                    className: this.props.className,
+                    onClick: this.clickButton
+                }, this.props.btnName)
+            }
+        });
+    module.exports = Pushbutton
+});
+"use strict";
+define("bus/myReact/controller/connectActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ConnectActions = Reflux.createActions(["add", "getTarget"]);
+    module.exports = ConnectActions
+});
 define("common/reflux-debug", [], function(require, exports, module) {
     ! function(a) {
         if ("object" == typeof exports && "undefined" != typeof module) module.exports = a();
@@ -9365,6 +9359,12 @@ define("common/reflux-debug", [], function(require, exports, module) {
             }]
         }, {}, [13])(13)
     })
+});
+"use strict";
+define("bus/myReact/controller/listenToActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ListenToActions = Reflux.createActions(["dataChange", "getInitData", "delete"]);
+    module.exports = ListenToActions
 });
 define("common/util-debug", ["common/promise-debug", "common/limit-debug", "common/limit-dom-debug"], function(require, exports, module) {
     "use strict";
