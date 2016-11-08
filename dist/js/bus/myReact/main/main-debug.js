@@ -118,18 +118,6 @@ define("bus/myReact/jsx/pushbutton-debug", ["common/react-debug", "bus/myReact/c
     module.exports = Pushbutton
 });
 "use strict";
-define("bus/myReact/controller/connectActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = Reflux.createActions(["add", "getTarget"]);
-    module.exports = ConnectActions
-});
-"use strict";
-define("bus/myReact/controller/listenToActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ListenToActions = Reflux.createActions(["dataChange", "getInitData", "delete"]);
-    module.exports = ListenToActions
-});
-"use strict";
 define("bus/myReact/jsx/contentBox-debug", ["common/react-debug", "bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "common/reflux-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "github/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
     var React = require("common/react-debug"),
         Pushbutton = require("bus/myReact/jsx/pushbutton-debug"),
@@ -307,74 +295,6 @@ define("bus/myReact/jsx/dataRow-debug", ["common/util-debug", "common/promise-de
             }
         });
     module.exports = DataRow
-});
-"use strict";
-define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "common/reflux-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        util = require("common/util-debug"),
-        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
-        ListenToStore = Reflux.createStore({
-            listenables: [ListenToActions],
-            init: function() {
-                this.onGetInitData()
-            },
-            onGetInitData: function() {
-                var me = this;
-                util.getInitData("../data.json").then(function(data) {
-                    me.trigger({
-                        type: "init",
-                        value: data
-                    })
-                })["catch"](function(err) {})
-            },
-            onDataChange: function(newData) {
-                var me = this;
-                newData.id ? me.onModify(newData) : me.onAdd(newData)
-            },
-            onAdd: function(newData) {
-                var me = this;
-                newData.id = util.mathRandom(500), me.trigger({
-                    type: "add",
-                    value: newData
-                })
-            },
-            onModify: function(newData) {
-                var me = this;
-                me.trigger({
-                    type: "modify",
-                    value: newData
-                })
-            },
-            onDelete: function(delData) {
-                var me = this;
-                me.trigger({
-                    type: "delete",
-                    value: delData
-                })
-            }
-        });
-    module.exports = ListenToStore
-});
-"use strict";
-define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
-        ConnectStore = Reflux.createStore({
-            listenables: [ConnectActions],
-            isShow: !1,
-            onAdd: function() {
-                var me = this;
-                me.trigger({
-                    boxStyle: {
-                        display: me.isShow ? "none" : "block"
-                    }
-                }, function() {
-                    me.isShow = !me.isShow
-                })
-            },
-            onGetTarget: function(e) {}
-        });
-    return ConnectStore
 });
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
@@ -9629,6 +9549,18 @@ define("common/reflux-debug", [], function(require, exports, module) {
         }, {}, [13])(13)
     })
 });
+"use strict";
+define("bus/myReact/controller/connectActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ConnectActions = Reflux.createActions(["add", "getTarget"]);
+    module.exports = ConnectActions
+});
+"use strict";
+define("bus/myReact/controller/listenToActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ListenToActions = Reflux.createActions(["dataChange", "getInitData", "delete"]);
+    module.exports = ListenToActions
+});
 define("common/util-debug", ["common/promise-debug", "common/limit-debug", "common/limit-dom-debug"], function(require, exports, module) {
     "use strict";
     var Promise = require("common/promise-debug");
@@ -10529,4 +10461,72 @@ define("common/limit-dom-debug", [], function(require, exports) {
         WIN = window;
     WIN.document;
     return limitDom.isChrome = !!WIN.chrome, limitDom
+});
+"use strict";
+define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "common/reflux-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        util = require("common/util-debug"),
+        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
+        ListenToStore = Reflux.createStore({
+            listenables: [ListenToActions],
+            init: function() {
+                this.onGetInitData()
+            },
+            onGetInitData: function() {
+                var me = this;
+                util.getInitData("../data.json").then(function(data) {
+                    me.trigger({
+                        type: "init",
+                        value: data
+                    })
+                })["catch"](function(err) {})
+            },
+            onDataChange: function(newData) {
+                var me = this;
+                newData.id ? me.onModify(newData) : me.onAdd(newData)
+            },
+            onAdd: function(newData) {
+                var me = this;
+                newData.id = util.mathRandom(500), me.trigger({
+                    type: "add",
+                    value: newData
+                })
+            },
+            onModify: function(newData) {
+                var me = this;
+                me.trigger({
+                    type: "modify",
+                    value: newData
+                })
+            },
+            onDelete: function(delData) {
+                var me = this;
+                me.trigger({
+                    type: "delete",
+                    value: delData
+                })
+            }
+        });
+    module.exports = ListenToStore
+});
+"use strict";
+define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
+        ConnectStore = Reflux.createStore({
+            listenables: [ConnectActions],
+            isShow: !1,
+            onAdd: function() {
+                var me = this;
+                me.trigger({
+                    boxStyle: {
+                        display: me.isShow ? "none" : "block"
+                    }
+                }, function() {
+                    me.isShow = !me.isShow
+                })
+            },
+            onGetTarget: function(e) {}
+        });
+    return ConnectStore
 });
