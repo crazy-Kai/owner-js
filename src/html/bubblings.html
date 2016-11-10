@@ -8,19 +8,21 @@
     <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
 </head>
 <body>
-	<div class="fn-W900 fn-H650 fn-BGC-999 fn-PosRel" style="margin:0 auto;">
-  	 <div class="fn-W600 fn-H300 fn-BGC-FFF fn-PosAbs" style="left:50%;top:50%;margin-left: -300px;margin-top: -150px;">
+	<div class="fn-W900 fn-H650 fn-BGC-999 fn-PosRel"  id="outterDiv" style="margin:0 auto;">
+  	 <div class="fn-W600 fn-H300 fn-BGC-FFF fn-PosAbs" id="innerDiv" style="left:50%;top:50%;margin-left: -300px;margin-top: -150px;">
   	 	<ul>
-  	 		<li>test 1</li>
-  	 		<li>test 2</li>
-  	 		<li>test 3</li>
-  	 		<li>test 4</li>
-  	 		<li>test 5</li>
+  	 		<li>test 1 <a href="javascript:;">link1</a></li>
+  	 		<li>test 2 <a href="javascript:;">link2</a></li>
+  	 		<li>test 3 <a href="javascript:;">link3</a></li>
+  	 		<li>test 4 <a href="javascript:;">link4</a></li>
+  	 		<li>test 5 <a href="javascript:;">link5</a></li>
   	 	</ul>
   	 </div>
   </div>
   
-	<script type="tex/javascript">
+	<script type="text/javascript">
+	$(function(){
+
 		document.addEventListener('click',function(e){
 			console.log(e.target.nodeName)
 			alert('8888888')
@@ -29,6 +31,16 @@
 			alert('li');
 			e.stopPropagation()
 		},false)
+		//event事件中，不会触发冒泡的事件有哪些？mouseenter和mouseleave
+		$('#outterDiv').on('mouseenter',function(e){
+			console.log(e.target);
+			console.log('outterDiv enter')
+		}).on('mouseleave',function(e){
+			console.log(e.target);
+			console.log('outterDiv leave')
+		})
+	})
+
 	</script>
 </body>
 </html>
