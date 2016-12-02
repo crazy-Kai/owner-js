@@ -50,10 +50,17 @@ define(function(require,exports,module){
 		render:function(){
 			var list = [],
 				a=[1,2,3];
+				//渲染 DATA ROW的方法一
 			this.state.data.map(function(val,i){
-				list.push(<DataRow key= {i} data={val} callbackParent={this.switchOperating}/>)
+				list.push(<DataRow key= {i} data={val} /*className="111"*/ callbackParent={this.switchOperating}/>)
 			}.bind(this))
-		
+			{//方法二
+			/*var me = this;
+			me.state.data.map(function(val,i){
+				list.push(<DataRow key= {i} data={val} callbackParent={me.switchOperating}/>)
+			}*/}
+          
+
 			return (
 				<table className="fn-tabale fn-table-data" width="100%">
 					<thead>
@@ -66,6 +73,16 @@ define(function(require,exports,module){
 					</thead>
 					<tbody>
 						{list}
+						{//方法三：
+						 /*
+                          {
+							me.state.data.map(function(val,i){
+								return (
+									<DataRow key= {i} data={val} callbackParent={me.switchOperating}/>
+								 )
+							})
+                          }
+						 */}
 					</tbody>
 				</table>
 			)

@@ -22,15 +22,29 @@
   
 	<script type="text/javascript">
 	$(function(){
-
-		document.addEventListener('click',function(e){
+		//事件冒泡和事件捕获阶段触发事件的区别：
+		document.getElementById("outterDiv").addEventListener('click',function(e){
 			console.log(e.target.nodeName)
 			alert('8888888')
 		},false)
-		document.getElementsByTagName('li')[0].addEventListener('click',function(e){
-			alert('li');
-			e.stopPropagation()
+			document.getElementById("innerDiv").addEventListener('click',function(e){
+			alert('777777777');
+			// e.stopPropagation()
 		},false)
+	    document.getElementsByTagName("ul")[0].addEventListener('click',function(e){
+	    	alert('6666666666666666')
+	    },false)
+	 //    document.getElementById("outterDiv").addEventListener('click',function(e){
+		// 	console.log(e.target.nodeName)
+		// 	alert('8888888')
+		// },true)
+		// 	document.getElementById("innerDiv").addEventListener('click',function(e){
+		// 	alert('777777777');
+		// 	// e.stopPropagation()
+		// },true)
+	 //    document.getElementsByTagName("ul")[0].addEventListener('click',function(e){
+	 //    	alert('6666666666666666')
+	 //    },true)
 		//event事件中，不会触发冒泡的事件有哪些？mouseenter和mouseleave
 		$('#outterDiv').on('mouseenter',function(e){
 			console.log(e.target);

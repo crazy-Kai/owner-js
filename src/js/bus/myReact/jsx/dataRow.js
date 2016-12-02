@@ -16,6 +16,7 @@ define(function (require, exports, module) {
 			var formate = "yyyy-MM-dd HH:mm";
 			var value = this.props.data;
 			console.log(util.formateDate(formate));
+
 			return React.createElement(
 				'tr',
 				{ 'data-id': value.id },

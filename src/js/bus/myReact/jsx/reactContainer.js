@@ -50,6 +50,13 @@ define(function (require, exports, module) {
 			});
 			ConnectStore.isShow = true;
 		},
+		//在组件构建之前，接收后端AJAX的请求的数据
+		// componentWillMount:function(){
+		// 	var me = this;
+		// 	ConnectActions.getData().then(function(rtv){
+		// 		me.setState({data:rtv})
+		// 	})
+		// },
 		render: function render() {
 			var textList = [],
 			    me = this;
@@ -61,7 +68,7 @@ define(function (require, exports, module) {
 					val
 				));
 			});
-
+			console.log(this.state.data);
 			return React.createElement(
 				'div',
 				{ className: ' fn-W500 fn-margin-center' },

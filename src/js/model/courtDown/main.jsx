@@ -17,22 +17,25 @@ define(function(require,exports,module){
 				 if(differ <= 0){
 				 	return window.alert("倒计时已到！")
 				 } 
-
 				 return this.formateTimestamp(differ);
-				
-				 
 			}
-			formateTimestamp (differTime){
-
+		formateTimestamp (differTime){
 					let me = this,
 				    day = 24*60*60*1000,
 				    hour = 60*60*1000,
 				    minutes = 60*1000,
 				    seconds = 1000,
+				    //天数
 				 	dayStamp = Math.floor(differTime/day),
-				 	hourStamp = Math.floor((differTime - dayStamp*day)/hour),
-				 	minutesStamp = Math.floor((differTime -  hourStamp*hour)/minutes),
-				 	secondsStamp = Math.floor((differTime - minutesStamp*minutes)/seconds);
+				 	//小时
+				 	defferHours = differTime - dayStamp*day,
+				 	hourStamp = Math.floor(defferHours/hour),
+				 	//分钟
+				 	defferMinutes = defferHours - hourStamp*hour,
+				 	minutesStamp = Math.floor(defferMinutes/minutes),
+				 	//秒
+				 	defferSeconds = defferMinutes - minutesStamp*minutes,
+				 	secondsStamp = Math.floor(defferSeconds/seconds);
 					return {
 					 	"days": me.formateString(dayStamp),
 					 	"hours": me.formateString(hourStamp),
@@ -44,7 +47,7 @@ define(function(require,exports,module){
 				return ("00"+num).slice(-2);
 			}
 	}
-	let timer = new CourtDown("2016-07-6 15:59");
+	let timer = new CourtDown("2016-12-16 18:07");
 	let interval =  window.setInterval(function(){
 		let data = timer.use();
 		if(!data){

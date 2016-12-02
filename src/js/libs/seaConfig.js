@@ -1,5 +1,6 @@
 ;(function(){
 
+   
     //配置
     var config = {
        
@@ -36,7 +37,6 @@
         debug: true
     };
    if (typeof seajs !== 'undefined') {
-    console.log(config)
         config.paths = {
             'github'     : 'http://wu-xiao-wen.github.io/src/js',
             //支付宝
