@@ -26,14 +26,14 @@
 		document.getElementById("outterDiv").addEventListener('click',function(e){
 			console.log(e.target.nodeName)
 			alert('8888888')
-		},false)
+		},true)
 			document.getElementById("innerDiv").addEventListener('click',function(e){
 			alert('777777777');
 			// e.stopPropagation()
-		},false)
+		},true)
 	    document.getElementsByTagName("ul")[0].addEventListener('click',function(e){
 	    	alert('6666666666666666')
-	    },false)
+	    },true)
 	 //    document.getElementById("outterDiv").addEventListener('click',function(e){
 		// 	console.log(e.target.nodeName)
 		// 	alert('8888888')
@@ -52,6 +52,12 @@
 		}).on('mouseleave',function(e){
 			console.log(e.target);
 			console.log('outterDiv leave')
+		})
+		//移出里面的div不会触发它的父级元素上绑定的mouseenter事件，但如果用mouseover mouseout 是有冒泡的 当鼠标移出内部div的时候同时触发父级元素的mouseover事件
+		$('#innerDiv').on('mouseenter',function(e){
+			console.log(1111111111111)
+		}).on('mouseleave',function(e){
+			console.log(222222222222)
 		})
 	})
 
