@@ -5,7 +5,7 @@ define(function (require, exports, module) {
     var React = require('react'),
         ReactDOM = require('reactDOM');
     var data = [{ name: "wuxiaowen" }, { name: "wukai" }, { name: "zp" }, { name: "zl" }];
-
+    console.log(React);
     var TableBuild = React.createClass({
         displayName: 'TableBuild',
 
@@ -15,7 +15,8 @@ define(function (require, exports, module) {
         getInitialState: function getInitialState() {
             return {
                 data: this.props.data,
-                key: ""
+                key: "",
+                value: ""
             };
         },
         // 此方法对于组建来说只会被调用一次,初始化的props不能被设为一个固定值。
@@ -23,6 +24,21 @@ define(function (require, exports, module) {
             return {
                 data: []
             };
+        },
+        ComponentWillMount: function ComponentWillMount() {
+            //组件 将要加载的时候去做一些事情，比如发送ajax请求获取数据等 
+        },
+        ComponentDidMount: function ComponentDidMount() {
+            //等dom结构渲染成功后要去做的一些事情，比如获取dom 元素要写在此方法内
+
+        },
+        componentWillUnmount: function componentWillUnmount() {
+            //组件移除之前需要做的一些事情 比如销毁一些插件等
+        },
+        changeValue: function changeValue(e) {
+            this.setState({
+                value: e.target.value
+            });
         },
         //根据循环state得到的数组中每个元素的下表index ,来删除指定的元素
         deleteName: function deleteName(e) {
@@ -52,6 +68,8 @@ define(function (require, exports, module) {
             //取出 点击编辑后保存在state里的key(下标);
             key = self.state.key,
                 input = ReactDOM.findDOMNode(self.refs.myInput);
+            //input = self.refs.myInput.getDOMNode();
+            console.log(input);
             if (textName === "保存") {
                 data[key].name = input.value;
                 self.setState({ data: data });
@@ -108,7 +126,8 @@ define(function (require, exports, module) {
                     React.createElement(
                         'h1',
                         { className: 'fn-TAC fn-LH30 fn-FS16 fn-FWB' },
-                        'React 基础 练习 '
+                        'React 基础 练习 ',
+                        this.state.value
                     )
                 ),
                 React.createElement(
@@ -146,10 +165,10 @@ define(function (require, exports, module) {
                 React.createElement(
                     'div',
                     { className: 'fn-MT20 fn-W300 fn-LH30 fn-MT20 ' },
-                    React.createElement('input', { ref: 'myInput', type: 'text', className: 'fn-input-text', placeholder: '请输入姓名', maxLength: '20' }),
+                    React.createElement('input', { ref: 'myInput', value: this.state.value, onChange: this.changeValue, type: 'text', className: 'fn-input-text', placeholder: '请输入姓名', maxLength: '20' }),
                     React.createElement(
                         'button',
-                        { className: 'fn-btn fn-btn-default fn-LH28', onClick: self.addName },
+                        { className: 'fn-btn fn-btn-default fn-LH28', style: { backgroundColor: "#047dc6", height: "33px", verticalAlign: "-1px", color: "#fff" }, onClick: self.addName },
                         '增加'
                     )
                 )

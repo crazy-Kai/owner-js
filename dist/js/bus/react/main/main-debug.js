@@ -16,13 +16,22 @@ define("bus/react/main/main-debug", ["common/react-debug", "common/react-dom-deb
             getInitialState: function() {
                 return {
                     data: this.props.data,
-                    key: ""
+                    key: "",
+                    value: ""
                 }
             },
             getDefualtProps: function() {
                 return {
                     data: []
                 }
+            },
+            ComponentWillMount: function() {},
+            ComponentDidMount: function() {},
+            componentWillUnmount: function() {},
+            changeValue: function(e) {
+                this.setState({
+                    value: e.target.value
+                })
             },
             deleteName: function(e) {
                 var self = this,
@@ -80,7 +89,7 @@ define("bus/react/main/main-debug", ["common/react-debug", "common/react-dom-deb
                     width: "100%"
                 }, React.createElement("h1", {
                     className: "fn-TAC fn-LH30 fn-FS16 fn-FWB"
-                }, "React 基础 练习 ")), React.createElement("table", {
+                }, "React 基础 练习 ", this.state.value)), React.createElement("table", {
                     className: "fn-table fn-table-text fn-table-border",
                     width: "100%"
                 }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", {
@@ -91,12 +100,20 @@ define("bus/react/main/main-debug", ["common/react-debug", "common/react-dom-deb
                     className: "fn-MT20 fn-W300 fn-LH30 fn-MT20 "
                 }, React.createElement("input", {
                     ref: "myInput",
+                    value: this.state.value,
+                    onChange: this.changeValue,
                     type: "text",
                     className: "fn-input-text",
                     placeholder: "请输入姓名",
                     maxLength: "20"
                 }), React.createElement("button", {
                     className: "fn-btn fn-btn-default fn-LH28",
+                    style: {
+                        backgroundColor: "#047dc6",
+                        height: "33px",
+                        verticalAlign: "-1px",
+                        color: "#fff"
+                    },
                     onClick: self.addName
                 }, "增加")))
             }
