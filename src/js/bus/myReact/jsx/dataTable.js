@@ -53,9 +53,15 @@ define(function (require, exports, module) {
 		render: function render() {
 			var list = [],
 			    a = [1, 2, 3];
+			//渲染 DATA ROW的方法一
 			this.state.data.map(function (val, i) {
-				list.push(React.createElement(DataRow, { key: i, data: val, callbackParent: this.switchOperating }));
+				list.push(React.createElement(DataRow, { key: i, data: val /*className="111"*/, callbackParent: this.switchOperating }));
 			}.bind(this));
+			{//方法二
+				/*var me = this;
+    me.state.data.map(function(val,i){
+    	list.push(<DataRow key= {i} data={val} callbackParent={me.switchOperating}/>)
+    }*/}
 
 			return React.createElement(
 				'table',

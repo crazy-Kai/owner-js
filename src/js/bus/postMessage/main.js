@@ -9,6 +9,7 @@ define(function(require, exports, module) {
     }
     $("#sendMessage").on("click",function(){
     	var fram = document.getElementById("iframe1");
+        console.log(1111111111)
         fram.contentWindow.postMessage("吴凯哥哥来了", "http://127.0.0.1:8007")
     });
     $("#openNewDemo").on("click",function(){
@@ -18,13 +19,14 @@ define(function(require, exports, module) {
     		newDemo.postMessage("我是新打开的页面数据","http://127.0.0.1:8009")
     	},2000)
     })
-    window.addEventListener("message", function(event) {
-        if (event.origin === "http://127.0.0.1:8007") {
-
+    $(window).on("message", function(event) {
+        console.log(event)
+        if (event.originalEvent.origin === "http://127.0.0.1:8007") {
+            console.log(1111111112222222)
             alert("接收子窗口的数据")
-            $("#message").html(event.data)
+            $("#message").html(event.originalEvent.data)
         }
 
-    }, false)
+    })
 
 })

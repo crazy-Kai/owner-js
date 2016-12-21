@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用script标签原生的js方法来实现跨域请求</title>
+	<script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/seaConfig.js"></script>
+</head>
+<body>
+<div id="showcontent">Result:</div>
+	<script type="text/javascript">
+	 var jsonpCallback = function(data){
+	   $("#showcontent").text("Result:"+data.c)  
+	 };
+	 var url = "http://127.0.0.1:8004/src/html/jsonp.json?callback=jsonpCallback";
+	 var script = document.createElement("script");
+	 script.src= url;
+	 script.type = "text/javascript";
+	 document.getElementsByTagName("head")[0].appendChild(script)
+	</script>
+</body>
+</html>

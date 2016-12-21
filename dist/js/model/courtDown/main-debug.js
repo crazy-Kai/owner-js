@@ -39,9 +39,12 @@ define("model/courtDown/main-debug", [], function(require, exports, module) {
                         minutes = 6e4,
                         seconds = 1e3,
                         dayStamp = Math.floor(differTime / day),
-                        hourStamp = Math.floor((differTime - dayStamp * day) / hour),
-                        minutesStamp = Math.floor((differTime - hourStamp * hour) / minutes),
-                        secondsStamp = Math.floor((differTime - minutesStamp * minutes) / seconds);
+                        defferHours = differTime - dayStamp * day,
+                        hourStamp = Math.floor(defferHours / hour),
+                        defferMinutes = defferHours - hourStamp * hour,
+                        minutesStamp = Math.floor(defferMinutes / minutes),
+                        defferSeconds = defferMinutes - minutesStamp * minutes,
+                        secondsStamp = Math.floor(defferSeconds / seconds);
                     return {
                         days: me.formateString(dayStamp),
                         hours: me.formateString(hourStamp),
@@ -56,7 +59,7 @@ define("model/courtDown/main-debug", [], function(require, exports, module) {
                 }
             }]), CourtDown
         }(),
-        timer = new CourtDown("2016-07-6 15:59"),
+        timer = new CourtDown("2016-12-16 18:07"),
         interval = window.setInterval(function() {
             var data = timer.use();
             return data ? void $("#content").html("时间还剩余:" + data.days + "天" + data.hours + "小时" + data.minute + "分钟" + data.second + "秒") : window.clearInterval(interval)

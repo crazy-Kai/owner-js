@@ -28,7 +28,7 @@ define(function(require,exports,module){
 					}
 				})
 
-			ConnectStore.isShow = show === "none"?false:true;
+			ConnectStore.isShow = show === "none"? false:true;
 		},
 		onModify:function(data){
 			var me = this;
@@ -45,13 +45,20 @@ define(function(require,exports,module){
 			ConnectStore.isShow = true;
 
 		},
+		//在组件构建之前，接收后端AJAX的请求的数据
+		// componentWillMount:function(){
+		// 	var me = this;
+		// 	ConnectActions.getData().then(function(rtv){
+		// 		me.setState({data:rtv})
+		// 	})
+		// },
 		render:function(){
 			var textList = [],
 			    me = this;
             	[1,2,3,4].forEach(function(val,key){
             		textList.push(<button key ={key} onClick = {ConnectActions.getTarget}>target{val}</button>)
             	});
-                		 
+              console.log(this.state.data)
 			return (
 				<div className=" fn-W500 fn-margin-center" >
                 	<div className=" fn-LH30 fn-TAC">

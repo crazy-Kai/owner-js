@@ -56,7 +56,7 @@ define("bus/react/main/main-debug", ["common/react-debug", "common/react-dom-deb
                     data = self.state.data,
                     key = self.state.key,
                     input = ReactDOM.findDOMNode(self.refs.myInput);
-                "保存" === textName && (data[key].name = input.value, self.setState({
+                input = self.refs.myInput.getDOMNode(), "保存" === textName && (data[key].name = input.value, self.setState({
                     data: data
                 }), input.value = "", e.target.textContent = "增加"), "增加" === textName && (data.push({
                     name: input.value
@@ -115,12 +115,16 @@ define("bus/react/main/main-debug", ["common/react-debug", "common/react-dom-deb
                         color: "#fff"
                     },
                     onClick: self.addName
-                }, "增加")))
+                }, "增加")), React.createElement("div", {
+                    className: "fn-MT20"
+                }, React.createElement("ul", null, React.Children.map(this.props.children, function(p) {
+                    return React.createElement("li", null, p)
+                }))))
             }
         });
     ReactDOM.render(React.createElement(TableBuild, {
         data: data
-    }), document.getElementById("test"))
+    }, React.createElement("p", null, "I am A"), React.createElement("p", null, " I am B ")), document.getElementById("test"))
 });
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {

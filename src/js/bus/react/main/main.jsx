@@ -3,7 +3,7 @@ define(function(require,exports,module){
   var React = require('react'),
       ReactDOM = require('reactDOM');
   var data = [{name:"wuxiaowen"},{name:"wukai"},{name:"zp"},{name:"zl"}]; 
-    console.log(React)
+
   var TableBuild = React.createClass({
         
     	// 这里可以添加初始化方法
@@ -50,6 +50,7 @@ define(function(require,exports,module){
     		    keys = index -1,
     			self = this,
     			input = ReactDOM.findDOMNode(self.refs.myInput);
+                console.log(self.refs)
    			    input.value = self.state.data[keys].name;
    			    input.nextSibling.textContent = "保存";
   				input.focus();
@@ -63,8 +64,12 @@ define(function(require,exports,module){
     		    //取出 点击编辑后保存在state里的key(下标);
     		    key = self.state.key,
     		    input = ReactDOM.findDOMNode(self.refs.myInput);
+
                 //input = self.refs.myInput.getDOMNode();
                 console.log(input)
+
+                input = self.refs.myInput.getDOMNode();
+
     		   if(textName === "保存"){
     		   	  data[key].name =  input.value;
     		   	  self.setState({data:data});
@@ -123,15 +128,29 @@ define(function(require,exports,module){
 		        			</table>
 
 		        			<div className = "fn-MT20 fn-W300 fn-LH30 fn-MT20 ">
+
 								<input  ref="myInput"  value={this.state.value} onChange={this.changeValue} type="text" className="fn-input-text" placeholder="请输入姓名" maxLength="20"/>
 								<button className="fn-btn fn-btn-default fn-LH28" style={{backgroundColor:"#047dc6",height:"33px",verticalAlign:"-1px",color:"#fff"}}   onClick = {self.addName}>增加</button>
+
+							
 							</div>
+                            <div className="fn-MT20">
+                                <ul>
+
+                                    {React.Children.map(this.props.children,function(p){
+                                        return (<li>{p}</li>)
+                                    })}
+                                </ul>
+                            </div>
 					</div>
     			)
     	}
   });
-
-ReactDOM.render(<TableBuild data = {data} />,
+// ReactDOM.render(
+//     React.createElement("h1",null,"wukai"),
+//     document.getElementById('dom')
+// )
+ReactDOM.render(<TableBuild data = {data} ><p>I am A</p><p> I am B </p></TableBuild>,
 	document.getElementById("test")
 	)
 })

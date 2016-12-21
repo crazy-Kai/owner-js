@@ -1,7 +1,26 @@
 "use strict";
 define("bus/myReact/controller/connectActions-debug", ["common/react-debug", "common/reflux-debug"], function(require, exports, module) {
     var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = Reflux.createActions(["add", "getTarget"]);
+        ConnectActions = Reflux.createActions({
+            add: {},
+            getTarget: {},
+            getData: {
+                asyncResult: !0,
+                preEmit: function() {
+                    $.ajax({
+                        url: "../data.json",
+                        type: "get",
+                        dataType: "json",
+                        success: function(data) {
+                            ConnectActions.getData.completed(data)
+                        },
+                        error: function(data) {
+                            this.failed
+                        }
+                    })
+                }
+            }
+        });
     module.exports = ConnectActions
 });
 define("common/react-debug", [], function(require, exports, module) {
