@@ -1,0 +1,35 @@
+define(function(require, exports, module) { var Handlerbars = require("common/handlerbars");return Handlerbars.template(<div class="kuma-table-container">
+    <table class="kuma-table">
+        <thead>
+            <tr>
+                <th>
+                    <label>
+                        <input class="kuma-checkbox J_CheckAll" type="checkbox"/><s></s>
+                    </label>
+                </th>
+                <th>{{i18n "name"}}</th>
+                <th>{{i18n "level"}}</th>
+                <th>{{i18n "department"}}</th>
+                <th>{{i18n "salary"}}</th>
+                <th width="80">{{i18n "operation"}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                    <td>
+                        <label>
+                            <input class="kuma-checkbox J_CheckOne" type="checkbox"/><s></s>
+                        </label>
+                    </td>
+                    <td>{{nameNick name nickName}}</td>
+                    <td>{{level}}</td>
+                    <td>{{department}}</td>
+                    <td>{{salary}}</td>
+                    <td><a href="{{uriBroker "workPrefix" "u/{0}" workNo}}" class="kuma-button kuma-button-swhite">View</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>) });

@@ -1,0 +1,25 @@
+a:link, a:visited{
+	color: #006CB9;
+}
+.chattips dd,.chattips dt{
+	color: #000;
+}
+.ks-suggest-result{
+	margin-right: -300px;
+}
+
+.robot-window{
+    position: fixed;
+    right: 10px;
+    top: 200px;
+    width: 130px;
+    /*text-align: center;*/
+}
+.robot-window-header,.robot-window-footer{
+    background-color: #004979;
+    color: #fff;
+}
+.robot-window-header a,.robot-window-footer a,.robot-window-container li{
+	width: 100px;
+	margin: 0 auto;
+}

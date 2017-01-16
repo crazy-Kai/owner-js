@@ -1,0 +1,316 @@
+body {
+    background: #fff;
+    
+    -moz-user-select: none;  
+    -webkit-user-select: none;  
+    -ms-user-select: none;
+    user-select: none;
+    padding-left:0;
+}
+.main-list {
+    background: #fff;
+}
+.fixed-video {
+    padding: 10px;
+    background: #f2f2f2; 
+    padding-bottom:5px;
+}
+.big-win {
+    width: 764px;
+    height: 572px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+    position:relative;
+    overflow:hidden;
+}
+.big-win .user-info{padding-left:5px;}
+.judge-wrap {
+    display: inline-block;
+    vertical-align:top;
+    width: 382px;
+}
+.judge-wrap > div {
+    /*height: 286px;*/
+    position: relative;
+}
+.judge {
+    margin-bottom: 5px;
+}
+
+.video-list {
+    padding: 10px;
+    padding-top: 0;
+    background-color: #f2f2f2;
+}
+.video-list li {
+    position: relative;
+    float: left;
+    margin-right: 5px;
+}
+.video-list li:last-child {
+    margin-right: 0;
+}
+.user-info {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    z-index: 11;
+    height: 16px;
+    padding: 5px 0
+}
+.mask {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    height: 16px;
+    padding: 5px 0;
+    background-color: #fff;
+    opacity: 0.4;
+}
+.user-info i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../img/speak.png) no-repeat center center;
+    background-size: 16px 16px;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.init .user-info i {
+    background: url(../img/quiet.png) no-repeat center center;
+    background-size: 16px 16px;
+}
+.user-info  .mute-btn, .user-info .stop-btn {
+    background: #00bf1b;
+    color: #fff;
+    padding: 2px 4px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.user-info .stop-btn.stoped {
+    background: #ff9500;
+}
+.init .mute-btn {
+    display: none !important;
+}
+.show-btn .user-info  .mute-btn {
+    display: inline;
+}
+.muted .user-info  .mute-btn {
+    background: #ff9500;
+}
+.muted  .user-info i {
+    background: url(../img/quiet.png) no-repeat center center;
+    background-size: 16px 16px;
+}
+.recordBox {
+    margin-top: 0;
+    border: 1px solid #ddd;
+    min-height: 500px;
+    padding:10px;
+    color:#000;
+    font-size:16px;
+}
+#record{width:100%;border:none;}
+.term {
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+.term label {
+    color: #333;
+    font-weight: bold;
+}
+.btn {
+    padding: 9px 22px;
+    background: #047dc6;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#term {
+    vertical-align: middle;
+}
+.suit-info {
+    color: #00f;
+    font-weight: normal;
+}
+.last-time {
+    float: right; 
+    font-weight: normal;
+}
+.suit-wrap {
+    font-weight: 700;
+}
+.lc-center-wrap > .global-tab {
+    margin-bottom: 10px;
+}
+
+.btn.small {
+    padding: 6px 15px;
+    margin-top: 2px;
+    margin-right: 5px;
+    display: none;
+}
+.suit-wrap > span {
+    display: inline-block;
+    max-width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}
+
+#pause {
+    display: none;
+}
+.record-list {
+    color:#666;
+    display: none;
+    margin-top:10px;
+    /*width: 300px;*/
+    /*margin: 20px auto;*/
+}
+.record-list table td, .record-list table th {
+    text-align:left;
+}
+
+.elli {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    display: inline-block;
+    max-width: 120px;
+    vertical-align: bottom;
+}
+.lassen .lc-footer {
+    display: none;
+}
+
+.tip-layer {
+    position: fixed;
+    top: 40px;
+    right: 100px;
+    padding: 50px 20px;
+    background: #fafafa;
+    border: 1px solid #ccc;
+    z-index: 100;
+    max-width: 400px;
+    font-size: 14px;
+}
+.tip-layer:after, .tip-layer:before {
+    content: ""; 
+    position: absolute; 
+    right: 10px;  
+    width:0; 
+    height:0; 
+    border-width: 10px 9px; 
+    border-style:solid; 
+    border-color: transparent transparent #fafafa transparent; 
+    top: -18px;
+    line-height: 20px;
+}
+.tip-layer .layer-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.tip-layer .layer-content {
+    padding: 15px 15px 0 15px;
+    line-height: 26px;
+}
+.video-tip {
+    display: inline-block;
+    width: 19px;
+    height: 15px;
+    background: url('../img/video_tip.png');
+    vertical-align: text-bottom;
+}
+.tip-layer .layer-title:before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 17px;
+    background: url('../img/ring.png');
+    vertical-align: text-top;
+    margin-right: 5px;
+}
+
+.tip-layer:before {
+    border-color: transparent transparent #ccc transparent; 
+    top: -20px;
+}
+.mask-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.6;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+}
+
+.check-video{
+    padding:10px;
+    background:#f6f6f6;
+}
+.check-video .ch-list{
+    float:left;
+    width: 382px;
+    height:286px;
+}
+
+.check-video .ch-main{
+    width:764px;
+    height:572px;
+    position:relative;
+}
+.check-video .ch-color{
+    background:#e6e6e6;
+}
+.check-video .ch-speed{
+    position:absolute;
+    padding:3px 10px;
+    left:15px;
+    bottom:15px;
+    font-size:12px;
+    background:#047dc6;
+    color:#FFF;
+    border-radius:3px;
+}
+.check-video .kuma-icon{
+    font-size:12px;
+}
+.fn-ML3{
+    margin-left:3px;
+}
+.fn-ML12{
+    margin-left:12px;
+}
+.fn-MT3{
+    margin-top:3px;
+}
+.fn-MT12{
+    margin-top:12px;
+}
+
+/*审判法官 审判管理员单独样式*/
+.manage-only .mask{height:36px;padding:0;}
+.manage-only .user-info{height:36px;padding:0;bottom:0;text-indent:.5em;line-height:36px;}
+.manage-only .user-info i{display:none;}
+.manage-only .user-info .mute-btn{width:24px;height:24px;background:url("../img/microphone.png") no-repeat 0 0;overflow:hidden;top:5px;right:10px;padding:0;text-indent:9999px;}
+.manage-only .muted .user-info .mute-btn{background-position:-24px 0;}
+.manage-only .init .mute-btn{display:block !important;background-position:-24px 0;}
+.icon-mute{display:inline-block;width:16px;height:16px;background:#F00;vertical-align:-3px;margin-right:2px;background:url("../img/microphone.png") no-repeat -5px -28px;}
+.icon-mute-enabled{background-position:-28px -28px;}

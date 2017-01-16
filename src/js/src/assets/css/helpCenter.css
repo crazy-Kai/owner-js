@@ -1,0 +1,112 @@
+/*帮助中样式 2015/11/23*/
+body{background:#fff;}
+/* 背景 */
+.help-bg{background:url("../img/helpCenter/banner.png") no-repeat 50% 0;margin-left:calc(50% - 50vw);padding-left:calc(50vw - 50%);}
+/* 四个标签 */
+.help-nav{width:1180px;height:79px;margin:30px auto 20px auto;}
+.help-nav li{float:left;}
+.helpCenter{width:270px;height:70px;line-height:70px;border:1px #e7e7e7 solid;font-family:"Microsoft YaHei";display:inline-block;color:#666666;font-size:24px;text-align:center;}
+.help-nav-afspan{margin-left:30px;}
+.help-nav .focus{background-color:#0073bf;color:#fff;border:1px #0073bf solid;}
+.help-nav .focus .triangle{width:15px;height:7px;position:absolute;background:url("../img/helpCenter/icon.png") no-repeat -8px -25px;top:71px;right:128px;}
+/*  主体内容*/
+.help-main{width:1178px;border:1px #e7e7e7 solid;margin:0 auto;}
+.help-margin{margin:30px;}
+.help-title{border-bottom:1px dashed #e7e7e7;padding-bottom:20px;color:#333333;font-size:14px;font-family:"Microsoft YaHei";}
+.detailImg{width:738px;height:304px;margin-top:40px;padding-bottom:50px;}
+/* 线 */
+.ch-line{width:1px;height: 100%;background:#e3e3e3;top:27px;left:-29px;}
+.ch-circle{width:25px;height:25px;color:#fff;text-align:center;line-height:25px;background:url("../img/helpCenter/icon.png") no-repeat -16px 0px;top:2px;left:-41px;}
+
+/*注册实名认证 */
+.help-registered-container{background:#f8f8f8;border:1px #e0e0e0 solid;color:#666666;padding:30px;margin-top:30px;}
+.help-registered-container span{font-size:18px;}
+.help-registered-container ul{width:100%;line-height:24px;margin-top:15px;}
+.registration1{background:url("../img/helpCenter/registration1.png") no-repeat;}
+.registration2{background:url("../img/helpCenter/registration2.png") no-repeat;}
+.registration3{background:url("../img/helpCenter/registration3.png") no-repeat;}
+.point{width:5px;height:5px;position:absolute;background:url("../img/helpCenter/icon.png") no-repeat 0px -26px;top:10px;left:0px;}
+.helpPadding{padding-left:15px;position:relative;padding-right:15px;font-size:14px;}
+/* 原告 */
+.prosecutor{margin-top:30px;}
+.prosecutor-menu{width:161px;float:left;}
+.menu{height:45px;line-height:45px;padding-left:15px;margin-bottom:10px;border:1px #e0e0e0 solid;display:block;color:#666666;font-family:"Microsoft YaHei";font-size:18px;}
+.iconbg{width:15px;height:21px;background:url("../img/helpCenter/icon.png") no-repeat 4px -1px;top:14px;left:130px;}
+.prosecutor-menu a:hover{background-color:#f8f8f8}
+.prosecutor-contain{width:925px;background:#f8f8f8;color:#666666;border:1px #e0e0e0 solid;margin-left:28px;float:left;padding-top:30px;padding-bottom:30px;}
+.prosecutor-contain span{font-size:18px;}
+.prosecutor-contain ul{line-height:24px;margin-top:15px;font-size:14px;}
+/* 发起诉讼 */
+.plaintiffSued1{background:url("../img/helpCenter/plaintiffSued1.png") no-repeat;}
+.plaintiffSued2{background:url("../img/helpCenter/plaintiffSued2.png") no-repeat;}
+.plaintiffSued3{background:url("../img/helpCenter/plaintiffSued3.png") no-repeat;}
+/* 调解 */
+.plaintiffMediate1{background:url("../img/helpCenter/plaintiffMediate1.png") no-repeat;}
+.plaintiffMediate2{background:url("../img/helpCenter/plaintiffMediate2.png") no-repeat;}
+.plaintiffMediate3{background:url("../img/helpCenter/plaintiffMediate3.png") no-repeat;}
+/* 立案 */
+.plaintiffRegister1{background:url("../img/helpCenter/plaintiffRegister1.png") no-repeat;}
+.plaintiffRegister2{background:url("../img/helpCenter/plaintiffRegister2.png") no-repeat;}
+.plaintiffRegister3{background:url("../img/helpCenter/plaintiffRegister3.png") no-repeat;}
+.plaintiffRegister4{background:url("../img/helpCenter/plaintiffRegister4.png") no-repeat;}
+/* 举证 */
+.plaintiffProof1{background:url("../img/helpCenter/plaintiffProof1.png") no-repeat;}
+.plaintiffProof2{background:url("../img/helpCenter/plaintiffProof2.png") no-repeat;}
+/* 质证 */
+.plaintiffTestimony1{background:url("../img/helpCenter/plaintiffTestimony1.png") no-repeat;}
+.plaintiffTestimony2{background:url("../img/helpCenter/plaintiffTestimony2.png") no-repeat;}
+.plaintiffTestimony3{background:url("../img/helpCenter/plaintiffTestimony3.png") no-repeat;}
+.plaintiffTestimony4{background:url("../img/helpCenter/plaintiffTestimony4.png") no-repeat;}
+/* 视频庭审 */
+.plaintiffVideo1{background:url("../img/helpCenter/plaintiffVideo1.png") no-repeat;}
+.plaintiffVideo2{background:url("../img/helpCenter/plaintiffVideo2.png") no-repeat;}
+.plaintiffVideo3{background:url("../img/helpCenter/plaintiffVideo3.png") no-repeat;}
+.plaintiffVideo4{background:url("../img/helpCenter/plaintiffVideo4.png") no-repeat;}
+/* 庭审结束 */
+.plaintiffEnd{background:url("../img/helpCenter/plaintiffEnd.png") no-repeat;}
+/* 已判决 */
+.plaintiffRule1{background:url("../img/helpCenter/plaintiffRule1.png") no-repeat;}
+.plaintiffRule2{background:url("../img/helpCenter/plaintiffRule2.png") no-repeat;}
+/*原告 focus */
+.prosecutor-menu .focus{width:174px;color:#0073bf;background-color:#f8f8f8;border-right:none;}
+
+/* 关联案件 */
+.defendantRelated1{background:url("../img/helpCenter/defendantRelated1.png") no-repeat;}
+.defendantRelated2{background:url("../img/helpCenter/defendantRelated2.png") no-repeat;}
+/* 调解 */
+.defendantMediate1{background:url("../img/helpCenter/defendantMediate1.png") no-repeat;}
+.defendantMediate2{background:url("../img/helpCenter/defendantMediate2.png") no-repeat;}
+.defendantMediate3{background:url("../img/helpCenter/defendantMediate3.png") no-repeat;}
+/* 立案 */
+.defendantRegister1{background:url("../img/helpCenter/defendantRegister1.png") no-repeat;}
+.defendantRegister2{background:url("../img/helpCenter/defendantRegister2.png") no-repeat;}
+.defendantRegister3{background:url("../img/helpCenter/defendantRegister3.png") no-repeat;}
+.defendantRegister4{background:url("../img/helpCenter/defendantRegister4.png") no-repeat;}
+/* 送达确认 */
+.defendantConfirm1{background:url("../img/helpCenter/defendantConfirm1.png") no-repeat;}
+.defendantConfirm2{background:url("../img/helpCenter/defendantConfirm2.png") no-repeat;}
+.defendantConfirm3{background:url("../img/helpCenter/defendantConfirm3.png") no-repeat;}
+.defendantConfirm4{background:url("../img/helpCenter/defendantConfirm4.png") no-repeat;}
+/* 举证 */
+.defendantProof1{background:url("../img/helpCenter/defendantProof1.png") no-repeat;}
+.defendantProof2{background:url("../img/helpCenter/defendantProof2.png") no-repeat;}
+/* 质证 */
+.defendantTestimony1{background:url("../img/helpCenter/defendantTestimony1.png") no-repeat;}
+.defendantTestimony2{background:url("../img/helpCenter/defendantTestimony2.png") no-repeat;}
+.defendantTestimony3{background:url("../img/helpCenter/defendantTestimony3.png") no-repeat;}
+.defendantTestimony4{background:url("../img/helpCenter/defendantTestimony4.png") no-repeat;}
+/* 视频庭审 */
+.defendantVideo1{background:url("../img/helpCenter/defendantVideo1.png") no-repeat;}
+.defendantVideo2{background:url("../img/helpCenter/defendantVideo2.png") no-repeat;}
+.defendantVideo3{background:url("../img/helpCenter/defendantVideo3.png") no-repeat;}
+/* 庭审结束 */
+.defendantEnd{background:url("../img/helpCenter/defendantEnd.png") no-repeat;}
+/* 已判决 */
+.defendantRule{background:url("../img/helpCenter/defendantRule.png") no-repeat;}
+/* 下一步按钮样式 */
+
+
+
+
+
+

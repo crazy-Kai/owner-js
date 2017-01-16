@@ -1,0 +1,62 @@
+	<div class="fn-PaAl25 fn-color-666">
+		<div class="global-tab fn-BBS-ebebeb"><i></i>线下送达登记</div>
+		<div class="fn-MT10">
+			<form class="kuma-form" id="sendConfirm-form" >
+				<table class="fn-table fn-table-input fn-table-input-sm">
+					<tr>
+						<td align="right"  width="100" ><span class="global-require fn-VA1D">*</span>送达方式：</td>
+						<td width="*">
+							<div class="kuma-form-item">
+		            			<select class="fn-select fn-W140 kuma-input JS-target-required" data-errormessage-required="请选择送达方式" data-required="true" name="lassenDocumentConfirmDo.receiveType">
+			            			<option value="offline_send">线下邮寄</option>
+			            			<option value="arrive_court">到庭</option>
+		            			</select>
+		            		</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><span class="global-require fn-VA1D">*</span>送达地址：</td>
+						<td width="*">
+							<div class="kuma-form-item">
+								<input type="text" class="fn-input-text fn-W260 fn-input-text-sm kuma-input JS-target-required" data-required="true" name="lassenDocumentConfirmDo.receiveAddress" data-errormessage-required="请输入送达地址。" maxlength="200"/>
+							</div>
+						</td>
+					</tr>					
+					<tr>
+						<td align="right"><span class="global-require fn-VA1D">*</span>送达确认时间：</td>
+						<td width="*">
+							<div class="kuma-form-item">
+								<input type="text" class="fn-input-text fn-W260 fn-input-text-sm kuma-input JS-target-required JS-need-calendar" readonly="readonly" value="" data-required="true" name="lassenDocumentConfirmDo.receiveTime" data-errormessage-required="请选择送达确认时间。"/>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="fn-LH36"><span class="global-require fn-VA1D">*</span>送达详情：</td>
+						<td>
+							<div class="kuma-form-item">
+								<textarea rows="3" name="lassenDocumentConfirmDo.content" maxlength="1000" class="fn-textarea fn-W260 JS-target-required" data-required="true" data-errormessage-required="请输入送达详情。"></textarea>
+							</div>
+				    	</td>
+					</tr>
+					<tr>
+						<td align="right"><span class="global-require fn-VA1D">*</span>证明文件：</td>
+						<td><div class="kuma-form-item">
+	                            <input type="button" class="fn-btn fn-btn-upload fn-btn-sm fn-W100 JS-need-upload" value="上传附件" 
+	                            data-style='{"display": "inline-block"}' 
+	                            data-img-view="true"
+	                            data-input-name="fileId" />
+	                            <input type="hidden" name="fileId" class="JS-target-required" data-skip-hidden="false"  
+	                            data-required="true" data-errormessage="请上传证明文件。" value="" />
+	                        </div>
+	                    </td>
+					</tr>
+					<tr>
+						<td align="right"></td>
+						<td>
+							<input type="button" class="fn-btn fn-btn-primary fn-btn-sm fn-W80 fn-H30 fn-LH30" data-role="sure" value="确   定"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>

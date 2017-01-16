@@ -1,0 +1,856 @@
+##支付令申请单
+{{\#if application}}
+<div data-item="tab"  class="fn-table">
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>支付令申请单</div>
+	<div class="fn-PT20 fn-PL18 fn-PR19 fn-PB20 fn-BRE-ccc fn-MT10">
+		<p class="fn-TAC fn-FS16 fn-FWB fn-color-666">支付令申请</p>
+		{{#each application.accuserList }} 
+			{{#isEqual entityType "normal"}}
+			<!-- <div class="accuserList">
+				<div class="global-tab fn-MT10 fn-BBS-ebebeb">申请人：{{name}}</div>
+				<div class="fn-PT6 fn-PB6 fn-clear" >
+					<span class="fn-left fn-MR50 fn-LH18 ">身份证号码：{{idCard}}</span>
+					<span class="fn-left fn-MR50 fn-LH18">性别：{{#isEqual gender "male"}}男 {{else}}女{{/isEqual}}</span>
+					<span class=" fn-left fn-LH18">民族：</span ><span class="fn-left fn-ellipsis fn-MaWi100 fn-MR50 fn-LH18 ">{{nation}}</span>
+					<span class="fn-left fn-LH18">出生日期：{{formatData 'yyyy-MM-dd' birthday}}</span>
+				</div>
+				<div class="fn-PT6 fn-PB6 fn-LH18">
+					<span class="fn-DiPlTaCe fn-W40">住址：</span>
+					<span class="fn-DiPlTaCe">{{curAddress}}</span>
+				</div>
+			</div> -->
+			<div class="global-tab fn-MT15 fn-BBS-ebebeb">申请人：{{name}}</div>
+            <div class="fn-W100P fn-DiPlTa">
+                <div class="fn-DiPlTaCe fn-W80P fn-PaAl15">
+                    <table width="100%" class="fn-table fn-table-text">
+                        <tr>
+                            <td width="80" align="right">身份证号码：</td>
+                            <td width="150">{{idCard}}</td>
+                            <td width="50" align="right">性别：</td>
+                            <td width="30">{{#isEqual gender "male"}}男 {{else}}女{{/isEqual}}</td>
+                            <td width="40" align="right">民族：</td>
+                            <td width="65">{{nation}}</td>
+                            <td width="60" align="right">出生日期：</td>
+                            <td>{{formatData 'yyyy-MM-dd' birthday}}</td>
+                        </tr>
+                        <tr>
+                            <td align="right" valign="top">住址：</td>
+                            <td colspan="7" valign="top">
+                                <div class="fn-ellipsis fn-W340" title="{{curAddress}}">
+                                    {{curAddress}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>	
+			{{/isEqual}}
+			{{#isEqual entityType "legal"}}
+				<!-- <div class="accuserList">
+					<div class="global-tab fn-MT10 fn-BBS-ebebeb">申请人：{{companyName}}</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-MR50">法人代表：{{legalRepresent}}</span>
+						<span class="fn-MR50">手机：{{mobile}}</span>
+						<span >电话：{{phone}}</span>
+					</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-DiPlTaCe fn-W60">通讯地址：</span>
+						<span class="fn-DiPlTaCe ">{{mailAddress}}</span>
+					</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-DiPlTaCe fn-W72">公司注册地：</span>
+						<span class="fn-DiPlTaCe ">{{companyAddress}}</span>
+					</div>	
+				</div> -->
+				<div class="global-tab fn-MT15 fn-BBS-ebebeb">申请人：{{companyName}}</div>
+                <div class="fn-W100P fn-DiPlTa">
+                    <div class="fn-DiPlTaCe fn-W80P fn-PaAl15">
+                        <table width="100%" class="fn-table fn-table-text">
+                            <tr>
+                                <td width="100" align="right">法定代表人：</td>
+                                <td width="150">{{legalRepresent}}</td> 
+                                <td width="100" align="right">手机号码：</td>
+                                <td width="100">{{mobile}}</td>
+                                <td width="100" align="right">固定电话：</td>
+                                <td>{{phone}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right">公司注册地：</td>
+                                <td colspan="5">
+                                    <div class="fn-ellipsis fn-W340" title="{{companyAddress}}">
+                                        {{companyAddress}}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">通讯地址：</td>
+                                <td colspan="5">
+                                    <div class="fn-ellipsis fn-W340" title="{{mailAddress}}">
+                                        {{mailAddress}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+			{{/isEqual}}
+		{{/each}}
+		{{#each application.defendantList}}
+			{{#isEqual entityType "normal"}}
+				<!-- <div class="defendantList">
+					<div class="global-tab  fn-BBS-ebebeb ">被申请人：{{name}}</div>
+						<div class="fn-PT6 fn-PB6 fn-clear" >
+							<span class="fn-left fn-MR50 fn-LH18 ">身份证号码：{{idCard}}</span>
+							<span class="fn-left fn-MR50 fn-LH18">性别：{{#isEqual gender "male"}}男 {{else}}女{{/isEqual}}</span>
+							<span class=" fn-left fn-LH18">民族：</span ><span class="fn-left fn-ellipsis fn-MaWi100 fn-MR50 fn-LH18 ">{{nation}}</span>
+							<span class="fn-left fn-LH18">出生日期：{{formatData 'yyyy-MM-dd' birthday}}</span>
+						</div>
+						<div class="fn-PT6 fn-PB6 fn-LH18">
+							<span class="fn-DiPlTaCe fn-W40">住址：</span>
+							<span class="fn-DiPlTaCe">{{curAddress}}</span>
+						</div>
+				</div> -->
+				<div class="global-tab fn-BBS-ebebeb">被申请人：{{name}}</div>
+                    <div class="fn-PaAl15">
+                        <table width="100%" class="fn-table fn-table-text">
+                            <tr>
+                                <td width="80" align="right">身份证号码：</td>
+                                <td width="150">{{idCard}}</td>
+                                <td width="50" align="right">性别：</td>
+                                <td width="30">{{#isEqual gender "male"}}男 {{else}}女{{/isEqual}}</td>
+                                <td width="40" align="right">民族：</td>
+                                <td width="65">{{nation}}</td>
+                                <td width="60" align="right">出生日期：</td>
+                                <td>{{formatData 'yyyy-MM-dd' birthday}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right">住址：</td>
+                                <td colspan="7">
+                                    <div class="fn-ellipsis fn-W340" title="{{curAddress}}">
+                                        {{curAddress}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+			{{/isEqual}}
+			{{#isEqual entityType "legal"}}
+				<!-- <div class="defendantList">
+					<div class="global-tab  fn-BBS-ebebeb ">被申请人：{{companyName}}</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-MR50">法人代表：{{legalRepresent}}</span>
+						<span class="fn-MR50">手机：{{mobile}}</span>
+						<span >电话：{{phone}}</span>
+					</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-DiPlTaCe fn-W60">通讯地址：</span>
+						<span class="fn-DiPlTaCe ">{{mailAddress}}</span>
+					</div>
+					<div class="fn-PT6 fn-PB6 fn-LH18">
+						<span class="fn-DiPlTaCe fn-W72">公司注册地：</span>
+						<span class="fn-DiPlTaCe ">{{companyAddress}}</span>
+					</div>	
+				</div> -->
+				<div class="global-tab fn-MT15 fn-BBS-ebebeb">被申请人：{{companyName}}</div>
+                <div class="fn-PaAl15">
+                    <table class="fn-table fn-table-text" width="100%">
+                        <tr>
+                            <td width="80" align="right">法定代表人：</td>
+                            <td width="150">{{legalRepresent}}</td>
+                            <td width="100" align="right">手机号码：</td>
+                            <td width="100">{{mobile}}</td>
+                            <td width="100" align="right">固定电话：</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">公司注册地：</td>
+                            <td colspan="5">
+                                <div class="fn-ellipsis fn-W340" title="{{companyAddress}}">
+                                    {{companyAddress}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">通讯地址：</td>
+                            <td colspan="5">
+                                 <div class="fn-ellipsis fn-W340" title="{{mailAddress}}">
+                                    {{mailAddress}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+			{{/isEqual}}
+		{{/each}}
+		<div class="global-tab  fn-BBS-ebebeb ">管辖理由</div>
+		<div class="fn-PT6 fn-PB6 fn-LH18">
+			{{#isEqual application.selectReason "accused_location"}}被告所在地{{/isEqual}}
+			{{#isEqual application.selectReason "contract_location"}}合同履行地{{/isEqual}}
+			{{#isEqual application.selectReason "agreement_location"}}协议管辖所在地{{/isEqual}}
+			{{#isEqual application.selectReason "tort_location"}}侵权行为所在地{{/isEqual}}
+			{{#isEqual application.selectReason "accuser_location"}}原告所在地{{/isEqual}}
+		</div>
+		<div class="global-tab  fn-BBS-ebebeb ">申请事项</div>
+		
+			{{\#if application.suitRequestDoList}}
+				{{#isEqual  application.suitRequestDoList.[0].requestType "creditCard"}}
+					{{#each application.suitRequestDoList }}
+					 
+					<table width="100%" class="fn-table fn-table-text fn-table-payment-detail">
+						<tbody>
+							<tr>
+								<td width="15">{{rightIndex @index}}.</td>
+								<td width="40">内容：</td>
+								<td>{{content}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>金额：</td>
+								<td>{{parseAmount amount}}</td>
+							</tr>
+						</tbody>
+					</table>
+					{{/each}}
+					<div class="fn-MT10">
+						<table width="100%" class="fn-table fn-table-text fn-table-payment-detail">
+							<tbody>
+								<tr>
+									<td width="76">申请总金额：</td>
+									<td >{{parseAmount application.amount}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				{{/isEqual}}
+				{{#isEqual  application.suitRequestDoList.[0].requestType "payment_other"}}
+					<div class="fn-LH22 fn-MT10 fn-ML20 fn-word-wrap">
+				 		 <table width="100%" class="fn-table fn-table-text">
+				 		 	<tr>
+				 		 		<td width="100" align="right">类型：</td>
+				 		 		<td width="100" >
+				 		 			{{#isEqual application.suitRequestDoList.[0].requestType "creditCard"}}
+				 		 			 	信用卡（花呗）
+				 		 			{{/isEqual}}
+				 		 			{{#isEqual application.suitRequestDoList.[0].requestType "loan"}}
+				 		 			 	贷款
+				 		 			{{/isEqual}}
+				 		 			{{#isEqual application.suitRequestDoList.[0].requestType "privateLending"}}
+				 		 			 	民间借贷
+				 		 			{{/isEqual}}
+				 		 			{{#isEqual application.suitRequestDoList.[0].requestType "payment_other"}}
+				 		 			 	其他
+				 		 			{{/isEqual}}
+
+				 		 		</td>
+				 		 		<td width="100" align="right">导入数据：</td>
+				 		 		<td>
+				 		 			{{#each application.fileMap}}
+				 		 			 <div class="fn-ellipsis fn-MaWi300">
+                                     	<a href="{{url}}" class="fn-color-047dc6" target="_blank">{{fileName}}</a>
+                                	</div>
+                                	{{/each}}
+				 		 		</td>
+				 		 	</tr>
+				 		 	<tr>
+					 		 	<td align="right">结算日：</td>
+	                            <td colspan="3">{{ formatData "yyyy-MM-dd" application.suitRequestDoList.[0].businessDate}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		<td align="right">贷款本金：</td>
+                           	 	<td>{{parseAmount application.suitRequestDoList.[0].principal}}</td>
+                            	<td align="right">尚欠贷款本金：</td>
+                            	<td >{{parseAmount application.suitRequestDoList.[0].unpaidPrincipal}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		 <td align="right">逾期利率：</td>
+				 		 		 {{#isEqual application.suitRequestDoList.[0].rateType "hundredMarkSystem"}}
+				 		 		    <td>
+				 		 		 	{{parseAmount application.suitRequestDoList.[0].ovdRate}}%
+				 		 		    </td>
+				 		 		 {{/isEqual}}
+				 		 		 {{#isEqual application.suitRequestDoList.[0].rateType "micrometerSystem"}}
+				 		 		 	<td>
+				 		 		 	{{parseAmount application.suitRequestDoList.[0].ovdRate}}‰
+				 		 		 	</td>
+				 		 		 {{/isEqual}}
+                  
+                            	<td align="right">逾期利息：</td>
+                            	<td>{{parseAmount application.suitRequestDoList.[0].unpaidPenalty}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		<td align="right">累计利息：</td>
+                            	<td colspan="3">{{parseAmount application.suitRequestDoList.[0].penalty}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		<td align="right">手续费：</td>
+                            	<td colspan="3">{{parseAmount  application.suitRequestDoList.[0].fee}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		<td align="right">其他：</td>
+                            	<td>{{parseAmount application.suitRequestDoList.[1].amount }}</td>
+                            	<td align="right">说明：</td>
+                            	<td>{{application.suitRequestDoList.[1].content}}</td>
+				 		 	</tr>
+				 		 	<tr>
+				 		 		 <td align="right">申请总金额：</td>
+                            	 <td colspan="3">{{parseAmount application.amount}}</td>
+				 		 	</tr>
+				 		 </table>
+				 	</div>
+				{{/isEqual}}
+			{{/if}}
+		
+
+
+		<div class="global-tab  fn-BBS-ebebeb ">事实</div>
+		<div id="factDetail" class="fn-PB10" data-data="{{application.fact}}"></div>
+		<div class="global-tab  fn-BBS-ebebeb ">法律依据</div>
+		<div class="fn-PT6 fn-PB6 fn-LH18">
+			{{{application.basisContent}}}
+		</div>
+		<div class="global-tab  fn-BBS-ebebeb ">确认事项</div>
+		<div id="confirm" class="fn-PB10" data-data="{{application.tips}}">
+			
+		</div>
+	</div>
+</div>
+{{/if}}
+##代理人信息
+{{#contains  entityRole "filing_court" "trial_court" "clerk" }}
+<div data-item="tab" class="fn-table" >
+			<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>代理人信息</div>
+			<ul>
+			{{\#if agent}}
+			{{#each agent}}
+				<li class="fn-MT30">
+	  				<div class="fn-FWB fn-color-666 fn-ML7 fn-MT30">原告{{dataMap accuser1.entityPosition '{"1":"一","2":"二","3":"三","4":"四","5":"五"}' }}代理人{{dataMap agentInfo.entityPosition '{"1":"一","2":"二","3":"三","4":"四","5":"五"}'}}</div>
+		  			<div class="fn-clear fn-MT10">
+		  				<div class="fn-left fn-W250">
+			  				<table class="fn-table fn-table-text" width="220">
+						  					<tr>
+						  						<td width="85" align="right">代理人姓名：</td>
+						  						<td>{{agentInfo.lassenLitigantAgentDto.agentName}}</td>
+						  					</tr>
+						  					<tr>
+						  						<td width="85" align="right">手机号码：</td>
+						  						<td>{{agentInfo.lassenLitigantAgentDto.agentMobile}}</td>
+						  					</tr>
+						  					<tr>
+						  						<td width="85" align="right">与当事人关系：</td>
+						  						<td>{{agentInfo.lassenLitigantAgentDto.relationCodeStr}}</td>
+						  					</tr>
+						  					<tr>
+						  						<td width="85" align="right">关系证明：</td>
+						  						<td>
+						  							<a href="{{agentInfo.lassenLitigantAgentDto.relationFileDo.url}}" class="fn-color-047DC6 fn-W75 fn-ellipsis fn-left">{{agentInfo.lassenLitigantAgentDto.relationFileDo.fileName}}</a><br/>
+						  						</td>
+						  					</tr>
+						  					<tr>
+						  						<td width="85" align="right">委托书：</td>
+						  						<td>
+						  							<a href="{{agentInfo.lassenLitigantAgentDto.entrustFileDo.url}}" class="fn-color-047DC6 fn-W75 fn-ellipsis fn-left">{{agentInfo.lassenLitigantAgentDto.entrustFileDo.fileName}}</a><br/>
+						  						</td>
+						  					</tr>
+						  					<tr>
+						  						<td width="85" align="right">代理权限：</td>
+						  						<td>{{agentInfo.lassenLitigantAgentDto.authStr}}</td>
+						  					</tr>
+
+			  				</table>
+		  				</div>
+		  				<div class="fn-right fn-W500 fn-PR20 fn-PosRel">
+			  				<div class="count-back-left-angle fn-LE10D">
+			          		</div>
+		  					<div class="fn-PL10 fn-PR10 fn-PB10 fn-BoAlSo fn-BoCo-ebebeb fn-MiHe145">
+		  						<div class="fn-clear-bottom">
+		  						<div class="fn-FWB fn-color-666 fn-LH30">认证信息</div>
+		  						<table class="fn-table fn-table-text">
+		  							<tbody>
+		  								<tr>
+		  									<td width="80" align="right">认证时间：</td>
+		  									<td width="160">{{formatData "yyyy-MM-dd-HH:mm" agentCertification.certDate}}</td>
+		  									<td width="80" align="right">性别：</td>
+		  									<td>{{#isEqual agentNormal.gender "male"}}男{{else}}女{{/isEqual}}</td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">认证状态：</td>
+		  									<td width="160">已认证</td>
+		  									<td width="80" align="right">民族：</td>
+		  									<td>{{agentNormal.nationality}}</td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">认证名称：</td>
+		  									<td width="160">{{agentCertification.certName}}</td>
+		  									<td width="80" align="right">出生日期：</td>
+		  									<td>{{formatData "yyyy-MM-dd" agentNormal.birthday}}</td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">证件类型：</td>
+		  									<td width="160">
+		  										{{#isEqual agentCertification.idcardType "idcard"}}身份证{{/isEqual}}
+		          		 						{{#isEqual agentCertification.idcardType "passport"}}护照{{/isEqual}}
+		          		 						{{#isEqual agentCertification.idcardType "businesspermit"}}营业执照{{/isEqual}}
+		  									</td>
+		  									<td width="80" align="right">证件照正面：</td>
+		  									<td>
+		  										 <a href="{{agentInfo.frontDoList.[0].url}}" class="global-link fn-W75 fn-ellipsis fn-left " data-rule="imgView">{{agentInfo.frontDoList.[0].fileName }}</a><br/>
+		  									</td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">证件号码：</td>
+		  									<td width="160">
+		  										{{agentCertification.idcardNumber}}
+		  									</td>
+		  									<td width="80" align="right">证件照反面：</td>
+		  									<td>
+		  										<a href="{{agentInfo.backDoList.[0].url}}" class="global-link fn-W75 fn-ellipsis fn-left">{{ agentInfo.backDoList.[0].fileName }}</a><br/>
+		  									</td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">证件有效期：</td>
+		  									<td width="160">
+		  										{{formatData 'yyyy-MM-dd' agentCertification.expireDateStart}} - {{formatData 'yyyy-MM-dd' agentCertification.expireDateEnd }}
+		  									</td>
+		  									<td width="80" align="right"></td>
+		  									<td></td>
+		  								</tr>
+		  								<tr>
+		  									<td width="80" align="right">住址：</td>
+		  									<td colspan="3">{{agentNormal.currentAddress}}</td>
+		  									
+		  								</tr>
+		  							</tbody>
+		  						</table>
+		  						</div>
+		  					</div>
+		  				</div>
+		  			</div>
+				</li>
+			{{/each}}	
+			{{else}}
+				<div class="fn-MT20 fn-MB20 fn-TAC">当前没有代理人信息</div>
+			{{/if}}
+			</ul>
+</div> 
+{{/contains}}
+##证据
+<div data-item="tab" class="fn-table">
+		<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>证据</div>
+		<div class="fn-MT15">
+			<table class="fn-table fn-table-text fn-table-data" width="100%">
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th width="200">证据名称</th>
+						<th width="50">页数</th>
+						<th width="200">证明内容</th>
+						<th width="140">来源</th>
+						<th width="95">附件</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="evidence">
+			<ul>
+			{{\#if evidence}}
+			{{#each evidence}}
+				<li>
+					<table width="100%" class="fn-table fn-table-text fn-table-data">
+						<tr>
+							<td width="50">{{rightIndex  @index}}</td>
+							<td width="200" >{{name}}</td>
+							<td width="50" >{{pageNum}}</td>
+							<td width="200" >{{content}}</td>
+							<td width="140" >{{source}}</td>
+							<td width="95">
+							{{\#if uploadFileDos}}
+							{{#each uploadFileDos}}
+								<a href="{{url}}" class="fn-color-047DC6 fn-W75 fn-ellipsis fn-left">{{fileName}}</a><br/>
+							{{/each}}
+							{{/if}}
+							</td>
+						</tr>
+					</table>
+				</li>
+			{{/each}}
+			{{else}}
+				<div class="fn-MT20 fn-MB20 fn-TAC">当前没有相关证据</div>
+			{{/if}}
+			</ul>
+		</div>
+</div>
+##支付令
+<div data-item="tab" class="fn-table">
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>支付令</div>
+ 	{{\#if paymentOrder }}
+	<div class="fn-LH30">
+		<span class="fn-color-008000">
+			{{#isEqual paymentOrder.status "new" }}支付令已生成{{/isEqual}}
+			{{#isEqual paymentOrder.status "valid" }}支付令已生效{{/isEqual}}
+			{{#isEqual paymentOrder.status "invalid" }}支付令已失效{{/isEqual}}
+		</span>
+		{{#isEqual paymentOrder.status "new" }}（生成日期：{{formatData "yyyy-MM-dd"  paymentOrder.gmtCreate}}）{{/isEqual}}
+		{{#isEqual paymentOrder.status "valid" }}（生效日期：{{formatData "yyyy-MM-dd"  paymentOrder.validDate}}）{{/isEqual}}
+		{{#isEqual paymentOrder.status "invalid" }}（失效日期：{{formatData "yyyy-MM-dd"  paymentOrder.validDate}}）{{/isEqual}}
+	</div>
+	<div class="fn-MiHe650 fn-BRE-ccc">
+	<div class="fn-PL20 fn-PR20">
+		<div class="fn-MT20 fn-PB20">
+			{{{paymentOrder.content}}}
+		</div>
+
+		</div>
+	</div>
+	{{else}}
+	<div class="fn-MT20 fn-MB20 fn-TAC">当前没有支付令</div>
+	{{/if}}
+</div>
+##申请人文书
+{{#contains  entityRole "filing_court" "trial_court" "clerk" "accuser" "accuser_agent" "accuser_sec_agent" }}
+	<div data-item="tab" class="fn-table" >
+		<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>申请人文书
+		</div>
+		<div class="fn-MT10">   	
+			## 数据显示
+			<table class="fn-table fn-table-text fn-table-data " width="100%">
+				<thead>
+					<tr>
+						<th width="200">序号</th>
+						<th >文书名称</th>
+						<th width="90">操作</th>
+					</tr>
+				</thead>
+			</table>
+			<div class="accuserDoc">
+				<ul>
+				{{\#if accuserDoc}}
+					{{#each accuserDoc}}
+					<li>
+						<table class="fn-table fn-table-text fn-table-data " width="100%" >
+							<tbody class="JS-target-content">
+									<tr>
+									    <td width="200">{{rightIndex @index}}</td>
+							            <td >{{title}}</td>
+							            <td width="90">
+							            	{{#isEqual docType "riskNotification"}}
+							            		<a href="/paymentorder/riskBooks.htm" target="_blank" class="fn-color-2291ca">查看</a>
+							            	{{/isEqual}}
+								            {{#isEqual docType "accuserRightsDutiesMakeDoc"}}
+											<a href="/suit/start/notice/civilSuitNotice.htm" target="_blank" class="fn-color-2291ca">查看</a>
+								            {{/isEqual}}
+								      		{{#isEqual docType "accuserSupervisionOfTaxationMakeDoc"}}
+											<a href="/suit/start/notice/incorruptSupervision.htm" target="_blank" class="fn-color-2291ca">查看</a>
+								      		{{/isEqual}}
+											{{#noEqual docType "accuserRightsDutiesMakeDoc"}}
+												{{#noEqual docType "accuserSupervisionOfTaxationMakeDoc" }}
+													{{#noEqual docType "riskNotification"}}
+								            	<a href="/caseDetail/caseDocument.htm?securityId={{securityId}}" class="global-link" target="_blank">查看</a><br />
+								            		{{/noEqual}}
+												{{/noEqual}}
+											{{/noEqual}}
+										
+							            </td>
+									</tr>
+							</tbody>
+						</table>	
+					</li>
+					{{/each}}
+				{{else}}
+						<div class="fn-MT20 fn-MB20 fn-TAC">当前没有文书记录</div>
+				{{/if}}
+				</ul>
+			</div>
+		</div>
+		 	
+	</div>
+{{/contains}}
+##被申请人文书
+{{#contains  entityRole "filing_court" "trial_court" "clerk" "accused" "accused_agent" "accused_sec_agent"}}
+	<div data-item="tab" class="fn-table">
+		<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>
+		被申请人文书
+		</div>
+		<div class="file">   
+			<div class="fn-MT10">
+				<table class="fn-table fn-table-text fn-table-data " width="100%">
+					<thead>
+						<tr>
+							<th width="200">序号</th>
+							<th >文书名称</th>
+							<th width="90">操作</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<ul>
+				{{\#if accusedDoc }}
+				{{#each accusedDoc}}
+				<li>
+					<table class="fn-table fn-table-text fn-table-data fn-MT10" width="100%">
+						<tbody class="JS-target-content">
+							<tr>
+							    <td width="200">{{ rightIndex @index}}</td>
+					            <td >{{title}}</td>
+					            <td width="90">
+					            		{{#isEqual docType "riskNotification"}}
+							            		<a href="/paymentorder/riskBooks.htm" target="_blank" class="fn-color-2291ca">查看</a>
+							            {{/isEqual}}
+					           			{{#isEqual docType "accuserRightsDutiesMakeDoc"}}
+											<a href="/suit/start/notice/civilSuitNotice.htm" target="_blank" class="fn-color-2291ca">查看</a>
+							            {{/isEqual}}
+							      		{{#isEqual docType "accuserSupervisionOfTaxationMakeDoc"}}
+										<a href="/suit/start/notice/incorruptSupervision.htm" target="_blank" class="fn-color-2291ca">查看</a>
+							      		{{/isEqual}}
+										{{#noEqual docType "accuserRightsDutiesMakeDoc"}}
+											{{#noEqual docType "accuserSupervisionOfTaxationMakeDoc" }}
+												{{#noEqual docType "riskNotification"}}
+							            	<a href="/caseDetail/caseDocument.htm?securityId={{securityId}}" class="global-link" target="_blank">查看</a><br />
+							            		{{/noEqual}}
+											{{/noEqual}}
+										{{/noEqual}}
+					            </td>
+							</tr>
+						</tbody>
+					</table>	
+				</li>
+				{{/each}}
+				{{else}}
+					<div class="fn-MT20 fn-MB20 fn-TAC">当前没有文书记录</div>
+				{{/if}}
+			</ul>
+			
+	 	</div>
+
+	</div>
+{{/contains}}
+##支付令送达详情
+	<div data-item="tab" class="fn-table">   
+		<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>支付令送达详情
+		</div>
+		<div class="fn-MT10">
+			<table class="fn-table fn-table-text fn-table-data " width="100%">
+				<thead>
+					<tr>
+						<th width="90">送达方式</th>
+						<th width="150">联系地址</th>
+						<th width="120">发送时间</th>
+						<th width="70">是否送达</th>
+						<th >送达详情</th>
+						<th width="90">证明文件</th>
+					</tr>
+				</thead>
+			</table>	
+		</div>
+		<ul>
+			{{\#if paymentReceiveInfo}}
+			{{#each paymentReceiveInfo}}
+			<li>
+				<table class="fn-table fn-table-text fn-table-data " width="100%">
+					<tbody class="JS-target-content">
+						<tr>
+						    <td width="90">{{#isEqual receiveType 'email'}}邮件{{/isEqual}}{{#isEqual receiveType 'mobile'}}短信{{/isEqual}}{{#isEqual receiveType "offline_send" }} 线下邮寄 {{/isEqual}} {{#isEqual receiveType "arrive_court"}} 到庭 {{/isEqual}}
+         					{{#isEqual receiveType "auto_confirm"}}被告已自动送达{{/isEqual}}
+						    </td>
+						    <td width="150">{{receiveAddress}}</td>
+				            <td width="120">{{formatData 'yyyy-MM-dd HH:mm:ss' sendTime}}</td>
+				            <td width="70">
+				            	{{#contains receiveType "mobile" "offline_send"  "arrive_court"  "auto_confirm"}}
+											{{#isEqual isReceive "y"}}是 {{else}} 否{{/isEqual}}
+								{{/contains}}
+				            </td>
+				            <td >
+				            	 {{#isEqual isReceive "y"}}
+										{{#noEqual receiveType "auto_confirm" }}
+										    {{formatData 'yyyy-MM-dd HH:mm:ss' receiveTime}}
+										{{/noEqual}}
+							     {{/isEqual}}
+								 {{content}}
+				          
+				            </td>
+				            <td width="90">
+				            <a href="{{proofFileList.[0].url}}" class="global-link fn-W75 fn-ellipsis fn-left" >{{proofFileList.[0].fileName}}</a><br />
+				            </td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+			{{/each}}
+			{{else}}
+			<div class="fn-MT20 fn-MB20 fn-TAC">当前没有送达详情</div>
+			{{/if}}
+		</ul>
+	</div>
+##缴费记录
+{{#contains  entityRole "filing_court" "trial_court" "clerk" "accuser" "accuser_agent" "accuser_sec_agent" }}
+<div data-item="tab" class="fn-table" >
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>缴费记录</div>
+	<div class="fn-MT10">
+		<table class="fn-table fn-table-text fn-table-data" width="100%">
+			<thead>
+				<tr>
+					<th  width="200">案件</th>
+					<th width="75">费用（元）</th>
+					<th width="110">缴费时间</th>
+					<th width="75">支付平台</th>
+					<th>订单号</th>
+					<th width="90">缴费状态</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class="paythefees">
+		<ul>
+			{{\#if paymentRecord}}
+			{{#each paymentRecord}}
+			<li>
+				<table width="100%" class="fn-table fn-table-text fn-table-data">
+					<tbody>
+						<tr>
+							<td width="200">
+								<span >
+									{{../application.caseCode}}
+								</span><br/>
+								<span >
+									{{../application.title}}
+								</span><br/>
+							</td>
+							<td width="75">
+								<span class="fn-color-F00">{{ parseAmount price}}</span>
+							</td>
+							<td width="110">
+								{{formatData  "yyyy-MM-dd HH:mm" payTime}}
+							</td>
+							<td width="75">
+								{{#isEqual orderID "offline"}}线下支付{{else}}支付宝{{/isEqual}}
+							</td>
+							<td>
+								{{orderID}}
+							</td>
+							<td width="90">
+								{{#isEqual status "TRADE_SUCCESS"}}交易成功{{/isEqual}}
+								{{#isEqual status "WAIT_BUYER_PAY"}}等待付款{{/isEqual}}
+								{{#isEqual status "TRADE_CLOSED"}}交易关闭{{/isEqual}}
+								{{#isEqual status "TRADE_FINISHED"}}交易结束{{/isEqual}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+			{{/each}}
+			{{else}}
+				<div class="fn-MT20 fn-MB20 fn-TAC">当前没有缴费记录</div>
+			{{/if}}
+		</ul>
+	</div>
+</div>
+{{/contains}}
+##撤回记录
+{{#contains  entityRole "filing_court" "trial_court" "clerk" "accuser" "accuser_agent" "accuser_sec_agent" }}
+<div data-item="tab" class="fn-table" >
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>撤回记录</div>
+	<div class="fn-MT10">
+		<table class="fn-table fn-table-text fn-table-data" width="100%">
+			<thead>
+				<tr>
+					<th width="200">申请时间</th>
+					<th width="170">理由</th>
+					<th >说明</th>
+					<th width="90">撤回裁定</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="recallfees">
+			<ul>
+				{{#\if undoRecords}}
+				{{#each undoRecords }}
+				<li>
+					<table class="fn-table fn-table-text fn-table-data" width="100%">
+						<tbody>
+							<tr>
+								<td width="200">{{formatData  "yyyy-MM-dd HH:mm" applyTime}}</td>
+								<td width="170">{{reason}}</td>
+								<td>{{memo}}</td>
+								<td width="90"><a href="javascript:;"  data-param="{{securityId}}" data-click="recall" class="global-link">查看</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+				{{/each}}
+				{{else}}
+					<div class="fn-MT20 fn-MB20 fn-TAC">当前没有撤回记录</div>
+				{{/if}}
+
+			</ul>
+		</div>
+	</div>
+</div>
+{{/contains}}
+##异议裁定记录
+<div data-item="tab" class="fn-table" >
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>异议裁定记录</div>
+	<div class="fn-MT10">
+		<table class="fn-table fn-table-text fn-table-data" width="100%">
+			<thead>
+				<tr>
+					<th width="200">申请时间</th>
+					<th>异议意见</th>
+					<th width="90">异议裁定</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="recallfees">
+			<ul>
+				{{\#if objectionsRecord}}
+				<li>
+					<table class="fn-table fn-table-text fn-table-data" width="100%">
+						<tbody>
+							<tr>
+								<td width="200">{{formatData 'yyyy-MM-dd HH:mm' objectionsRecord.applicationTime}}</td>
+								<td>{{objectionsRecord.opinion}}</td>
+								<td width="90"><a href="javascript:;" data-param="{{objectionsRecord.securityId}}" data-click="objection" class="global-link">查看</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+				{{else}}
+					<div class="fn-MT20 fn-MB20 fn-TAC">当前没有异议记录</div>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</div>
+##执行申请记录
+{{#contains  entityRole "filing_court" "trial_court" "clerk" "accuser" "accuser_agent" "accuser_sec_agent" }}
+<div  data-item="tab" class="fn-table">
+	<div class="global-tab fn-MT15 fn-BBS-ebebeb"><i></i>执行申请记录</div>
+	<div class="fn-MT10">
+		<table class="fn-table fn-table-text fn-table-data" width="100%">
+			<thead>
+				<tr>
+					<th width="200">申请时间</th>
+					<th >申请内容</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="recallfees">
+			<ul>
+				{{\#if performRecord}}
+				<li>
+					<table class="fn-table fn-table-text fn-table-data" width="100%">
+						<tbody>
+							<tr>
+								<td width="200">{{formatData 'yyyy-MM-dd HH:mm' performRecord.applicationTime}}</td>
+								<td >{{performRecord.content}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+				{{else}}
+					<div class="fn-MT20 fn-MB20 fn-TAC">当前没有执行申请记录</div>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</div>
+{{/contains}}
+

@@ -1,0 +1,144 @@
+﻿@charset "utf-8";
+// 变量 
+$IMG_PATH: "../../img/" !default;
+$FONT_SIZE: 	50 		!default;
+$LINE_HEIGHT_SIZE: 	50 		!default;
+$WIDTH_SIZE: 	1000 	!default;
+$HEIGH_SIZE: 	100 	!default;
+$PADDING_SIZE: 	100 	!default;
+$MARGIN_SIZE: 	100 	!default;
+$DIRECTION_LIST: 	(To:top, Ri:right, Bo:bottom, Le:left);
+$DISPLAY_LIST: 		(Tr:table-row, Tc:table-cell, Ib:inline-block, Ta:table);
+$TEXT_ALIGN_LIST:	(Le:left, Ri:right, Ce:center);
+
+// 配色
+$COLOR_BULE: 		#0073bf; 	/** 蓝色 */
+$COLOR_GRAY: 		#CCC; 		/** 灰色 */
+$COLOR_LIGHTGRAY: 	#F2F2F2; 	/** 浅灰 */
+$COLOR_RED: 		#F00; 		/** 红色 */
+$COLOR_WHITE: 		#FFF; 		/** 白色 */
+$COLOR_BLACK: 		#000; 		/** 黑色 */
+$COLOR_LIGHTBLACK: 	#666; 		/** 浅黑 */
+$COLOR_DEEPBLACK: 	#333; 		/** 深黑 */
+$COLOR_ORANGE:	 	#F60; 		/** 橙色 */
+
+// 函数：设置背景
+@function background($url, $left:0, $top:0, $repeat:no-repeat){
+	@return url("#{$IMG_PATH}#{$url}") $repeat $left $top;
+}
+
+/** 功能 */
+	*{-webkit-tap-highlight-color:rgba(0,0,0,0);vertical-align:top;}
+	.sc-clear{zoom:1;}
+	.sc-clear:after{visibility:hidden;display:block;font-size:0;content:"1";clear:both;height:0;}
+	.sc-show{display:block;}
+	.sc-hide{display:none;}
+	.sc-left{float:left;_display:inline;}
+	.sc-right{float:right;_display:inline;}
+	.sc-text-justify{text-align:justify;text-justify:inter-ideograph;}
+	.sc-wrap{word-wrap:break-word;word-break:break-all;white-space:normal;}
+	.sc-ellipsis{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+	/** 迭代 */
+	.sc-BaCoF00{background-color:$COLOR_RED;}
+	.sc-BaCo000{background-color:$COLOR_BLACK;}
+	.sc-BaCo666{background-color:$COLOR_LIGHTBLACK;}
+	.sc-BaCoFFF{background-color:$COLOR_WHITE;}
+	.sc-BaCoLightGray{background-color:$COLOR_LIGHTGRAY;}
+	.sc-CoFFF{color:$COLOR_WHITE;}
+	.sc-CoCCC{color:$COLOR_GRAY;}
+	.sc-Co666{color:$COLOR_LIGHTBLACK;}
+	.sc-Co333{color:$COLOR_DEEPBLACK;}
+	.sc-Co000{color:$COLOR_BLACK;}
+	.sc-CoBule{color:$COLOR_BULE;}
+	.sc-FoWeBo{font-weight:bold;}
+	.sc-TeDeUn{text-decoration:underline;}
+	.sc-TeIn2em{text-indent:2em;}
+
+/** 模块：链接 */
+	%sc-focus{ &:focus{ border-color:$COLOR_BULE;box-shadow:0px 0px 3px rgba(77, 144, 254, .3); } }
+	%sc-link{ &:hover{text-decoration:underline;} }
+	.sc-link-blue{
+		@extend %sc-link;
+		color:$COLOR_BULE;
+	}
+	.sc-link-white{
+		@extend %sc-link;
+		color:$COLOR_WHITE;
+	}
+	.sc-link-lightblack{
+		@extend %sc-link;
+		color:$COLOR_LIGHTBLACK;
+	}
+	
+/** 模块：表单域 */
+	.sc-input{
+		@extend %sc-focus;
+		border:1px solid $COLOR_GRAY;height:16px;line-height:1em;font-size:12px;padding:6px 9px;color:#666;
+	}/** 基础高度30 */
+	.sc-input-sm{padding:4px 9px 3px 9px;}/** 小号版高度25 */
+	.sc-input-label{
+		font-size:1.2em;display:inline-block;line-height:1.2em;
+		&>input{float:left;margin:1px 3px 0 0;}
+	}/** checkbox radio的显示文本 */
+	@mixin button($color:$COLOR_BULE){
+		border:1px solid darken($color, 15%);height:30px;padding:6px 9px;color:#FFF;background:$color;border-radius:2px;
+		&:focus{outline:1px solid $color;outline-offset:1px;}
+		&:active{background:darken($color, 10%);border-color:darken($color, 20%);outline:none;}
+	}
+	.sc-button{ @include button }/** 默认的按钮[蓝色] */
+	.sc-button-gray{ @include button(#f7f7f7);color:$COLOR_LIGHTBLACK;} /** 灰色的按钮 */
+	.sc-button-red{ @include button($COLOR_RED) } /** 红色的按钮 */
+	.sc-button-orange{ @include button($COLOR_ORANGE) } /** 橙色的按钮 */
+	.sc-button-sm{height:24px;padding:0 9px;font-size:12px;border-radius:0;} /** 小号版本 */
+	/** 模块：选择框 */
+	.sc-select{
+		@extend %sc-focus;
+		border:1px solid $COLOR_GRAY;height:30px;border-radius:0;background:#FFF;padding:6px;-webkit-appearance:menulist-button;color:#666;
+	}/** 基础高度30 */
+	.sc-select-sm{height:25px;}/** 小号版高度25 */
+	/** 模块：文本域 */
+	.sc-textarea{
+		@extend .sc-input;
+		resize:none;line-height:1.5em;overflow:hidden;
+	}
+/** 模块：表格 */
+	.sc-table{
+		td, th{padding:5px 9px;}
+	}/** 基础 */
+	.sc-table-data{
+		@extend .sc-table;
+		td, th{border:1px solid $COLOR_GRAY;}
+		thead th, thead td{background:$COLOR_LIGHTGRAY;}
+	}/** 数据 */
+	.sc-table-ho{
+		tr:hover{background:#F9F9F9;}
+		.ch-ho-disabled:hover{background:none;}
+	}/** 移动显示关闭颜色 */
+	.sc-table-noborder{
+		td,th{border:none;}
+	}
+
+/** 迭代：文字显示 */
+	@each $item in map-keys($TEXT_ALIGN_LIST){ .sc-TeAl#{$item}{display:map-get($TEXT_ALIGN_LIST, $item)} }
+	/** 迭代：显示 */
+	@each $item in map-keys($DISPLAY_LIST){ .sc-Di#{$item}{display:map-get($DISPLAY_LIST, $item)} }
+	/** 迭代：字体大小 */
+	$guid: 12; @while $guid <= $FONT_SIZE { .sc-FoSi#{$guid}{font-size:$guid+px;} $guid: $guid + 2; }
+	$guid: 12; @while $guid <= $FONT_SIZE { .sc-FoSiEm#{$guid}{font-size:$guid/10+em;} $guid: $guid + 2; }
+	/** 迭代：行高 */
+	$guid: 10; @while $guid <= $LINE_HEIGHT_SIZE { .sc-LiHe#{$guid}{line-height:$guid+px;} $guid: $guid + 5; }
+	$guid: 10; @while $guid <= $LINE_HEIGHT_SIZE { .sc-LiHeEm#{$guid}{line-height:$guid/10+em;} $guid: $guid + 5; }
+	/** 迭代：宽度大小 */
+	$guid: 5; @while $guid <= $WIDTH_SIZE { .sc-Wi#{$guid}{width:$guid+px;} $guid: $guid + 5; }
+	/** 迭代：高度大小 */
+	$guid: 5; @while $guid <= $HEIGH_SIZE { .sc-He#{$guid}{height:$guid+px;} $guid: $guid + 5; }
+	/** 迭代：内白大小 */
+	$guid: 5; @while $guid <= $PADDING_SIZE { 
+		@each $item in map-keys($DIRECTION_LIST){ .sc-Pa#{$item}#{$guid}{padding-#{map-get($DIRECTION_LIST, $item)}:$guid+px;} }
+		$guid: $guid + 5;
+	}
+	/** 迭代：外白大小 */
+	$guid: 5; @while $guid <= $PADDING_SIZE { 
+		@each $item in map-keys($DIRECTION_LIST){ .sc-Ma#{$item}#{$guid}{margin-#{map-get($DIRECTION_LIST, $item)}:$guid+px;} }
+		$guid: $guid + 5;
+	}

@@ -1,0 +1,10 @@
+.jsb-multiple-head{padding:5px 10px;line-height:30px;border-bottom:1px solid #CCC;}
+.jsb-multiple-head .jsb-multiple-all{vertical-align:-3px;}
+.jsb-multiple-head .jsb-multiple-search{padding:6px 9px;}
+.jsb-multiple-content{position:absolute;border:1px solid #CCC;width:348px;background:#FFF;z-index:100;top:0;lef:0;box-shadow:0px 2px 5px rgba(0,0,0,.2);color:#666;}
+.jsb-multiple-list{padding:10px;}
+.jsb-multiple-list ul{max-height:160px;overflow:auto;}
+.jsb-multiple-list li{line-height:20px;float:left;width:50%;height:20px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.jsb-multiple-list input{vertical-align:-3px;}
+.jsb-multiple-list label{display:inline;margin-bottom:0;font-weight:500;}
+.jsb-multiple-submit{border-top:1px solid #CCC;text-align:center;padding:5px;}
