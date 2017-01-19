@@ -1,0 +1,1 @@
+define("src/modules/demo.filter/i18n/en",[],{chooseCurrency:"Currency Type",currencyMin:"Min Limit",currencyMax:"Max Limit"});

@@ -1,0 +1,2 @@
+"use strict";define("src/model/robot/main",["common/jquery","common/myWidget"],function(require,exports,module){var MyWidget=(require("common/jquery"),require("common/myWidget")),Robot=MyWidget.extend({clssName:"Robot",attrs:{},events:{'click [data-role="close"]':function(){this.element.remove(),this.destroy()}},initProps:function(){},setup:function(){}});return Robot});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

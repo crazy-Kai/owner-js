@@ -1,0 +1,1 @@
+"use strict";define("src/bus/onlinecourt/courtList/test",["common/myWidget"],function(require,exports,module){var MyWidget=require("common/myWidget");return MyWidget.extend({setup:function(){}})});

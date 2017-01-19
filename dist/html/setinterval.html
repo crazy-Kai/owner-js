@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>mikeDrag</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+</head>
+
+<body>
+ <script type="text/javascript">
+ var i = 0;//I必须是全局变量
+ var max = 10;
+ function test(){
+ 	i++;
+ 	console.log(i)
+ 	if(i<max){
+ 		setTimeout(test,100);
+ 	}else{
+ 		alert('done')
+ 	}
+ };
+ setTimeout(test,100);
+
+ console.log(x);
+ </script>
+</body>
+
+</html>

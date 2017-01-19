@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/angular.js"></script>
+    <title>数据双向绑定</title>
+</head>
+
+<body >
+<div ng-app="App" ng-controller="bindData">
+	
+<!--这就是一个简单的数据双向绑定 透过用户的操作实时的改变了数据，通过变化的数据实时的展现在界面上-->
+ <!--  <input type="text" ng-model="name"/>
+  <p>Holle {{name}}</p> -->
+  <div>
+  	Search: <input type="text" ng-model="querys" />	
+  </div>
+
+Sort by:
+<select ng-model="orderProp">
+	<option value="name">排序方式1</option>
+	<option value="age">排序方式2</option>
+</select>
+<div>
+	<ul >
+		<li ng-repeat="phone in phones | filter:querys | orderBy:orderProp">
+			<span>{{phone.name}}:</span>
+			<span class="fn-color-48c5ff">{{phone.snippet}}</span>
+		</li>
+	</ul>
+</div>
+</div>
+    <script type="text/javascript">
+     angular.module("App",[]).controller("bindData",function($scope){
+     	$scope.phones = [
+	     	{"name":"Nexus S",
+	     	 "snippet":"Fast just got faster with Nexus S",
+	     	 "age":0
+	     	},
+	     	{"name":"Motorola XOOM™ with Wi-Fi",
+	     	 "snippet":"The Next, Next Generation tablet.",
+	     	 "age":1
+	     	},
+	     	{"name":"MOTOROLA XOOM™",
+	     	 "snippet":"The Next, Next Generation tablet",
+	     	 "age":2
+	     	}
+     	];
+     	// $scope.querys = "Nexus S";//这里可以收手改变querys模块的值，通过filter过滤器接收querys模块的值然后删选出元素，渲染到页面上
+     	$scope.orderProp = "age";
+     })
+	  
+    </script>
+</body>
+
+</html>

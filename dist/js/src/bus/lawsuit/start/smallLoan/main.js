@@ -1,0 +1,1 @@
+"use strict";define("src/bus/lawsuit/start/smallLoan/main",["bus/global/main"],function(require,exports,module){require("bus/global/main")});

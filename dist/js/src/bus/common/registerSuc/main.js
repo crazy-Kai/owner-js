@@ -1,0 +1,2 @@
+"use strict";define("src/bus/common/registerSuc/main",["common/jquery"],function(require,exports,module){function closeWindows(){setTimeout(function(){window.location.href="/tocertification.htm"},3e3)}require("common/jquery");closeWindows()});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<!-- 手机头部设置 -->
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	 <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+	<title>原型继承</title>
+</head>
+<body>
+<script type="text/javascript">
+	$(function(){
+		function A(name,age){
+			this.name = name;
+			this.age = age;
+		};
+		A.prototype.getJob = function (){
+			console.log("job:IT")
+		}
+		A.prototype.interest = "basketball";
+		function B(height,weight,name,age){
+			this.height = height;
+			this.weight = weight;
+			this.a = function(){
+				alert(1111111111)
+			}
+			A.call(this,name,age)
+		}
+		 B.prototype = Object.create(A.prototype);//此方法为创建指定原型的对象,将B的原型指向一个有A的原型对象的实例对象！
+		 B.prototype.constructor = B;
+		// console.log(B.prototype.getJob)
+		 var b = new B("1.8米","140斤","吴凯","28");
+		 console.log(b,b.prototype)
+		 /* 一下的例子的对象是没有构造函数的，所要用它父级的原型方法必须用peototype.fn 而且它是没有实力方法的*/
+		 var c = {};
+		 c.prototype = Object.create(B.prototype);
+		 c.prototype.constructor = B;
+		 c.msg = "继承";
+		//console.log(c.prototype.getJob,B.prototype)
+		 var d = {};
+		 d.words = "继续";
+		 d.prototype = Object.create(c.prototype);
+		 d.prototype.constructor = c.prototype.constructor;
+		 d.prototype.getMoney = function(){
+		 	console.log('I need money')
+		 }
+		 console.log(d.prototype.getMoney())
+
+		
+		 
+	})
+</script>
+	
+</body>
+</html>

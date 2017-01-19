@@ -1,0 +1,2 @@
+"use strict";define("src/bus/common/tocertification/main",["bus/global/main","common/jquery","model/modal/main"],function(require,exports,module){require("bus/global/main");var Modal=(require("common/jquery"),require("model/modal/main"));window.showError=function(msg){"usedErr"==msg?Modal.alert(0,"该账户已被使用"):"connectErr"==msg&&Modal.alert(0,"暂时无法连接到支付宝，请稍后重试…")}});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

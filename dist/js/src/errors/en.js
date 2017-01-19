@@ -1,0 +1,1 @@
+define("src/errors/en",[],{E0001:"Missing argument {0}"});

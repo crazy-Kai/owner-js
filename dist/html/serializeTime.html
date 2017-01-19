@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>mikeDrag</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+	<title>序列化时间</title>
+</head>
+<body>
+	<script>
+		$(function(){
+			var regExp = /^(yyyy)(.MM)?(.dd)?(.HH)?(.mm)?(.ss)?$/,
+			    timeMethod = ['getFullYear','getMonth','getDate','getHours','getMinutes','getSeconds'];
+			function timeSerialize(format,timestamp){
+				var date = arguments.length == 1 ? new Date() : new Date(timestamp);
+					console.log(timestamp,date)
+					//如果传入的时间戳正确则返回格式化方法否则报错
+					if(!isNaN(+date)){
+						return format.replace(regExp,function(){
+							var obj,
+								val,
+								arr = [];
+								for(var index = 1;index<arguments.length;index++){
+									//如果replace方法中的返回的参数中有我要的字符串,这里的obj返回的是"yyyy","-MM","-dd"等字符串
+									//这里循环遍历每个分组返回的字符串，对应的去遍历timeMethod中的获取时间的方法，然后将获取到的时间和对应获取的字符串中的特殊符号相加就的可以
+									if(obj = arguments[index]){
+										//date是个对象，getFullYear等方法都是这个对象中封装的方法所以可以直接用date.getFullYear()的方法调用也可以用date[method]()来调用此方法就相当于{"method":"function"},可以用date.method(),也可以用date[method]();
+										val = date[timeMethod[index-1]]();
+										//年份
+										if(index == 1){
+											arr.push(''+val);
+										}else{
+											//如果是月份则要加一个月
+											index == 2 && val++;
+											arr.push(obj.slice(0,1) + zeroSerialize(val))
+										}
+									}else{
+										break;
+									}
+								}
+							 return arr.join("")	
+						})
+					}else{
+						window.alert('时间戳不正确')
+					}
+			}
+			function zeroSerialize(val){
+				if(val.length == 1){
+					return "0"+val;
+				}else{
+					return val+ "";
+				}
+			}	    
+			console.log(timeSerialize('yyyy-MM-dd HH:mm:ss','2016-12-10 10:32:12'))
+		})
+	</script>
+	
+</body>
+</html>

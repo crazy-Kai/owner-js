@@ -1,0 +1,2 @@
+"use strict";define("src/bus/onlinecourt/courtList/main",["bus/global/main","common/jquery","model/address/select"],function(require,exports,module){require("bus/global/main");var Address=(require("common/jquery"),require("model/address/select"));new Address({element:"#address",defaultFirst:!1,onChange:function(id){}})});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

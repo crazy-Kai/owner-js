@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>放大镜效果</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <!-- 公用js-->
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+</head>
+
+<body style="background-color:#ddd">
+    <div class="fn-W1000 fn-BGC-FFF fn-H650" style="padding-top:20px;margin:200px auto;">
+        <div class=" fn-H400 fn-clear" style="width:820px;margin:0 auto;border:1px solid #ddd;padding:10px;">
+            <div id="outBox" style="position:relative;float:left;width:400px;height:400px;">
+                <img src="../image/small1.jpg">
+                <span id="innerBox" class="fn-PosAbs" style="display:block;height:200px;width:200px;left:0px;top:0px;background:url('../image/bgColor.png') repeat;visibility:hidden;"></span>
+                <div id="BgImageBox" class="fn-W400 fn-H400 fn-PosAbs" style="top:0px;left:420px;overflow:hidden;visibility:hidden;">
+                    <div class="fn-PosRel">
+                        <img id="BgImage" src="../image/bigImage.jpg" style="position:absolute;top:0px;left:0px;">
+                    </div>
+                </div>
+            </div>
+            <div id="pageBox"style="float:left;width:400px;height:400px; margin-left:20px;text-align:center;line-height:400px;" >
+            	这是你吴凯哥哥写的放大镜效果
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var mainObject = {
+        init: function(mainParam) {
+            var me = this;
+            //配置参数
+            var main = this.m = mainParam ? mainParam : {
+                outBox: null /*document.getElementById("#outBox")*/ ,//原图b
+                innerBox: null /*document.getElementById("#innerBox")*/,//遮照
+                BgImage: null /*document.getElementById("#BgImage")*/ ,//大图
+                BgImageBox: null /*document.getElementById("#BgImageBox")*/,//大图的父容器
+                hideBox: null,
+                scale: 2 //缩放比列
+            };
+            //鼠标移入
+            main.outBox.onmouseenter = function(e) {
+            	//开始事件
+                me.started.call(me, e)
+            };
+            //鼠标移出
+            main.outBox.onmouseleave = function(e) {
+                //设置遮罩和大图容器的样式
+                me.css(me.m.innerBox, {
+                    "visibility": "hidden"
+                });
+                me.css(me.m.BgImageBox, {
+                    "visibility": "hidden"
+                });
+            	//解绑所有事件
+                $(main.outBox).off("onmouseenter");
+                $(me.m.outBox).off("onmouseleave");
+                 $(main.outBox).off("onmouseleave");
+            }
+        },
+        started: function(e) {
+            var me = this;
+            //绑定鼠标移动事件
+            me.m.outBox.onmousemove = function(e) {
+                me.move.call(me, e)
+            };
+
+        },
+        move: function(e) {
+        	//配置鼠标位置的变量
+            var me = this,
+                pageX = e.pageX || (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft)),
+                pageY = e.pageY || (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop));
+                //设置遮罩的position的值
+                /*
+					首先遮罩的偏移值计算公式为：鼠标的pageX,pageY的值减去原图的offset值（距离页面body的偏移值）,再减去遮罩一半的宽或者高，使遮罩开始移动时鼠标永远在遮罩的中心位置；
+					然后设置偏移值的最大最小值，最小值：不得小于0 如果小于强制设为0，最大值：不得操作原图容易的宽高减去遮罩的宽和高的差值，如果超过就给它写死最大值；
+                */
+            me.css(me.m.innerBox, {
+                "visibility": "visible",
+                "left": Math.min(
+                    Math.max(
+                        pageX - parseFloat(me.m.outBox.offsetLeft + (me.m.innerBox.offsetWidth / 2)), 0),
+                    me.m.outBox.offsetWidth - me.m.innerBox.offsetWidth
+                ) + "px",
+                "top": Math.min(
+                    Math.max(
+                        pageY - parseFloat(me.m.outBox.offsetTop + (me.m.innerBox.offsetHeight / 2)), 0),
+                    me.m.outBox.offsetHeight - me.m.innerBox.offsetHeight
+                ) + "px"
+            });
+            //现实大图容器
+            me.css(me.m.BgImageBox, {
+                "visibility": "visible"
+            });
+      
+            var BgImageLeft = me.m.innerBox.style.left,
+                BgImageTop = me.m.innerBox.style.top;
+             //设置大图的偏移值
+             /*
+				按照大图和小图的比例是2：1，
+				然后根据遮罩在原图上的偏移值乘上缩放比列值就得到了精确的大图偏移值！
+             */
+            me.css(me.m.BgImage, {
+                "left": -(parseFloat(BgImageLeft) * me.m.scale) + "px",
+                "top": -(parseFloat(BgImageTop) * me.m.scale) + "px"
+            })
+        },
+        //样式函数
+        css: function(element, props) {
+            if (props) {
+                for (var i in props) {
+                    element.style[i] = props[i];
+                };
+            };
+            return element;
+
+
+        }
+    };
+    //加载完成后出发对象的init事件
+    window.onload = function() {
+        mainObject.init({
+            outBox: document.getElementById("outBox"),
+            innerBox: document.getElementById("innerBox"),
+            BgImage: document.getElementById("BgImage"),
+            BgImageBox: document.getElementById("BgImageBox"),
+            scale: 2
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<!-- 手机头部设置 -->
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	 <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+	<title>dataset VS attributes</title>
+</head>
+<body>
+	<input type="checkbox" name="xiaobiaozi" data-code="11111111" />
+	<script type="text/javascript">
+	$(function(){
+		console.log($('[type="checkbox"]')[0].attributes);//length:3 name 1:type,2:name,3:data-code, value 1:checkbox 2:xiaobiaozi 3:1111111
+		console.log($('[type="checkbox"]')[0].dataset);//name: code ,value: 11111111;
+	})
+	</script>
+	
+</body>
+</html>

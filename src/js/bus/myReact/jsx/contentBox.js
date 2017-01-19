@@ -5,7 +5,7 @@ define(function (require, exports, module) {
 	var React = require('react'),
 	    Pushbutton = require('./pushbutton'),
 	    util = require('common/util'),
-	    ListenToActions = require('github/bus/myReact/controller/listenToActions');
+	    ListenToActions = require('bus/myReact/controller/listenToActions');
 
 	var ContentBox = React.createClass({
 		displayName: 'ContentBox',
@@ -28,6 +28,7 @@ define(function (require, exports, module) {
 					description: "none",
 					addTime: util.formateDate('yyyy-MM-dd HH:mm')
 				};
+				console.log(ListenToActions.dataChange);
 				ListenToActions.dataChange(newData);
 			}
 			this.reset();

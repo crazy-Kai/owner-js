@@ -1,0 +1,2 @@
+"use strict";define("src/bus/lawyers/lawDetails/main",["bus/global/main","common/jquery","alinw/handlebars/1.3.0/handlebars","model/searchList/main"],function(require,exports,module){require("bus/global/main");var SearchList=(require("common/jquery"),require("alinw/handlebars/1.3.0/handlebars"),require("model/searchList/main"));SearchList.use(".searchList")});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

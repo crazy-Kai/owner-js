@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/angular.js"></script>
+    <title>依赖注入练习</title>
+</head>
+
+<body>
+    <h2>AngularJS 简单应用</h2>
+    <div ng-app="mainApp" ng-controller="CalcController">
+        <p>输入一个数字:
+            <input type="number" ng-model="number" />
+        </p>
+        <button ng-click="square()">X<sup>2</sup></button>
+        <p ng-model ="result">结果: {{result}}</p>
+    </div>
+    <script type="text/javascript">
+    var mainApp = angular.module("mainApp", []);
+    //配置阶段 返回factory
+    mainApp.config(function($provide) {
+        $provide.provider('MathService', function() {
+            this.$get = function() {
+                var factory = {};
+                factory.multiply = function(a, b) {
+                    return a + b;
+                }
+                return factory;
+            }
+        })
+    });
+    //依赖注入value对象 "defaultInput"
+    mainApp.value("defaultInput", 5);
+    // 创建函数用于处理返回值
+    // mainApp.factory('MathService', function() {
+    //     var factory = {};
+
+    //     factory.multiply = function(a, b) {
+    //         return a * b;
+    //     }
+    //     return factory;
+    // });
+ //把factory函数注入到service中去
+    mainApp.service('CalcService', function(MathService) {
+        this.square = function(a) {
+            return MathService.multiply(a, a);
+        }
+    });
+  //然后把service对象和val对象注入到controller中去。。
+    mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
+            $scope.number = defaultInput;
+            // console.log($scope.number)
+            $scope.result = CalcService.square($scope.number);
+
+            $scope.square = function() {
+               $scope.result = CalcService.square($scope.number);
+            }
+    });
+    </script>
+</body>
+
+</html>

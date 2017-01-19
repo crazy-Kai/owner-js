@@ -1,0 +1,1 @@
+define("src/errors/zh-cn",[],{E0001:"缺少参数 {0}"});

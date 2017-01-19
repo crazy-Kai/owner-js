@@ -1,0 +1,2 @@
+"use strict";define("src/bus/paymentorder/court/divisionCase/viewRequest/main",["bus/global/main","common/jquery","model/ajax/main"],function(require,exports,module){require("bus/global/main");require("common/jquery"),require("model/ajax/main")});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

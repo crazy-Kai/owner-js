@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<!-- 手机头部设置 -->
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	 <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="/src/js/libs/angular.js"></script>
+	<title>angular 练习</title>
+
+</head>
+<body ng-app="">
+
+	<div >
+	  <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+	</div>
+	<!-- 将应用程序的数据绑定到元素上的 -->
+	<div ng-init="firstName='wukai'">
+		<p>
+			姓名：<span ng-bind="firstName">{{firstName}}</span>
+		</p>
+	</div>
+</body>
+</html>

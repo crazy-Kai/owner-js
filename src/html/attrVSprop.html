@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+    <title>attr vs prop</title>
+</head>
+
+<body>
+    <input type="checkbox" name="radio">
+    <input type="radio" name="radio 1322">
+    <input type="radio" name="radio 332434">
+    <table class="fn-table fn-W600">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="fn-MT10  fn-H30 fn-color-66BD5C" title="1111111111111" id="test">
+        用js的style对象来获取和设置外联CSS样式
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        var radio = $('[name="radio"]');
+        //方法一：
+        radio.click(function(e) {
+                //attr 方法 如果没有设定元素的checked属性或者没有把checked属性写在元素上是获取不到它的值值返回undefined
+                //radio.attr("checked",true)的时候再去获取radio.attr("checked") //返回'checked';
+                //radio.attr("checked",false)的时候再去获取radio.attr("checked")//返回undefined;
+                console.log($(e.target).attr("checked"))
+                console.log($(e.target).prop("checked")) //返回 true或 false;
+            })
+            //radio.attr('checked',false)
+        console.log(radio.attr('checked') === true, radio.attr('checked')) //false,undefined  checked为已选的时候attr返回的是字符串"checked" checked为未选的时候返回的是undefined;
+            //方法二:
+            //radio.prop("checked",false);
+        console.log(radio.prop('checked') === true, radio.prop('checked')) //false ,false prop()返回的是boolean值,没有勾选的时候返回false 已选的时候返回true
+
+        //所以操作一些自由属性中返回的是boolean值的时候用prop()方法不建议用attr()方法！
+        //!!!attr和prop的区别 attr适用于一些自定义属性的获取和设定，返回值为字符串，如果获取的属性没找到则返回undefined,prop适用于操作一些元素自带的属性比如checked disabled selected 这些属性返回的是boolean值 true 或者false;而且是元素自带属性不用写在元素上，就可以获取到！
+        console.log($('input[name*="radio"]'))
+        console.log($('input[name~="radio"]')) //这个radio后面必须是以空格分隔的！
+        console.log($('.fn-table>tbody>tr>td').length); //9
+        console.log($('.fn-table td').length) //10
+        //js style对象 只能设置css外联样式，不能访问css外联样式，但可以访问和设置内联样式
+        var test = document.getElementById("test");
+        console.log(test.style.width)
+        test.style.width = "400px";
+        console.log(test.style.width,test.title)
+
+    })
+    </script>
+</body>
+
+</html>

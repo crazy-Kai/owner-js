@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+    <title>jquery扩展</title>
+</head>
+
+<body>
+    <input type="text" id="radio">
+    <script type="text/javascript">
+    //一:$.extend 方法 jquery类（对象）的自定义扩展方法，可以创建静态方法 用$.XXX()来调用，也可以操作两个对象的合并和对象的扩展
+    //$.extend(param1,param2,param3);$.extend方法是将param2,param3合并到param1从而改变param1的值
+    //(1)对象的合并，扩展，返回一个新的对象
+    var obj1 = {
+        a: "1",
+        b: "2"
+    };
+    var obj2 = $.extend({
+        c: "3",
+        d: "4"
+    }, obj1); //把扩展后的对象赋值给obj2
+    console.log(obj1, obj2);
+    //(2)在jquery类上创建静态方法
+    $.extend({
+        adds: function(a, b) {
+            return a + b;
+        }
+    })
+    console.log($.adds(1, 2)) //3
+        ////在jquery类上创建静态属性
+    $.extend({
+        props: "888"
+    });
+    console.log($.props);
+    //二:$.fn.extend方法 jquery对象上的自定义扩展法
+    $.fn.extend({
+        add: function(a, b) {
+            return a - b;
+        }
+    })
+    var dd = $('#radio').add(10, 5);
+    console.log(dd) //5
+    $.fn.extend({
+        tsetClick: function() {
+            window.alert("success")
+        }
+    })
+    jQuery('#radio').on('click', function() {
+        $(this).tsetClick();
+    });
+    //三:$.fn.XXX=function(){}; 此方法和$.fn.extend()方法类似！每个juqery的对象都可以调用扩展后的方法
+    $.fn.newadd = function(a, b) {
+        return a + b;
+    }
+    var test = $('#radio').newadd(5, 5);
+    console.log(test)
+        //$.fn 就相当于jquery对象的原型
+    console.log($.fn == $.prototype)
+        //$.fn.jquery
+        console.log($.fn.jquery)//输出的是jquery的版本号
+    </script>
+</body>
+
+</html>

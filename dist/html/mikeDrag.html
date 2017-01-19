@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- 手机头部设置 -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>mikeDrag</title>
+    <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css">
+    <!-- 公用的js-->
+    <style>
+    #container {
+        width: 900px;
+        height: 650px;
+        margin: 30px auto;
+        overflow: hidden;
+        background: #ddd;
+        position: relative;
+    }
+    
+    #container li {
+        margin-bottom: 10px;
+    }
+    
+    .div1,
+    .div2,
+    .div3,
+    .div4 {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #666;
+        position: absolute;
+    }
+    
+    .item {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+    </style>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <ul class="fn-W170 fn-MT20 fn-left fn-ML10 ">
+            <li>
+                <div class="mike1">
+                    <div class="fn-LH100">
+                        话筒一：
+                    </div>
+                    <div class="div1" data-type="div" style="left:60px;top:20px;"></div>
+                </div>
+            </li>
+            <li>
+                <div class="mike1">
+                    <div class="fn-LH100">
+                        话筒二：
+                    </div>
+                    <div class="div2" data-type="div" style="left:60px;top:130px;"></div>
+                </div>
+            </li>
+            <li>
+                <div class="mike1">
+                    <div class="fn-LH100">
+                        话筒三：
+                    </div>
+                    <div class="div3" data-type="div" style="left:60px;top:240px;"></div>
+                </div>
+            </li>
+            <li>
+                <div class="mike1">
+                    <div class="fn-LH100">
+                        话筒四：
+                    </div>
+                    <div class="div4" data-type="div" style="left:60px;top:350px;"></div>
+                </div>
+            </li>
+        </ul>
+        <ul class="fn-W100 fn-MT20 fn-right fn-MR10">
+            <li class="fn-H100">
+                <div class="item fn-LH100 fn-TAC fn-BGC-FFF" style="top:20px;left:790px;">
+                    原告一
+                </div>
+            </li>
+            <li class="fn-H100">
+                <div class="item fn-LH100 fn-TAC fn-BGC-FFF" style="top:130px;left:790px;">
+                    被告一
+                </div>
+            </li>
+            <li class="fn-H100">
+                <div class="item fn-LH100 fn-TAC fn-BGC-FFF" style="top:240px;left:790px;">
+                    审判法官
+                </div>
+            </li>
+            <li class="fn-H100">
+                <div class="item fn-LH100 fn-TAC fn-BGC-FFF" style="top:350px;left:790px;">
+                    书记员
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+    var content = $('#container'),
+        startItem = null,
+        startOffset = null,
+        startClient = null;
+    content.on('mousedown', function(e) {
+        if ($(e.target).hasClass('item')) {
+            startItem = e.target;
+            startOffset = {
+                left: parseFloat(e.target.style.left),
+                top: parseFloat(e.target.style.top)
+            };
+            //console.log(e.offsetX,e.offsetY) 这两个属性是指鼠标相对于target事件源节点的x,y的坐标！
+            //clientX,clientY是鼠标相对于浏览器可见区域的窗口坐标
+            //pageX,pageY类似于clientX,clientY但区别是他们相对于文档的坐标而不是窗口坐标！
+            //screenX,screenY是相对于显示屏的坐标
+        }
+        startClient = {
+            x: e.clientX,
+            y: e.clientY
+        };
+        startMove();
+
+    })
+
+    function startMove() {
+        $(document).on('mousemove', function(e) {
+            e.preventDefault()
+            if (!startItem || !startOffset || !startClient) {
+                return;
+            }
+            var newleft = e.clientX - startClient.x + startOffset.left + "px",
+                newtop = e.clientY - startClient.y + startOffset.top + "px";
+            startItem.style.left = newleft;
+            startItem.style.top = newtop;
+
+
+        })
+        $(document).on('mouseup', function(e) {
+            $('[data-type="div"]').each(function(key, val) {
+                var width = $(val).width(),
+                    height = $(val).height(),
+                    targetL = parseFloat(val.style.left),
+                    targetT = parseFloat(val.style.top),
+                    maxleft = parseFloat(width) + targetL,
+                    maxTop = parseFloat(height) + targetT;
+                    console.log(parseFloat(startItem.style.left))
+                if ((parseFloat(startItem.style.left) >= targetL && parseFloat(startItem.style.left) <= maxleft) && (parseFloat(startItem.style.top) >= targetT && parseFloat(startItem.style.top) <= maxTop)) {
+                  	$(val).append('<div  class="item fn-LH100 fn-TAC fn-BGC-FFF">'+$(startItem).text()+'</div>');
+                  	$(startItem).remove()
+                }
+
+            })
+            
+            $(document).off('mousemove');
+            $(document).off('mouseup');
+        })
+    }
+    </script>
+</body>
+
+</html>

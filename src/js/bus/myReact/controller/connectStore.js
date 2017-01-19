@@ -27,7 +27,7 @@ define(function (require, exports, module) {
 			// 方法二： me.isShow = !me.isShow;(trigger后把状态false改成true,下次调用此方法的时候就切换了数据的状态)
 		},
 		onGetTarget: function onGetTarget(e) {
-			console.log($(e.target).attr('data-reactid'));
+			console.log($(e.target).attr('data-reactid'), 1111111111);
 		}
 	});
 

@@ -24,11 +24,12 @@ define(function (require, exports, module) {
 			});
 		},
 		onDataChange: function onDataChange(newData) {
+			console.log(11);
 			var me = this;
 			newData.id ? me.onModify(newData) : me.onAdd(newData);
 		},
 		onAdd: function onAdd(newData) {
-
+			console.log(11);
 			var me = this;
 			newData.id = util.mathRandom(500);
 			me.trigger({

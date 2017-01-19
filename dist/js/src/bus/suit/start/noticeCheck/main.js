@@ -1,0 +1,1 @@
+"use strict";define("src/bus/suit/start/noticeCheck/main",["bus/global/main","bus/suit/start/global/main"],function(require,exports,module){require("bus/global/main"),require("bus/suit/start/global/main")});

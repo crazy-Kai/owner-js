@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<!-- 手机头部设置 -->
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	 <!-- 公用的css-->
+    <link rel="stylesheet" href="/src/css/main.css" type="text/css" charset="utc-8">
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/jQuery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/sea.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/src/js/libs/config.js"></script>
+	<title>sort排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+	$(function(){
+		var a = [1,-1,8,6];
+		//顺序 return a-b  如果<0放左边，如果大于0放右边,如果等于0则位置不变
+		//逆序 return b-a  如果>0放左边，如果小于0放右边,如果等于0则位置不变
+		a.sort(function(a,b){return b-a })
+		console.log(a)
+		var b = ["a","b","bsa","c","cdasd"];
+		b.sort()
+		//当数组里的元素是字符串的时候就不需要传参数默认是按字母的Ascii编码的大小进行排序
+
+	})
+	</script>
+</body>
+</html>

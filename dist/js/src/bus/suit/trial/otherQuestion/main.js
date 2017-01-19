@@ -1,0 +1,2 @@
+"use strict";define("src/bus/suit/trial/otherQuestion/main",["bus/global/main","common/jquery"],function(require,exports,module){require("bus/global/main");require("common/jquery")});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

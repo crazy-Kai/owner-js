@@ -1,5 +1,5 @@
 "use strict";
-define("bus/myReact/jsx/reactContainer-debug", ["common/react-debug", "common/react-dom-debug", "common/reflux-debug", "bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "bus/myReact/jsx/contentBox-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "github/bus/myReact/controller/listenToActions-debug", "bus/myReact/jsx/dataTable-debug", "bus/myReact/jsx/dataRow-debug", "bus/myReact/controller/listenToStore-debug", "bus/myReact/controller/connectStore-debug"], function(require, exports, module) {
+define("bus/myReact/jsx/reactContainer-debug", ["common/react-debug", "common/react-dom-debug", "common/reflux-debug", "bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "bus/myReact/controller/listenToActions-debug", "bus/myReact/jsx/contentBox-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "bus/myReact/jsx/dataTable-debug", "bus/myReact/jsx/dataRow-debug", "bus/myReact/controller/listenToStore-debug", "bus/myReact/controller/connectStore-debug"], function(require, exports, module) {
     var React = require("common/react-debug"),
         Reflux = (require("common/react-dom-debug"), require("common/reflux-debug")),
         Pushbutton = require("bus/myReact/jsx/pushbutton-debug"),
@@ -73,6 +73,27 @@ define("bus/myReact/jsx/reactContainer-debug", ["common/react-debug", "common/re
             }
         });
     module.exports = Container
+});
+"use strict";
+define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
+    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
+        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
+        ConnectStore = Reflux.createStore({
+            listenables: [ConnectActions],
+            isShow: !1,
+            onAdd: function() {
+                var me = this;
+                me.trigger({
+                    boxStyle: {
+                        display: me.isShow ? "none" : "block"
+                    }
+                }, function(e) {
+                    me.isShow = !me.isShow
+                })
+            },
+            onGetTarget: function(e) {}
+        });
+    return ConnectStore
 });
 define("common/react-debug", [], function(require, exports, module) {
     ! function(f) {
@@ -9393,11 +9414,11 @@ define("bus/myReact/controller/listenToActions-debug", ["common/react-debug", "c
     module.exports = ListenToActions
 });
 "use strict";
-define("bus/myReact/jsx/contentBox-debug", ["common/react-debug", "bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "common/reflux-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug", "github/bus/myReact/controller/listenToActions-debug"], function(require, exports, module) {
+define("bus/myReact/jsx/contentBox-debug", ["common/react-debug", "bus/myReact/jsx/pushbutton-debug", "bus/myReact/controller/connectActions-debug", "common/reflux-debug", "bus/myReact/controller/listenToActions-debug", "common/util-debug", "common/promise-debug", "common/limit-debug", "common/limit-dom-debug"], function(require, exports, module) {
     var React = require("common/react-debug"),
         Pushbutton = require("bus/myReact/jsx/pushbutton-debug"),
         util = require("common/util-debug"),
-        ListenToActions = require("github/bus/myReact/controller/listenToActions-debug"),
+        ListenToActions = require("bus/myReact/controller/listenToActions-debug"),
         ContentBox = React.createClass({
             displayName: "ContentBox",
             getInitialState: function() {
@@ -10518,25 +10539,4 @@ define("bus/myReact/controller/listenToStore-debug", ["common/react-debug", "com
             }
         });
     module.exports = ListenToStore
-});
-"use strict";
-define("bus/myReact/controller/connectStore-debug", ["common/react-debug", "common/reflux-debug", "bus/myReact/controller/connectActions-debug"], function(require, exports, module) {
-    var Reflux = (require("common/react-debug"), require("common/reflux-debug")),
-        ConnectActions = require("bus/myReact/controller/connectActions-debug"),
-        ConnectStore = Reflux.createStore({
-            listenables: [ConnectActions],
-            isShow: !1,
-            onAdd: function() {
-                var me = this;
-                me.trigger({
-                    boxStyle: {
-                        display: me.isShow ? "none" : "block"
-                    }
-                }, function(e) {
-                    me.isShow = !me.isShow
-                })
-            },
-            onGetTarget: function(e) {}
-        });
-    return ConnectStore
 });

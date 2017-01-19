@@ -1,0 +1,2 @@
+"use strict";define("src/bus/common/register/main",["common/jquery"],function(require,exports,module){require("common/jquery")});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

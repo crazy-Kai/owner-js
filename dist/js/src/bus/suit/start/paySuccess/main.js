@@ -1,0 +1,2 @@
+define("src/bus/suit/start/paySuccess/main",["common/jquery","alinw/dialog/2.0.6/dialog"],function(require,exports,module){var $=require("common/jquery"),Dialog=require("alinw/dialog/2.0.6/dialog"),dialogExp=new Dialog({content:"#dialog",width:"800px"});$("#paySuccess").on("click",function(){dialogExp.show()})});
+"use strict";define("common/jquery",[],function(require,exports){return jQuery});

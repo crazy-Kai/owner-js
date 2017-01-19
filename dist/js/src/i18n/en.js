@@ -1,0 +1,1 @@
+define("src/i18n/en",[],{submitBtn:"Submit",searchBtn:"Search"});
