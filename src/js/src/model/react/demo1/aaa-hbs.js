@@ -1,1 +1,0 @@
-define(function(require, exports, module) { var Handlerbars = require("common/handlerbars"); var compile = Handlerbars.compile("<span>	{{a}}</span>"); compile.source="<span>	{{a}}</span>"; return compile; });
