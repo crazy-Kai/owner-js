@@ -1,0 +1,59 @@
+<table width="100%" class="fn-table fn-table-input fn-table-input-sm fn-MT20">
+    <tr>
+        <td>
+            <div class="fn-BS-CCC fn-PaAl15">
+                <div data-serialize-name="lassenSuitRequestDoList">
+                    <input type="hidden" name="securityId" value="{{application.securityId}}"/>
+                    <select class="fn-select fn-W150" name="requestType">
+                        <option value="creditCard" {{#isEqual application.requestType "creditCard"}}selected="selected"{{/isEqual}}>信用卡（花呗）</option>
+                        <option value="loan" {{#isEqual application.requestType "loan"}}selected="selected"{{/isEqual}}>贷款</option>
+                        <option value="privateLending" {{#isEqual application.requestType "privateLending"}}selected="selected"{{/isEqual}}>民间借贷</option>
+                    </select>
+                    <input type="button" data-role="data" class="fn-btn fn-btn-primary fn-btn-sm" value="导入数据">
+                    <div class="fn-BS-ebebeb fn-PaAl15 fn-MT10">
+                        <div class="case-search-empty fn-PosRel" id="noneDataTemplate">
+                            <i class="kuma-icon kuma-icon-caution fn-PosAbs fn-MT20 fn-ML215 fn-color-eba433 fn-FS26"></i>
+                            <div class="fn-TAC fn-LH80 fn-FS18">当前没有数据，请先导入模板</div>
+                        </div>
+                    </div>
+                     <div class="fn-clear fn-LH20 fn-MT5 fn-PB10">
+                        <p class="fn-right fn-FS14">累计应还总金额： </p>
+                        <input type="hidden" name="amount" value="{{application.amount}}">
+                    </div>
+                    <div class="fn-BBS-ebebeb"></div>
+                </div>
+                <div class="fn-MT10 fn-MR20"  data-serialize-name="lassenSuitRequestDoList">
+                    <input type="hidden" name="securityId" value="{{other.securityId}}"/>
+                    <table width="100%" class="fn-table fn-table-input">
+                        <tr>
+                            <td width="70" align="right">其他请求：
+                                <input name="requestType" value="other" type="hidden" />
+                            </td>
+                            <td colspan="3">请填在下方相应金额</td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="fn-LH30">金额：</td>
+                            <td>
+                                <div class="kuma-form-item">
+                                    <input type="text" name="amount" class="fn-input-text fn-input-text-sm fn-W100P JS-prosecute-required kuma-input" maxlength="10" value="{{other.amount}}" id="amoutChangeHandle" />
+                                </div>
+                            </td>
+                            <td align="right" class="fn-LH30">说明：</td>
+                            <td>
+                                <div class="kuma-form-item">
+                                    <input name="content" value="{{other.content}}" class="fn-input-text fn-input-text-sm fn-W100P JS-prosecute-required kuma-input" maxlength="1000">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="fn-BBS-ebebeb"></div>
+                <div class="fn-clear fn-LH20 fn-MT5 fn-PB10">
+                    <p class="fn-right fn-FS14">申请总金额：<span class="fn-FS24 fn-color-F00"></span></p>
+                    <input type="hidden" name="applyAmount" value="{{applyAmount}}">
+                </div>
+            </div>
+            
+        </td>
+    </tr>
+</table>

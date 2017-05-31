@@ -1,0 +1,29 @@
+define(function(require, exports, module) { var Handlerbars = require("common/handlerbars");return Handlerbars.template(<div class="kuma-form-item">
+    <label class="kuma-label">
+        {{i18n "chooseCurrency"}}
+        <a href="javascript:;" class="kuma-icon kuma-icon-information f14" data-widget="~/ui.tip/" data-content="{{i18n "chooseCurrency"}}"></a>
+    </label>
+    <select class="J_Select" data-widget="~/ui.select/" data-model-path="currency">
+        <option value="CNY" selected="selected">CNY</option>
+        <option value="USD">USD</option>
+        <option value="TWD">TWD</option>
+        <option value="HKD">HKD</option>
+    </select>
+</div>
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        {{i18n "currencyMin"}}
+        <a href="javascript:;" class="kuma-icon kuma-icon-information f14" data-widget="~/ui.tip/" data-content="{{i18n "currencyMin"}}"></a>
+    </label>
+    <input type="text" class="kuma-input" data-widget="textfield" data-pattern="^\d{1,5}(\.\d{1,2})?$" data-required="true" data-name="{{i18n "currencyMin"}}" data-model-path="min"/>
+</div>
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        {{i18n "currencyMax"}}
+        <a href="javascript:;" class="kuma-icon kuma-icon-information f14" data-widget="~/ui.tip/" data-content="{{i18n "currencyMax"}}"></a>
+    </label>
+    <input type="text" class="kuma-input" data-widget="textfield" data-pattern="^\d{1,5}(\.\d{1,2})?$" data-required="true" data-name="{{i18n "currencyMax"}}" data-model-path="max"/>
+</div>
+<div class="kuma-form-item">
+    <button class="kuma-button kuma-button-mblue J_Search">{{i18n "searchBtn"}}</button>
+</div>) });

@@ -1,0 +1,40 @@
+
+// 给服务器发送的事件
+	
+	// 创建 [回调返回][回调有返回体]
+	mcutest.send({"message": {"request": "create"}});
+
+	// 进入 [消息返回][回调没有返回体]
+	mcutest.send({"message": {"request": "join"}});
+
+	// 离开 [消息返回][回调没有返回体]
+	mcutest.send({"message": {"request":"leave"}}); 
+
+	// 休庭 [消息返回]
+	mcutest.send({"message": {"request":"destroy"}}); 
+
+	// 开始录制 [不返回][回调有返回体]
+	mcutest.send({"message": {"request":"start_record"}}); 
+
+	// 暂停录制 [不返回][回调有返回体]
+	mcutest.send({"message": {"request":"pause_record"}}); 
+
+	// 视屏流设置 [不返回][回调没有返回体]
+	mcutest.send({"message": {"request":"configure"}}); 
+
+
+// 给用户发送的事件
+
+// 业务逻辑
+	
+	页面初始化做的处理
+
+
+	开庭之后做的处理：
+		1. 广播开庭事件
+		2. 记录开庭标记[isOpenCourt]开庭时间[openTime]
+		3. 告诉服务器开始录制
+		4. 记录开庭时间
+		5. 开始倒计时
+
+	

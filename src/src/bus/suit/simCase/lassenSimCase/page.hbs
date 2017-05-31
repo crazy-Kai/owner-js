@@ -1,0 +1,43 @@
+<div class="ch-title">
+	{{#noEqual statistics.count 0}}
+		总计检索到 <a class="ch-num ch-black" href="javascript:;" data-trigger="type" data-type="">{{statistics.count}}</a> 个案件，
+		其中原告诉请被全部支持 <a class="ch-num ch-green" href="javascript:;" data-trigger="type" data-type="1" >{{statistics.win}}</a> 件，
+		原告诉请被全部驳回 <a class="ch-num ch-red" href="javascript:;" data-trigger="type" data-type="3">{{statistics.reject}}</a> 件，
+		原告诉请被部分支持 <a class="ch-num ch-orange" href="javascript:;" data-trigger="type" data-type="2">{{statistics.win_reject}}</a> 件。
+	{{else}}
+		总计检索到 <a class="ch-num ch-black" href="javascript:;" data-trigger="type" data-type="">{{statistics.count}}</a> 个案件。
+	{{/noEqual}}
+</div>
+<ul class="ch-list fn-MT20">
+	{{#if simCaseList.list}}
+		{{#each simCaseList.list}}
+		<li class="fn-clear">
+			<i class="ch-status 
+				{{#isEqual winner "1"}}ch-status-green{{/isEqual}}
+				{{#isEqual winner "2"}}ch-status-orange{{/isEqual}}
+				{{#isEqual winner "3"}}ch-status-red{{/isEqual}}
+				"></i>
+			<div class="ch-text-title">
+				<a href="simCaseDetail.htm?caseKey={{doc_desc}}" data-trigger="post" target="_blank" class="global-link">{{wrapWord title 130}}</a>
+			</div>
+			<div class="ch-text-detail">
+				{{#if plaintiff_claim }} {{wrapWord plaintiff_claim 130}} {{/if}}
+			</div>
+			<div class="fn-color-999">
+				{{case_id}} <span class="fn-ML20">{{court}}</span> <span class="fn-ML20"> {{#if compensation_money}} {{#noEqual compensation_money "0.0"}} 涉及金额：{{compensation_money}} {{/noEqual}} {{/if}} </span>
+			</div>
+		</li>
+		{{/each}}
+	{{else}}
+		<div class="fn-TAC">
+			<div class="sim-case-nolist"></div>
+			<div class="fn-FS16 fn-color-999 fn-MT20 fn-LH30">
+				当前检索条件未匹配到任何结果<br />
+				建议您输入2个以上关键词，选择正确案由，案情描述在50个字以上，将更容易匹配到相似案件
+			</div>
+			<div class="fn-MT20"> 
+				<a class="fn-btn fn-btn-primary fn-W120 fn-WRH fn-BGC-wrh" href="/suit/simCase/simCaseIndex.htm" data-trigger="reSearch">重新检索</a>
+			</div>
+		</div>
+	{{/if}}
+</ul>

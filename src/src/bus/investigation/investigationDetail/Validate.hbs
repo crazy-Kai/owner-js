@@ -1,0 +1,42 @@
+<form id="Validation-page">
+	
+	<div class="fn-PaAl15" >
+		<div class="global-tab fn-BBS-ebebeb" >
+			<i></i>
+			<span class="JS-target-title">验证码校验</span>
+		</div>	
+			<table class="fn-table fn-table-input fn-table-input-sm fn-MT20" width="470" >
+		 	<tbody data-target="normal">
+		  		<tr>
+		  			<td align="right" valign="top" class="fn-LH30" width="80">
+			  			<span class="global-require fn-VA1D">
+			  			  *
+			  			</span>
+			  			校验码：
+		  			</td>
+		  			<td >
+		  				<div class="fn-MR10 kuma-form-item fn-display-inlineBlock">
+		  					<input type="text" name="idCardNum" class="fn-input-text fn-input-text-sm fn-W80 kuma-input "  maxlength="6"    data-widget="validator" data-required="true" data-errormessage-required="身份证号不能为空，请输入身份证后4位" placeholder="请输入校验码" autoComplete="off"/>
+		  				</div>
+		  				<div class="fn-MR30 kuma-form-item fn-display-inlineBlock">
+		  					<input type="button" name="getCode" class="fn-input-text fn-input-text-sm fn-W80" data-trigger="getTime" value="获取验证码" autoComplete="off"/ >
+		  				</div>
+		  				<div class="fn-MR30 kuma-form-item fn-display-inlineBlock">
+		  					<input type="text" name="time" data-trigger="time" class="fn-input-text fn-input-text-sm fn-W80 fn-hide "  disabled="disabled"   value="60"/>
+		  				</div>
+		  			</td>
+		  				
+		  		</tr>
+
+		 	</tbody>
+		 	<tfoot>
+		 		<tr class="child-last">
+		 			<td align="right" valign="top" class="fn-LH30" width="80"></td>
+		 			<td  align="left">
+		 				<input type="button" class="fn-btn fn-btn-primary fn-W100" data-trigger="submit" value="提交">
+		 			</td>
+		 		</tr>
+		 	</tfoot>	
+		</table>
+	</div>
+</form>

@@ -1,0 +1,338 @@
+/*color*/
+
+
+/*size*/
+
+
+/*padding,margin*/
+
+
+/*qd-style*/
+
+
+/*mixin*/
+
+h1 {
+    font-size: 0.48rem;
+}
+h2 {
+    font-size: 0.4rem;
+}
+h3 {
+    font-size: 0.30667rem;
+}
+h4 {
+    font-size: 0.22667rem;
+}
+h5 {
+    font-size: 0.18667rem;
+}
+h6 {
+    font-size: 0.14667rem;
+}
+.grid {
+    font-size: 0.24rem;
+}
+.lassen {
+    background: #fff;
+}
+.lassen body {
+    background: #fff;
+    width: 100%;
+}
+.lassen body>div {
+    padding-bottom: 1.73333rem;
+    padding-top: 0.6rem;
+}
+.AR {
+    text-align: right;
+}
+.MT-base {
+    margin-top: 0.4rem;
+}
+.fix-tip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 10rem;
+    background: #f5f5f5;
+    color: #0086ff;
+    height: 0.6rem;
+    line-height: 0.73rem;
+    font-size: 0.32rem;
+    text-align: center;
+}
+.titles {
+    border-top: 1px solid transparent;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+    border-top: 1px solid #efefef;
+}
+.titles .court-name {
+    font-size: 0.37333rem;
+}
+.titles .cert-name {
+    margin-top: 0.2rem;
+    font-size: 0.42667rem;
+}
+.titles .cert-number {
+    text-align: right;
+    font-size: 0.32rem;
+    color: #666;
+    margin-top: 0.6rem;
+}
+footer.button-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 0.4rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+}
+footer.button-footer a {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 1.17333rem;
+    line-height: 1.17333rem;
+    width: 4.26667rem;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #0086ff;
+    border: 1px solid #efefef;
+}
+footer.button-footer a+a {
+    margin-left: 0.5rem;
+}
+footer.button-footer a.disabled {
+    color: #999;
+}
+.static-text {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+}
+.static-text p {
+    color: #666;
+    line-height: 1.5;
+}
+.static-text p span {
+    color: #999;
+}
+.page-resnotice {
+    padding-top: 0.6rem;
+    padding-bottom: 1.73333rem;
+}
+.page-resnotice .titles .cert-number {
+    text-align: right;
+    padding-right: 0.2rem;
+    margin-top: 0.2rem;
+}
+.page-resnotice .text-content {
+    font-size: 0.32rem;
+    padding-top: 0.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    line-height: 1.5;
+    color: #999;
+}
+.page-resnotice .text-content .firstAccused::after {
+    content: "：";
+}
+.page-resnotice .text-content section {
+    text-indent: 28px;
+}
+.page-resnotice .text-content .bottom-mes {
+    color: #999;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    text-align: right;
+}
+.page-detail .text-content {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    line-height: 1.5;
+    font-size: 0.32rem;
+    color: #999;
+}
+.page-detail .text-content .section-mes {
+    padding-top: 0.42667rem;
+    padding-bottom: 0.42667rem;
+    color: #666;
+}
+.page-detail .text-content .section-mes p {
+    padding-bottom: 0.26667rem;
+}
+.page-detail .text-content .section-mes span {
+    color: #999;
+}
+.page-detail .text-content .section-mes span + span {
+    padding-left: 0.42667rem;
+}
+.page-detail .text-content .bottom-mes {
+    color: #777777;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    text-align: center;
+}
+body>div.page-list {
+    padding-top: 0px;
+}
+.grid {
+    margin: 0;
+    padding: 0;
+}
+.page-list #banner {
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    background: #1385FC;
+    text-align: center;
+}
+.page-list #banner h1 {
+    color: #fff;
+    text-align: center;
+    padding-top: .8rem;
+}
+.page-list #banner .img-banner {
+    width: 50%;
+    display: inline-block;
+}
+.page-list #banner img {
+    display: block;
+    width: 100%;
+}
+.page-list .list-container {
+    padding: 0 0.2rem;
+    box-shadow: 1px 1px 5px #eee;
+    display: none;
+}
+.page-list .list-container h2 {
+    margin-top: 0.2rem;
+    padding: 0 0.2rem;
+    font-size: 0.34667rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+.page-list .list-container ul {
+    border-bottom: 1px solid #fafafa;
+}
+.page-list .list-container .last-ul .info .title {
+    color: #666;
+}
+.page-list .list-container li {
+    padding: 0 0.2rem;
+    position: relative;
+    height: 1.6rem;
+    border-bottom: 1px solid #eee;
+}
+.page-list .list-container li.js-load-more {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    color: #666;
+    text-align: center;
+}
+.page-list .list-container li a {
+    width: 100%;
+    height: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.page-list .list-container li .info {
+    width: 90%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.page-list .list-container li .info p {
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.page-list .list-container li .info .title {
+    color: #333;
+    font-size: 0.37333rem;
+    padding-bottom: 0.08rem;
+}
+.page-list .list-container li .info .mes {
+    font-size: 0.32rem;
+    color: #999;
+    padding-top: 0.08rem;
+}
+.page-list .list-container li .arrow {
+    color: #aaa;
+    width: 10%;
+    font-size: 0.48rem;
+    display: table-cell;
+    vertical-align: middle;
+}
+.page-list .img-help {
+    display: none;
+}
+.page-list .list-container li:last-child {
+    border-bottom: 0 none;
+}
+.page-list .nomessage-div {
+    width: 50%;
+    margin: 2.13333rem auto 0;
+    text-align: center;
+}
+.page-list .nomessage-div h2 {
+    margin-top: 0.42667rem;
+    color: #484a4d;
+}
+.page-list .nomessage-div p {
+    color: #b4b8bf;
+    margin-top: .1rem;
+}
+.page-list .nomes-img {
+    width: 70%;
+}
+.page-help {
+    border: 1px solid #d9d9d9;
+    margin: .2rem .2rem 0 .2rem;
+    padding-bottom: .4rem;
+    border-radius: 5px;
+}
+.page-help .titles {
+    padding-top: 0;
+    border: 0 none;
+}
+.page-help .static-text p.last {
+    padding-bottom: .5rem;
+}
+.page-help .static-text .over {
+    padding-top: .5rem
+}
+.page-help .static-text .over p {
+    color: #999;
+}
+.page-help .static-text p.question {
+    padding-bottom: .12rem;
+}
+.page-help .table {
+    display: table;
+}
+.page-help .row {
+    display: table-row;
+}
+.page-help .cell {
+    display: table-cell;
+    color: #999;
+    line-height: 1.5;
+}
+.block-quote {
+    padding: 1rem 0;
+    text-align: center;
+    color: #999;
+    letter-spacing: 1px;
+    font-size: .34rem;
+}

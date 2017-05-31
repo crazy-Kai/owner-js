@@ -1,0 +1,70 @@
+﻿@charset "utf-8";
+
+// 变量 (可以重设公用的变量)
+$COLOR_WHITE: #FFF;
+$COLOR_BACKGROUND: $COLOR_WHITE;
+$COLOR_HEAD: #0073bf;
+$COLOR_NAV: #edf5fa;
+$WIDTH_NAV: 130;
+$HEIGHT_HEAD: 60;
+
+// 依赖
+@import "reset.scss";
+@import "globe.scss";
+
+// 业务
+body{background:$COLOR_BACKGROUND;}
+
+// 头部
+.sc-header{
+	height:$HEIGHT_HEAD+px;background:$COLOR_HEAD;
+	.ch-logo{width:130px;height:60px;background:background("newMain.png");}
+	.ch-title{color:$COLOR_WHITE;font-size:1.3em;}
+	.ch-person{line-height:1.7em;position:relative;z-index:2;}
+	.ch-icon{display:inline-block;width:10px;height:16px;background:#F00;margin:2px 0 0 10px;background:background("newMain.png", -130px);}
+	.ch-list{
+		position:absolute;border:1px solid #ebebeb;background:$COLOR_WHITE;right:-10px;top:-6px;
+		.ch-icon{background:background("newMain.png", -130px, -16px);margin-top:7px;}
+		li{
+			padding-left:10px;line-height:2.5em;padding-right:9px;
+			&:hover{background:$COLOR_LIGHTGRAY;}
+		}
+	}
+}
+
+// 主体
+.sc-bodyer{height:calc(100vh - #{$HEIGHT_HEAD + 2}px);padding-left:$WIDTH_NAV+px;}
+
+// 导航
+.sc-nav{
+	background:$COLOR_NAV;width:$WIDTH_NAV+px;height:100%;margin-left:-#{$WIDTH_NAV}px;line-height:2.5em;
+	dt{font-weight:bold;padding-left:20px;}
+	dl{
+		a{
+			display:block;padding-left:30px;color:#666;
+			&:hover,&.ch-active{background:$COLOR_HEAD;color:#FFF;}
+		}
+	}
+	.ch-trigger{position:absolute;width:10px;height:30px;background:#F00;right:-10px;top:0;}
+}
+
+// 内容
+.sc-content{
+	height:100%;position:relative;
+	.ch-trigger{position:absolute;width:10px;height:30px;top:0;left:0;background:background("newMain.png", -140px);}
+}
+.sc-detail{height:100%;overflow:auto;}
+
+// 过滤条件
+.sc-filter{
+	.ch-icon{display:inline-block;width:7px;height:4px;margin-top:13px;background:background("newMain.png", -160px);}	
+}
+
+// 数据头
+.sc-data-head{border:1px solid #F2F2F2;}
+
+// 数据主体
+.sc-data-body{
+	border:1px solid #e4e4e4;
+	h2{background:#f8f8f8;line-height:2.5em;padding-left:9px;color:#999;}
+}

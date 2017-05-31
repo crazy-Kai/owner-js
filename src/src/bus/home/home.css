@@ -1,0 +1,110 @@
+.fn-clear,.clearfix{zoom:1;}
+.fn-clear:after,.clearfix:after{visibility:hidden;display:block;font-size:0;content:"1";clear:both;height:0;}
+.banner{height:400px;position:relative;overflow:hidden;}
+.banner .ui-switchable-content{position:relative;height:400px;overflow:hidden;margin-left:calc(50% - 50vw);}
+.banner .ui-switchable-content .ui-switchable-panel{position:relative;width:100%;height:400px;overflow: hidden;}
+.banner .ui-switchable-nav{position:absolute;bottom:10px;left:0;width:100%;margin:0;padding:0;z-index:99;text-align:center;}
+.banner .ui-switchable-nav .ui-switchable-trigger{display:inline-block;*display:inline;*zoom:1;margin-left:5px;font-size:24px;line-height:1.5;opacity:.5;filter: alpha(opacity=50);color:white;cursor:pointer;list-style:none;}
+.banner .ui-switchable-nav .ui-switchable-active{opacity:1;filter:alpha(opacity=100);}
+
+.banner .vedio{position:absolute;top:274px;left:50%;margin-left:-570px;height:44px;width:222px;cursor:pointer;border-radius:5px;}
+/*网上法庭新版*/
+/*.homepage{width:1180px;}*/
+.homepage ul, .homepage div, .homepage span{}
+.homepage ul li{display:inline-block;}
+.homepage a{color:#0073bf;}
+.homepage a:hover{text-decoration:underline;}
+/*banner*/
+/*标题*/
+.section-header-title{font-family:"Microsoft YaHei";color:#333;font-size:28px;}
+.section-header-line{font-size: 0;margin-top:20px;}
+.section-header-line li{display:inline-block;vertical-align: top;}
+.section-header-line li.side{width:195px;height:1px;border-bottom:1px solid #ccc;}
+.section-header-line li.center{width:110px;height:3px;background-color:#0073bf;}
+/*副标题*/
+.caption{margin-top:20px;}
+.caption span{vertical-align:top;font-family:"Microsoft YaHei";color:#666;font-size:18px;}
+.caption span.font-blue{color:#0073bf;}
+.caption span.font-14{font-family:"Microsoft YaHei";color:#666;font-size:14px;line-height:22px;}
+/*业务流程*/
+.business-process{padding-top:55px;padding-bottom:46px;background-color:#ffffff;}
+.business-process .caption span.go{display:inline-block;width:20px;height:20px;background:url("bg_home/home.png") no-repeat -3px -2px;margin:2px 5px 0 15px;}
+.business-process .iam-accuser{margin-top:48px;}
+.business-process .iam-accused{margin-top:40px;}
+.business-process .iam{margin-top:38px;}
+.business-process .iam li{vertical-align:top;}
+.business-process .iam li.line{display:inline-block;width:475px;height:4px;border-bottom:1px solid #f2f2f2;vertical-align:top;margin-top:14px;}
+.business-process .iam li.circle{display:inline-block;width:9px;height:9px;background:url("bg_home/home.png") no-repeat -98px -5px;margin-top:14px;}
+.business-process .iam li.text{display:inline-block;margin:0 12px;color:#0073bf;font-size:22px;font-family:"Microsoft YaHei";}
+.business-process .suit-step{margin-top:50px;}
+.business-process .suit-step li.step-1{width:307px;vertical-align:top;text-align:left;}
+.business-process .suit-step li .step-title{font-family:"Microsoft YaHei";color:#333;font-size:16px;}
+.business-process .suit-step li .step-detail{font-family:"宋体";color:#999;font-size:12px;line-height:24px;margin-left:1em;margin-top:16px}
+.business-process .suit-step li.direction{width:23px;height:24px;background:url('bg_home/home.png') no-repeat -33px -2px;margin:35px 35px 0 20px;}
+.business-process .suit-step li.step-2{width:317px;vertical-align: top;text-align:left;}
+.business-process .suit-step li.step-3{width:255px;vertical-align: top;text-align:left;}
+/*焦点公告*/
+.focus-notice{margin-top:72px;background-color:#fafafa;padding-bottom:40px;}
+.focus-notice .table{display:table;width:1180px;margin:25px auto 0;}
+.focus-notice .ch-more{font-size:12px;margin-right:-3em;padding-left:1em;}
+/*slide*/
+.focus-notice .table .cell-left .ui-switchable-content{position:relative;width:530px;height:390px;overflow: hidden;}
+.focus-notice .table .cell-left .ui-switchable-content .ui-switchable-panel{position:relative;width:530px;height:390px;overflow: hidden;}
+.focus-notice .table .cell-left .ui-switchable-content .ui-switchable-panel li{display:list-item;text-align:-webkit-match-parent;}
+.focus-notice .table .cell-left{display:table-cell;overflow: hidden;width:530px;text-align:left;background-color:#ffffff;vertical-align:top;}
+.focus-notice .table .cell-left .img-infor-title{font-family:"宋体";color:#666;font-size:14px;font-weight:bold;margin:19px 21px 0 25px;}
+.focus-notice .table .cell-left .img-infor-title a{color:#666;}
+.focus-notice .table .cell-left .img-infor-detail{margin:6px 21px 0 25px;height:45px;overflow:hidden;color:#999;line-height:22px;}
+.focus-notice .table .cell-left .img-switch{margin:5px 0 15px;}
+.focus-notice .table .cell-left .img-switch li{display:inline-block;width:10px;height:10px;margin:0 5px;}
+.focus-notice .table .cell-left .img-switch .ui-switchable-trigger{background:url('bg_home/home.png') no-repeat -78px -4px;cursor: pointer;}
+.focus-notice .table .cell-left .img-switch .ui-switchable-trigger.ui-switchable-active{background:url('bg_home/home.png') no-repeat -60px -4px;}
+.focus-notice .table .cell-right{display:table-cell;padding-left:95px;text-align:left;vertical-align:top;}
+.focus-notice .table .cell-right div{margin-top:27px;width: 546px}
+.focus-notice .table .cell-right .focus-infor-title, .focus-notice .table .cell-right .focus-infor-title a{font-family:"宋体";color:#666;font-size:14px;font-weight:bold;}
+.focus-notice .table .cell-right .focus-infor-detail{margin-top:6px;max-height:45px;overflow:hidden;color:#999;line-height:22px;}
+/*最新案件*/
+.new-case{background-color:#ffffff;padding:60px 0 54px;}
+.new-case .frame{display:inline-block;height:303px;width:280px;background:url('bg_home/newcase_frame.png') no-repeat -3px -2px;margin-top:50px;vertical-align:top;}
+.new-case .frame p{text-align:left;margin:0 49px 0 48px;}
+.new-case .frame p.title{font-family:"Microsoft YaHei";color:#0073bf;font-size:14px;margin-top:56px;}
+.new-case .frame p.detail{font-family:"宋体";color:#666;font-size:14px;line-height:30px;margin-top:9px;height:85px;overflow:hidden}
+.new-case .frame p.note{font-family:"宋体";color:#999;font-size:12px;margin-top:27px;line-height:28px;}
+/*受理范围*/
+.accept-range{background-color:#fafafa;padding:55px 0 59px;}
+.accept-range .frame{display:inline-block;background-color:#ffffff;height:303px;width:280px;border:1px solid #f2f2f2;border-top:2px solid #0073bf;margin-top:30px;}
+.accept-range .frame p{text-align:left;margin:0 25px 0 28px;}
+.accept-range .frame p.title{font-family:"Microsoft YaHei";color:#0073bf;font-size:18px;padding:34px 0 24px;text-align:center;border-bottom:1px solid #ebebeb;}
+.accept-range .frame p.detail{font-family:"宋体";color:#999;font-size:12px;line-height:28px;margin-top:24px;height:100px;}
+.accept-range .frame p.more{font-family:"宋体";color:#0073bf;font-size:12px;margin-top:38px;text-align:right;}
+/*庭审案例*/
+.court-trail-case{background-color:#fff;padding:49px 0 50px;}
+.court-trail-case .frame{width:1180px;height:300px;background-color:#fafafa;padding:42px 0 55px;margin-top:30px;position:relative;}
+.court-trail-case .frame .icon-left{width:45px;height:45px;position:absolute;top:50%;margin-top:-22px;background:url('bg_home/home.png') no-repeat -2px -30px;}
+.court-trail-case .frame .icon-right{width:45px;height:45px;position:absolute;top:50%;right:0;margin-top:-22px;background:url('bg_home/home.png') no-repeat -52px -30px;}
+.court-trail-case .frame .case-detail{width:410px;position:absolute;top:50%;margin-top:-148px;margin-left:50px;height:296px;left:0;}
+.court-trail-case .frame .case-img{width:510px;position:absolute;top:50%;margin-top:-148px;height:296px;left:545px;}
+.court-trail-case .frame .case-detail p{text-align:left;}
+.court-trail-case .frame .case-detail .title{font-family:"Microsoft YaHei";color:#0073bf;font-size:24px;}
+.court-trail-case .frame .case-detail .date{font-family:"宋体";color:#999;font-size:12px;margin-top:10px;}
+.court-trail-case .frame .case-detail .detail{font-family:"宋体";color:#666;font-size:14px;line-height:28px;margin-top:15px;}
+.court-trail-case .frame .case-detail .detail a{color:#666;}
+/*Carousel*/
+.court-trail-case .frame .ui-switchable-content .ui-switchable-panel{position:relative;width:1090px;height:296px;overflow: hidden;}
+.court-trail-case .frame .ui-switchable-content .ui-switchable-panel li{display:list-item;text-align:-webkit-match-parent;}
+.court-trail-case .frame .scroller{margin-left:45px;position:relative;width:1090px;height:296px;overflow: hidden;}
+/*试点法院*/
+.pilot-court{background-color:#fafafa;padding:45px 0 31px;}
+.pilot-court .frame{display:inline-block;height:250px;width:282px;margin-top:25px;}
+.pilot-court .frame .note{font-family:"宋体";color:#666;font-size:14px;margin-top:10px;}
+.pilot-court .frame div{width:280px;height:220px;display:inline-block;border:1px solid #ddd;}
+.pilot-court div.court-center{background:url('bg_home/img_center_sm.png') no-repeat;background-size:cover;}
+.pilot-court div.court-yuhang{background:url('bg_home/img_yuhang_sm.png') no-repeat;background-size:cover;}
+.pilot-court div.court-binjiang{background:url('bg_home/img_binjiang_sm.png') no-repeat;background-size:cover;}
+.pilot-court div.court-xihu{background:url('bg_home/img_xihu_sm.png') no-repeat;background-size:cover;}
+/*回到顶部，联系方式*/
+.float-action{position:fixed;width:40px;height:80px;bottom:-35px;z-index:10;left:50%;margin-left:600px;padding-left:calc(100vw - 100%);}
+.float-action .gototop{display:inline-block;width:40px;height:40px;background:url('bg_home/home.png') no-repeat -155px -2px;}
+.float-action .gototop:hover{background:url('bg_home/home.png') no-repeat -107px -2px;}
+.float-action .contact{display:inline-block;width:40px;height:40px;background:url('bg_home/home.png') no-repeat -107px -43px;}
+.float-action .contact:hover{background:url('bg_home/home.png') no-repeat -155px -44px;}

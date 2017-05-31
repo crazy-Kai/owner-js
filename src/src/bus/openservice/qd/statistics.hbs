@@ -1,0 +1,51 @@
+
+ <table class="push-data-table fn-table fn-table-data fn-table-td fn-table-border" style="width:100%;margin-top:20px;">
+    <thead>
+        <tr>
+            <th>时间</th>
+            <th colspan="2">网上法庭推送用户数</th>
+            <th colspan="2">push通知量</th>
+            <th colspan="2">push打开量</th>
+            <th colspan="2">push打开率</th>
+            <th>push案件量</th>
+            <th>已完成被告关联</th>
+            <th>已完成确认送达</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+         {{#each this}}
+        <tr>   
+            <td rowspan="3">{{timeStr}}</td>
+            <td colspan="2">{{pushuser}}</td>
+            <td colspan="2">{{pushnotice}}</td>
+            <td colspan="2">{{pushopen}}</td>
+            <td colspan="2">{{push_openrate}}</td>
+            <td rowspan="3">{{pushcases}}</td>
+            <td rowspan="3">{{pushAssociated}}</td>
+            <td rowspan="3">{{pushreceived}}</td>
+        </tr>
+        <tr>
+            <td>淘宝</td>
+            <td>天猫</td>
+            <td>淘宝</td>
+            <td>天猫</td>
+            <td>淘宝</td>
+            <td>天猫</td>
+            <td>淘宝</td>
+            <td>天猫</td>
+
+        </tr>
+        <tr>
+            <td>{{pushuser_taobao}}</td>
+            <td>{{pushuser_tmall}}</td>
+            <td>{{pushnotice_taobao}}</td>
+            <td>{{pushnotice_tmall}}</td>
+            <td>{{pushopen_taobao}}</td>
+            <td>{{pushopen_tmall}}</td>
+            <td>{{push_openrate_taobao}}</td>
+            <td>{{push_openrate_tmall}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
